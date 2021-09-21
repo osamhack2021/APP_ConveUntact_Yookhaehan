@@ -14,10 +14,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-프로젝트 생성 및 테스트
-flutter create myapp
-cd myapp
-flutter run -d web-server --web-hostname=0.0.0.0 
-
-flutter build apk

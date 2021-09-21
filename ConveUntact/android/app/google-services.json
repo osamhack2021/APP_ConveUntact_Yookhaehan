@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708345311534",
+    "project_id": "firestoreapp-61e8b",
+    "storage_bucket": "firestoreapp-61e8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708345311534:android:b62dadea60e4121c5c0abf",
+        "android_client_info": {
+          "package_name": "com.myapp.conveuntact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708345311534-868o2nganjsg4na1019toq2fvt0u6dm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaeYTfEcxXFOp9UMPAwPTAmgSa1V3JoiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708345311534-868o2nganjsg4na1019toq2fvt0u6dm7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,10 +10,10 @@ class HomePage extends StatelessWidget {
     CollectionReference users = firestore.collection('users');
     return users
         .add({
-          'email': "test1@naver.com",
-          'username': 'test1',
+          'email': "testtest@naver.com",
+          'username': 'testtest',
           'phone': '0101234',
-          'age': "25"
+          'age': "250"
         })
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
 
   void login() async {
     UserCredential credential = await auth.signInWithEmailAndPassword(
-        email: "jiho@naver.com", password: "123456");
+        email: "tennis@naver.com", password: "123456");
     print(credential.user!.email); //! 말고 다른 방법 찾기
   }
 
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
 
     // (1)
     UserCredential credential = await auth.createUserWithEmailAndPassword(
-        email: "test1@naver.com", password: "123456");
+        email: "tennis@naver.com", password: "123456");
     // 파이어 스토어에도 같이 저장을 해줘야 한다. 그래야 유저 관리를 할 수 있다.
     print(credential.user!.email);
 

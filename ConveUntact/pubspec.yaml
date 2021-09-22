@@ -19,7 +19,6 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
-
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -32,6 +31,8 @@ dependencies:
   firebase_core: ^1.6.0
   firebase_auth: ^3.1.1
   cloud_firestore: ^2.5.3
+  get: ^4.3.8
+  validators: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

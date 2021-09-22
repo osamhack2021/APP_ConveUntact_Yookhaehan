@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/ui/home.dart';
+import 'package:get/get.dart';
+import 'package:myapp/view/pages/post/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,10 +10,12 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      // 라우트 설계 필요없음. GetX 사용할 예정
       home: HomePage(),
     );
   }

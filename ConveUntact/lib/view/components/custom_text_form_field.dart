@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  
   final String hint;
   final funValidator;
   final String? value;
+  //null 이 들어올 수도 있다고 가정하고 null 체크 해주기
+  final TextEditingController? controller;
 
-  const CustomTextFormField({required this.hint, required this.funValidator, this.value});
+  const CustomTextFormField({
+    required this.hint,
+    required this.funValidator,
+    this.value,
+    this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
-        initialValue: "$value",
+        controller: controller,
+        initialValue: value ?? null,
         validator: funValidator,
         obscureText: hint == "Password" ? true : false,
         decoration: InputDecoration(

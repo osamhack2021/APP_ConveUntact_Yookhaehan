@@ -40,26 +40,33 @@ class LoginPage extends StatelessWidget {
   }
 
   Widget _loginForm() {
+    final TextEditingController _email = TextEditingController();
+    final TextEditingController _password = TextEditingController();
+    
+
     return Form(
       key: _formKey,
       child: Column(
         children: [
           CustomTextFormField(
-            hint: "Username",
+            //text controller -> 값 옮기는 작업중 
+            controller: _email,
+            hint: "Email",
             funValidator: validateUsername(),
           ),
           CustomTextFormField(
+            controller: _password,
             hint: "Password",
             funValidator: validatePassword(),
           ),
           CustomElevatedButton(
             text: "로그인",
             
-            funpageRoute: () {
+            funpageRoute: () async {
               if (_formKey.currentState!.validate()) {
                 print("login 시작!!!!!!11");
                 //로그인때 폼에 있는 데이터를 login()에 넘겨주어야 한다. -> how can i do???
-                login();
+                await login(_email.text.trim(), _password.text.trim());
                 print("login 완료!!!!!!11");
                 Get.off(HomePage()); // off 써서 뒤로 못돌아오도록 한다.
               }

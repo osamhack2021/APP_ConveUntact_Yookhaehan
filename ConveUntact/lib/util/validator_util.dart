@@ -18,7 +18,7 @@ Function validatePassword(){
   return (String? value) {
     if(value!.isEmpty){
       return "공백이 들어갈 수 없습니다.";
-    }else if(!isAlpha(value)){
+    }else if(!isAlphanumeric(value)){
       return "패드워드에 한글이 들어갈 수 없습니다.";
     }else if(value.length > 12){
       return "패드워드의 길이를 초과하였습니다.";
@@ -48,6 +48,18 @@ Function validateTitle(){
       return "공백이 들어갈 수 없습니다.";
     }else if(value.length > 30){
       return "제목의 길이를 초과하였습니다.";
+    }else{
+      return null;
+    }
+  };
+}
+
+Function validatePhone(){
+  return (String? value) {
+    if(value!.isEmpty){
+      return "공백이 들어갈 수 없습니다.";
+    }else if(value.length != 11){
+      return "휴대폰 번호의 길이가 맞지 않습니다.";
     }else{
       return null;
     }

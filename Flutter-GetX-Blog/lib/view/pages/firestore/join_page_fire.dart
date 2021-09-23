@@ -37,3 +37,10 @@ FirebaseFirestore firestore = FirebaseFirestore.instance;
   
   return true;
 }
+
+
+  void login() async {
+    UserCredential credential = await auth.signInWithEmailAndPassword(
+        email: 'chlwlgh1011@naver.com', password: '123456');
+    print(credential.user!.email); //! 말고 다른 방법 찾기
+  }

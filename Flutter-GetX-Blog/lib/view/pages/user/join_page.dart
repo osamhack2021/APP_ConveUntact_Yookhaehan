@@ -1,17 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/controller/user_controller.dart';
-
 import 'package:flutter_blog/util/validator_util.dart';
 import 'package:flutter_blog/view/components/custom_elevated_button.dart';
 import 'package:flutter_blog/view/components/custom_text_form_field.dart';
+import 'package:flutter_blog/view/pages/firestore/join_page_fire.dart';
 import 'package:get/get.dart';
 
 import 'login_page.dart';
-import 'join_page_fire.dart';
 
 //form field text값 가져오기 위함
 class JoinPage extends StatelessWidget {
@@ -68,14 +64,16 @@ class JoinPage extends StatelessWidget {
           ),
           CustomElevatedButton(
             text: "회원가입",
-            funPageRoute: () {
+            funPageRoute: () async {
               if (_formKey.currentState!.validate()) {
-                join_page_fire firejoin = join_page_fire();
-                firejoin.join();
-                print(_username.text.trim());
-                print(_password.text.trim());
-                print(_email.text.trim());
-                Get.to(LoginPage());
+                bool pass = await join(
+                  _username.text.trim(),
+                  _password.text.trim(),
+                  _email.text.trim(),
+                );
+                if (pass) {
+                  Get.off(LoginPage());
+                }
               }
             },
           ),

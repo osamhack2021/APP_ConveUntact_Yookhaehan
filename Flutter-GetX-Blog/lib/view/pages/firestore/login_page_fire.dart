@@ -6,7 +6,6 @@ import 'package:flutter_blog/util/validator_util.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 
-import 'join_page.dart';
 
 class join_page_fire extends StatelessWidget {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -19,8 +18,7 @@ class join_page_fire extends StatelessWidget {
 
   void login() async {
     UserCredential credential = await auth.signInWithEmailAndPassword(
-        email: '$validateEmail()',
-        password: '$validatePassword()');
+        email: 'chlwlgh1011@naver.com', password: '123456');
     print(credential.user!.email); //! 말고 다른 방법 찾기
   }
 

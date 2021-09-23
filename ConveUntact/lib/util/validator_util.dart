@@ -35,7 +35,7 @@ Function validateEmail(){
     if(value!.isEmpty){
       return "공백이 들어갈 수 없습니다.";
     }else if(!isEmail(value)){
-      return "유저네임의 길이를 초과하였습니다.";
+      return "이메일형식이 아닙니다.";
     }else{
       return null;
     }

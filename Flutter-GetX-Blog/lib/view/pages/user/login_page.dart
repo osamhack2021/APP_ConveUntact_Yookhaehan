@@ -4,6 +4,7 @@ import 'package:flutter_blog/controller/user_controller.dart';
 import 'package:flutter_blog/util/validator_util.dart';
 import 'package:flutter_blog/view/components/custom_elevated_button.dart';
 import 'package:flutter_blog/view/components/custom_text_form_field.dart';
+import 'package:flutter_blog/view/pages/firestore/login_page_fire.dart';
 import 'package:flutter_blog/view/pages/post/home_page.dart';
 import 'package:get/get.dart';
 
@@ -59,12 +60,16 @@ class LoginPage extends StatelessWidget {
             text: "로그인",
             funPageRoute: () async {
               if (_formKey.currentState!.validate()) {
-                int result =
-                    await u.login(_username.text.trim(), _password.text.trim());
-                if (result == 1) {
-                  Get.to(() => HomePage());
+                print("login 시작!");
+                String? pass =
+                    await login(_username.text.trim(), _password.text.trim());
+                print("loging");
+                if (pass == '계정이 존재하지 않습니다.') {
+                  Get.snackbar("로그인 시도", "계정이 존재하지 않습니다.");
+                } else if (pass == '패스워드가 틀렸습니다.') {
+                  Get.snackbar("로그인 시도", "패스워드가 틀렸습니다.");
                 } else {
-                  Get.snackbar("로그인 시도", "로그인 실패");
+                  Get.off(() => HomePage()); // off 써서 뒤로 못돌아오도록 한다.
                 }
               }
             },

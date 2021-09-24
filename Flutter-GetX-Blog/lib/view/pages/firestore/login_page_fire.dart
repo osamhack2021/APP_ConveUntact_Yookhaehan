@@ -1,35 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_blog/controller/user_controller.dart';
-import 'package:flutter_blog/util/validator_util.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
 
-
-class join_page_fire extends StatelessWidget {
+Future<String?> login(String email, String password) async {
   FirebaseAuth auth = FirebaseAuth.instance;
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
-  final _formKey = GlobalKey<FormState>();
-  final UserController u = Get.put(UserController());
-  final _username = TextEditingController();
-  final _password = TextEditingController();
-  final _email = TextEditingController();
 
-  void login() async {
-    UserCredential credential = await auth.signInWithEmailAndPassword(
-        email: 'chlwlgh1011@naver.com', password: '123456');
-    print(credential.user!.email); //! 말고 다른 방법 찾기
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    //FirebaseAuth auth = FirebaseAuth.instance;
-    login();
-    return Scaffold(
-      body: Center(
-        child: Text("join_page_fire"),
-      ),
+  try {
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: "$email",
+      password: "$password",
     );
+    print("계정 발견 ! 로그인 성공 !");
+    print(userCredential.user!.email);
+    return userCredential.user!.email;
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      print('계정이 존재하지 않습니다.');
+      return '계정이 존재하지 않습니다.';
+    } else if (e.code == 'wrong-password') {
+      print('패스워드가 틀렸습니다.');
+      return '패스워드가 틀렸습니다.';
+    }
+  } catch (e) {
+    print(e);
   }
 }

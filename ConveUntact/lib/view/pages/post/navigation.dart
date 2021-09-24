@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/domain/user/auth.dart';
 import 'package:myapp/size.dart';
 import 'package:myapp/view/pages/post/write_page.dart';
 import 'package:myapp/view/pages/user/login_page.dart';
 import 'package:myapp/view/pages/user/user_info.dart';
 
 class navigation extends StatelessWidget {
-  final email;
-
-  const navigation({this.email});
+  final Auth auth;
+  
+  const navigation({required this.auth});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class navigation extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
-                  Get.to(WritePage(email: email));
+                  Get.to(WritePage(auth: auth));
                 },
                 child: Text(
                   "글쓰기",
@@ -53,8 +54,9 @@ class navigation extends StatelessWidget {
               TextButton(
                 onPressed: () async {
                   //FirebaseAuth에서 로그아웃
-                  await FirebaseAuth.instance.signOut();
-                  Get.off(LoginPage());
+                  auth.email = "";
+                  await auth.signOut();
+                  Get.off(LoginPage(auth: auth));
                 },
                 child: Text(
                   "로그아웃",

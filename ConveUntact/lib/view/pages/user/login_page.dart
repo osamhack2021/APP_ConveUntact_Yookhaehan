@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/domain/user/login_and_join_fireauth.dart';
+import 'package:myapp/domain/user/auth.dart';
 import 'package:myapp/util/validator_util.dart';
 import 'package:myapp/view/components/custom_elevated_button.dart';
 import 'package:myapp/view/components/custom_text_form_field.dart';
@@ -9,7 +10,10 @@ import 'package:myapp/view/pages/post/home_page.dart';
 import 'join_page.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginPage({required this.auth});
+
   final _formKey = GlobalKey<FormState>();
+  final Auth auth;
 
   @override
   Widget build(BuildContext context) {
@@ -58,24 +62,22 @@ class LoginPage extends StatelessWidget {
           CustomElevatedButton(
             text: "로그인",
             funpageRoute: () async {
-              if (_formKey.currentState!.validate()) {
-                print("login 시작!!!!!!11");
-                String? pass =
-                    await login(_email.text.trim(), _password.text.trim());
-                print("login 완료!!!!!!11");
-                if (pass == '계정이 존재하지 않습니다.') {
+              try {
+                await auth.singIn(_email.text.trim(), _password.text.trim());
+                print("계정 발견 ! 로그인 성공 !");
+                Get.off(() => HomePage(auth: auth)); // off 써서 뒤로 못돌아오도록 한다.
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
                   Get.snackbar("로그인 시도", "계정이 존재하지 않습니다.");
-                } else if (pass == '패스워드가 틀렸습니다.') {
+                } else if (e.code == 'wrong-password') {
                   Get.snackbar("로그인 시도", "패스워드가 틀렸습니다.");
-                } else {
-                  Get.off(() => HomePage(email: pass)); // off 써서 뒤로 못돌아오도록 한다.
-                }
+                } 
               }
             },
           ),
           TextButton(
             onPressed: () {
-              Get.to(JoinPage());
+              Get.to(JoinPage(auth: auth));
             },
             child: Text("아직 로그인이 안되어 있나요?"),
           ),

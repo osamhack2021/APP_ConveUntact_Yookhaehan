@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:myapp/view/pages/post/home_page.dart';
 import 'package:myapp/view/pages/user/login_page.dart';
 
+import 'domain/user/auth.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // 라우트 설계 필요없음. GetX 사용할 예정
-      home: LoginPage(),
+      home: LoginPage(auth: Auth()),
     );
   }
 }

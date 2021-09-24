@@ -9,7 +9,6 @@ import 'package:myapp/view/pages/post/home_page.dart';
 import 'join_page.dart';
 
 class LoginPage extends StatelessWidget {
-  
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -40,14 +39,13 @@ class LoginPage extends StatelessWidget {
   Widget _loginForm(BuildContext context) {
     final TextEditingController _email = TextEditingController();
     final TextEditingController _password = TextEditingController();
-    
 
     return Form(
       key: _formKey,
       child: Column(
         children: [
           CustomTextFormField(
-            //text controller -> 값 옮기는 작업중 
+            //text controller -> 값 옮기는 작업중
             controller: _email,
             hint: "Email",
             funValidator: validateEmail(),
@@ -59,19 +57,19 @@ class LoginPage extends StatelessWidget {
           ),
           CustomElevatedButton(
             text: "로그인",
-            
             funpageRoute: () async {
               if (_formKey.currentState!.validate()) {
                 print("login 시작!!!!!!11");
-                //로그인때 폼에 있는 데이터를 login()에 넘겨주어야 한다. -> how can i do???
-                String? pass = await login(_email.text.trim(), _password.text.trim());
+                String? pass =
+                    await login(_email.text.trim(), _password.text.trim());
                 print("login 완료!!!!!!11");
-                if(pass == '계정이 존재하지 않습니다.')
+                if (pass == '계정이 존재하지 않습니다.') {
                   Get.snackbar("로그인 시도", "계정이 존재하지 않습니다.");
-                else if(pass == '패스워드가 틀렸습니다.')
+                } else if (pass == '패스워드가 틀렸습니다.') {
                   Get.snackbar("로그인 시도", "패스워드가 틀렸습니다.");
-                else
-                  Get.off(HomePage()); // off 써서 뒤로 못돌아오도록 한다.
+                } else {
+                  Get.off(() => HomePage(email: pass)); // off 써서 뒤로 못돌아오도록 한다.
+                }
               }
             },
           ),

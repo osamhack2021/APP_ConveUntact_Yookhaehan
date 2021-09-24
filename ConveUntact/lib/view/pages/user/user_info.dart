@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UserInfo extends StatelessWidget {
+class UserInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

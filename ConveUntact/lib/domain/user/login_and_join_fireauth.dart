@@ -59,7 +59,7 @@ Future<bool> join(
 
   CollectionReference users = firestore.collection('users');
 
-  users
+  await users
       .add({
         'email': "$email",
         'username': '$username',

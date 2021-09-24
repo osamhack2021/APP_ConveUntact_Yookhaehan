@@ -8,6 +8,9 @@ import 'package:myapp/view/components/custom_textarea.dart';
 class UpdatePage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _title = TextEditingController();
+  final TextEditingController _content = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +25,13 @@ class UpdatePage extends StatelessWidget {
                 child: ListView(
                   children: [
                     CustomTextFormField(
+                      controller: _title,
                       hint: "Title",
                       funValidator: validateTitle(),
                       value: "제목1" * 2,
                     ),
                     CustomTextArea(
+                      controller: _content,
                       hint: "content",
                       funValidator: validateContent(),
                       value: "내용1" * 20,

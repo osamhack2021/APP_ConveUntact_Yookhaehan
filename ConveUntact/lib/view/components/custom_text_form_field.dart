@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     required this.funValidator,
     this.value,
-    this.controller,
+    required this.controller,
   });
 
   @override

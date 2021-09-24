@@ -1,3 +1,5 @@
+//library testget.globals;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/controller/user_controller.dart';
@@ -16,7 +18,7 @@ class JoinPage extends StatelessWidget {
   final _username = TextEditingController();
   final _password = TextEditingController();
   final _email = TextEditingController();
-
+  var x = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

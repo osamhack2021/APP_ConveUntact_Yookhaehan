@@ -5,6 +5,7 @@ import 'package:flutter_blog/util/validator_util.dart';
 import 'package:flutter_blog/view/components/custom_elevated_button.dart';
 import 'package:flutter_blog/view/components/custom_text_form_field.dart';
 import 'package:flutter_blog/view/components/custom_textarea.dart';
+import 'package:flutter_blog/view/pages/firestore/post_fire.dart';
 import 'package:get/get.dart';
 import 'home_page.dart';
 
@@ -39,10 +40,13 @@ class WritePage extends StatelessWidget {
                 text: "글쓰기",
                 funPageRoute: () async {
                   if (_formKey.currentState!.validate()) {
-                    // 먼가호출 함수!!
-                    await Get.find<PostController>()
-                        .save(_title.text, _content.text); // 3초 (로딩 그림)
-                    Get.off(() => HomePage());
+                    bool pass = await writecontent(
+                        _title.text.trim(), _content.text.trim());
+                    //await Get.find<PostController>()
+                    // .save(_title.text, _content.text); // 3초 (로딩 그림)
+                    if (pass) {
+                      Get.off(() => HomePage());
+                    }
                   }
                 },
               ),

@@ -1,3 +1,5 @@
+library getx.global;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/controller/user_controller.dart';
 

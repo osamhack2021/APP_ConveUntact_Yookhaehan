@@ -1,6 +1,8 @@
 import 'package:flutter_blog/domain/post/post.dart';
 import 'package:flutter_blog/domain/post/post_repository.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class PostController extends GetxController {
   final PostRepository _postRepository = PostRepository();
@@ -12,9 +14,12 @@ class PostController extends GetxController {
     super.onInit();
     findAll();
   }
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  //CollectionReference users = firestore.collection('contentlist');
 
-  Future<void> save(String title, String content) async {
-    Post post = await _postRepository.save(title, content);
+  Future<void> save(String _title, String _content) async {
+    Post post = await _postRepository.save(_title, _content);
     if (post.id != null) {
       this.posts.add(post);
     }

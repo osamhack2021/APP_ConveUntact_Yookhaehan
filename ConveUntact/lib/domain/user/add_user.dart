@@ -8,9 +8,9 @@ Future<void> join(
 
     await users
         .add({
-          'email': "$email",
-          'username': '$username',
-          'phone': '$phone',
+          'email': email,
+          'username': username,
+          'phone': phone,
         })
         .then((value) => print("User Added: $value"))
         .catchError((error) => print("Failed to add user: $error"));

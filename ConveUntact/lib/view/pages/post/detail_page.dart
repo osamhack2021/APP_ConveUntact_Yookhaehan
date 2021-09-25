@@ -62,9 +62,7 @@ class DetailPage extends StatelessWidget {
                       onPressed: () async {
                         await delete_post(id);
                         print("글삭제 성공");
-                        Get.off(HomePage(
-                            auth:
-                                auth)); // 상태관리로 갱신 작업 추가 해줘야함. -> streambuilder인데 해줘야 하나??
+                        Get.off(HomePage(auth:auth)); // 상태관리로 갱신 작업 추가 해줘야함. -> streambuilder
                       },
                       child: const Text("삭제"),
                     ),
@@ -79,7 +77,8 @@ class DetailPage extends StatelessWidget {
                           id: id,
                           title: data['title'],
                           content: data['content'],
-                        )); // , arguments: {
+                        )); 
+                        // , arguments: {
                         //'title': data['title'],
                         //'content': data['content'],
                         //'id': id,

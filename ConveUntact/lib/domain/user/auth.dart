@@ -16,8 +16,9 @@ class Auth implements BaseAuth {
   String email = "";
 
 
-  Future<void> singIn(String email, String password) async {
-    UserCredential user = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+  Future<void> singIn(String uemail, String password) async {
+    UserCredential user = await _firebaseAuth.signInWithEmailAndPassword(email: uemail, password: password);
+    email = uemail;
     return ;
   }
 
@@ -27,6 +28,7 @@ class Auth implements BaseAuth {
   }
 
   Future<void> signOut() async {
+    email = "";
     return _firebaseAuth.signOut();
   }
 

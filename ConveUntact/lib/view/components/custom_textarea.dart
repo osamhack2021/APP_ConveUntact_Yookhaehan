@@ -4,10 +4,9 @@ class CustomTextArea extends StatelessWidget {
   
   final String hint;
   final funValidator;
-  final String? value;
   final TextEditingController controller;
   
-  const CustomTextArea({required this.hint, required this.funValidator, this.value, required this.controller});
+  const CustomTextArea({required this.hint, required this.funValidator, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,6 @@ class CustomTextArea extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         controller: controller,
-        initialValue: value ?? null,
         maxLines: 20,
         validator: funValidator,
         decoration: InputDecoration(

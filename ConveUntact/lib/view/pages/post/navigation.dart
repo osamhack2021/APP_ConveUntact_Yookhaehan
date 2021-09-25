@@ -53,8 +53,6 @@ class navigation extends StatelessWidget {
               Divider(),
               TextButton(
                 onPressed: () async {
-                  //FirebaseAuth에서 로그아웃
-                  auth.email = "";
                   await auth.signOut();
                   Get.off(LoginPage(auth: auth));
                 },

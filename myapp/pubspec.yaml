@@ -44,6 +44,8 @@ dependencies:
   flutter_zoom_drawer: ^2.1.1
   rxdart: ^0.27.2
   fl_chart: ^0.40.0
+  cool_alert: ^1.1.0
+  flutter_animated_button: ^2.0.0
 
 dev_dependencies:
   flutter_test:

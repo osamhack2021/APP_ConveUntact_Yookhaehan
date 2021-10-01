@@ -6,9 +6,7 @@ import 'package:get/get.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/login/custom_route.dart';
 import 'package:myapp/pages/home_page/home_page.dart';
-import 'package:myapp/pages/notice_page/main_screen.dart';
-import 'package:myapp/pages/home_page/menu/menu_main.dart';
-import 'package:myapp/pages/notice_page/notice_screen.dart';
+import 'package:myapp/pages/menu/menu_main.dart';
 import 'package:myapp/pages/users.dart';
 import 'package:validators/validators.dart';
 
@@ -67,8 +65,8 @@ class LoginScreen extends StatelessWidget {
           flushbarTitleError: 'Error!',
           flushbarTitleSuccess: 'Succes!',
           providersTitle: 'login with'),
-      // theme: LoginTheme(
-      //   primaryColor: Colors.teal,
+      theme: LoginTheme(
+      //  primaryColor: Colors.teal,
       //   accentColor: Colors.yellow,
       //   errorColor: Colors.deepOrange,
       //   pageColorLight: Colors.indigo.shade300,
@@ -143,7 +141,7 @@ class LoginScreen extends StatelessWidget {
       //     // shape: CircleBorder(side: BorderSide(color: Colors.green)),
       //     // shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
       //   ),
-      // ),
+      ),
       userValidator: (value) {
         if (value!.isEmpty) {
           return "아이디를 입력하세요.";

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/home_page/home_page.dart';
 
-import 'package:myapp/pages/home_page/menu/menu_widget.dart';
+import 'package:myapp/pages/menu/menu_widget.dart';
 
 
 class MyApp extends StatefulWidget {

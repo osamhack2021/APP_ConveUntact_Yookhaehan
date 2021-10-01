@@ -2,10 +2,15 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:myapp/pages/constants.dart';
-import 'package:myapp/pages/custom_route.dart';
-import 'package:myapp/pages/dashboard_screen.dart';
+import 'package:get/get.dart';
+import 'package:myapp/pages/home_page/constants.dart';
+import 'package:myapp/pages/login/custom_route.dart';
+import 'package:myapp/pages/home_page/home_page.dart';
+import 'package:myapp/pages/notice_page/main_screen.dart';
+import 'package:myapp/pages/home_page/menu/menu_main.dart';
+import 'package:myapp/pages/notice_page/notice_screen.dart';
 import 'package:myapp/pages/users.dart';
+import 'package:validators/validators.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/auth';
@@ -37,7 +42,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: Constants.appName,
-      logo: 'assets/images/ecorp.png',
+      logo: 'LOGO',
       logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
       navigateBackAfterRecovery: true,
@@ -46,8 +51,8 @@ class LoginScreen extends StatelessWidget {
       // hideForgotPasswordButton: true,
       // hideSignUpButton: true,
       // disableCustomPageTransformer: true,
-        messages: LoginMessages(
-          userHint: '아이디(군번)',
+      messages: LoginMessages(
+          userHint: '아이디(이메일)',
           passwordHint: '비밀번호',
           confirmPasswordHint: '비밀번호 확인',
           loginButton: '로그인',
@@ -61,8 +66,7 @@ class LoginScreen extends StatelessWidget {
           recoverPasswordSuccess: '비밀번호가 성공적으로 변경되었습니다!',
           flushbarTitleError: 'Error!',
           flushbarTitleSuccess: 'Succes!',
-          providersTitle: 'login with'
-       ),
+          providersTitle: 'login with'),
       // theme: LoginTheme(
       //   primaryColor: Colors.teal,
       //   accentColor: Colors.yellow,
@@ -141,14 +145,18 @@ class LoginScreen extends StatelessWidget {
       //   ),
       // ),
       userValidator: (value) {
-        if (!value!.contains('@') || !value.endsWith('.com')) {
+        if (value!.isEmpty) {
+          return "아이디를 입력하세요.";
+        } else if (!value.isEmail) {
           return "이메일 형식이 올바르지 않습니다.";
         }
         return null;
       },
       passwordValidator: (value) {
         if (value!.isEmpty) {
-          return '비밀번호를 입력하세요.';
+          return "비밀번호를 입력하세요.";
+        } else if (!isAlphanumeric(value)) {
+          return "비밀번호는 영문과 숫자조합만 가능합니다.";
         }
         return null;
       },
@@ -166,7 +174,7 @@ class LoginScreen extends StatelessWidget {
       },
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(FadePageRoute(
-          builder: (context) => DashboardScreen(),
+          builder: (context) => MyApp(),
         ));
       },
       onRecoverPassword: (name) {

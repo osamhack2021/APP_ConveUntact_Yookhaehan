@@ -39,6 +39,11 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   flutter_login: ^2.2.1
   intl: ^0.17.0
+  flutter_inner_drawer: ^1.0.0+1
+  flutter_slider_drawer: ^2.0.0
+  flutter_zoom_drawer: ^2.1.1
+  rxdart: ^0.27.2
+  fl_chart: ^0.40.0
 
 dev_dependencies:
   flutter_test:

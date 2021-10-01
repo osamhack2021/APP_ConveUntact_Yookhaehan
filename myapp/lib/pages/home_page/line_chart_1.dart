@@ -67,7 +67,7 @@ class _LineChart extends StatelessWidget {
         interval: 1,
         reservedSize: 40,
         getTextStyles: (context, value) => const TextStyle(
-          color: Colors.grey,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 14,
         ),
@@ -79,7 +79,7 @@ class _LineChart extends StatelessWidget {
         margin: 10,
         interval: 1,
         getTextStyles: (context, value) => const TextStyle(
-          color: Colors.grey,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
@@ -91,6 +91,8 @@ class _LineChart extends StatelessWidget {
               return 'OCT';
             case 12:
               return 'DEC';
+            case 13:
+              return 'TODAY';
           }
           return '';
         },
@@ -101,7 +103,7 @@ class _LineChart extends StatelessWidget {
   FlBorderData get borderData => FlBorderData(
         show: true,
         border: const Border(
-          bottom: BorderSide(color: Color(0xff4e4965), width: 4),
+          bottom: BorderSide(color: Color(0xffffffff), width: 4),
           left: BorderSide(color: Colors.transparent),
           right: BorderSide(color: Colors.transparent),
           top: BorderSide(color: Colors.transparent),
@@ -110,7 +112,7 @@ class _LineChart extends StatelessWidget {
 
   LineChartBarData get lineChartBarData1_1 => LineChartBarData(
         isCurved: true,
-        colors: [const Color(0xfff8bbd0)],
+        colors: [const Color(0xffffffff)],
         barWidth: 8,
         isStrokeCapRound: true,
         dotData: FlDotData(show: false),
@@ -151,8 +153,8 @@ class LineChartSample1State extends State<LineChartSample1> {
           borderRadius: BorderRadius.all(Radius.circular(18)),
           gradient: LinearGradient(
             colors: [
-              Color(0xFFFFFFFF),
-              Color(0xFFFFFFFF),
+              Color(0x00000000),
+              Color(0x00000000),
             ],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
@@ -161,15 +163,16 @@ class LineChartSample1State extends State<LineChartSample1> {
         child: Stack(
           children: <Widget>[
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
                   height: 1,
                 ),
-                Padding(padding: const EdgeInsets.only(right: 16.0, left: 6.0)),                const Text(
+                Padding(padding: const EdgeInsets.only(right: 16.0, left: 6.0)),
+                const Text(
                   '매너 점수',
                   style: TextStyle(
-                    color: Color(0xffbdbdbd),
+                    color: Color(0xffffffff),
                     fontSize: 25,
                   ),
                   textAlign: TextAlign.left,
@@ -180,12 +183,12 @@ class LineChartSample1State extends State<LineChartSample1> {
                 const Text(
                   '2.8',
                   style: TextStyle(
-                    color: Color(0xffbdbdbd),
+                    color: Color(0xffffffff),
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,
                   ),
-                  textAlign: TextAlign.left,
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 37,
@@ -201,17 +204,17 @@ class LineChartSample1State extends State<LineChartSample1> {
                 ),
               ],
             ),
-            IconButton(
-              icon: Icon(
-                Icons.refresh,
-                color: Colors.white.withOpacity(isShowingMainData ? 1.0 : 0.5),
-              ),
-              onPressed: () {
-                setState(() {
-                  isShowingMainData = !isShowingMainData;
-                });
-              },
-            )
+            ///IconButton(
+              ///icon: Icon(
+                ///Icons.refresh,
+                ///color: Colors.white.withOpacity(isShowingMainData ? 1.0 : 0.5),
+              ///),
+              ///onPressed: () {
+                ///setState(() {
+                  ///isShowingMainData = !isShowingMainData;
+                ///});
+              ///},
+            ///)
           ],
         ),
       ),

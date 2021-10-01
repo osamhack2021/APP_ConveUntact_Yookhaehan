@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:myapp/pages/home_page/line_chart_1.dart';
 import 'package:myapp/pages/notice_page/notice_info.dart';
 
-import 'draggable_home.dart';
+import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 

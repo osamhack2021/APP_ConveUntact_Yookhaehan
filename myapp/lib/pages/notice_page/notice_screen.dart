@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/line_chart_1.dart';
+import 'package:myapp/pages/home_page/line_chart_1.dart';
 import 'package:myapp/pages/notice_page/notice_card.dart';
 import 'package:myapp/pages/notice_page/notice_info.dart';
 

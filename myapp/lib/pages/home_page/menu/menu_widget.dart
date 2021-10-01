@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/pages/home_page/home_page.dart';
+import 'package:myapp/pages/login/login_screen.dart';
 
 class MenuWidget extends StatelessWidget {
   final Function(String)? onItemClick;
@@ -21,7 +24,8 @@ class MenuWidget extends StatelessWidget {
             backgroundColor: Colors.grey,
             child: CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/images/user_profile.jpg'),
+              backgroundColor: Colors.pink.shade200,
+              backgroundImage: AssetImage('myapp/icons/computer.png'),
             ),
           ),
           SizedBox(
@@ -30,7 +34,7 @@ class MenuWidget extends StatelessWidget {
           Text(
             '일병 홍길동',
             style: TextStyle(
-                color: Colors.black,
+                color: Colors.grey,
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
                 fontFamily: 'BalsamiqSans'),
@@ -40,10 +44,10 @@ class MenuWidget extends StatelessWidget {
           ),
           sliderItem('홈 페이지', Icons.home),
           sliderItem('시설 예약하기', Icons.add_circle),
-          sliderItem('나의 예약 확인하기', Icons.notifications_active),
-          sliderItem('신고하기', Icons.favorite),
+          sliderItem('나의 예약', Icons.notifications_active),
+          sliderItem('신고하기', Icons.question_answer_rounded),
           sliderItem('앱 설정', Icons.settings),
-          sliderItem('로그아웃', Icons.arrow_back_ios)
+          sliderItem('로그아웃', Icons.logout),
         ],
       ),
     );
@@ -53,13 +57,14 @@ class MenuWidget extends StatelessWidget {
       title: Text(
         title,
         style:
-            TextStyle(color: Colors.black, fontFamily: 'BalsamiqSans_Regular'),
+            TextStyle(color: Colors.grey, fontFamily: 'BalsamiqSans_Regular'),
       ),
       leading: Icon(
         icons,
-        color: Colors.black,
+        color: Colors.grey,
       ),
       onTap: () {
         onItemClick!(title);
+        Get.to(LoginScreen());
       });
 }

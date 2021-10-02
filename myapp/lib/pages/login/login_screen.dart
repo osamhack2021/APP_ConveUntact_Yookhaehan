@@ -220,6 +220,7 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSubmitAnimationCompleted: () {
+
         Navigator.of(context).pushReplacement(FadePageRoute(
           builder: (context) => MyApp(),
         ));

@@ -10,6 +10,55 @@ import 'package:myapp/pages/menu/menu_main.dart';
 import 'package:myapp/pages/users.dart';
 import 'package:validators/validators.dart';
 
+class Loginpage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ConveUntact LoginPage',
+      theme: ThemeData(
+        // brightness: Brightness.dark,
+        primaryColor: Colors.pink.shade100,
+        accentColor: Colors.white,
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
+        // fontFamily: 'SourceSansPro',
+        textTheme: TextTheme(
+          headline3: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 45.0,
+            // fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+          button: TextStyle(
+            // OpenSans is similar to NotoSans but the uppercases look a bit better IMO
+            fontFamily: 'OpenSans',
+          ),
+          caption: TextStyle(
+            fontFamily: 'NotoSans',
+            fontSize: 12.0,
+            fontWeight: FontWeight.normal,
+            color: Colors.deepPurple[300],
+          ),
+          headline1: TextStyle(fontFamily: 'Quicksand'),
+          headline2: TextStyle(fontFamily: 'Quicksand'),
+          headline4: TextStyle(fontFamily: 'Quicksand'),
+          headline5: TextStyle(fontFamily: 'NotoSans'),
+          headline6: TextStyle(fontFamily: 'NotoSans'),
+          subtitle1: TextStyle(fontFamily: 'NotoSans'),
+          bodyText1: TextStyle(fontFamily: 'NotoSans'),
+          bodyText2: TextStyle(fontFamily: 'NotoSans'),
+          subtitle2: TextStyle(fontFamily: 'NotoSans'),
+          overline: TextStyle(fontFamily: 'NotoSans'),
+        ),
+      ),
+      // navigatorObservers: [TransitionRouteObserver()],
+      initialRoute: LoginScreen.routeName,
+      routes: {
+        LoginScreen.routeName: (context) => LoginScreen(),
+      },
+    );
+  }
+}
+
 class LoginScreen extends StatelessWidget {
   static const routeName = '/auth';
 
@@ -66,82 +115,82 @@ class LoginScreen extends StatelessWidget {
           flushbarTitleSuccess: 'Succes!',
           providersTitle: 'login with'),
       theme: LoginTheme(
-      //  primaryColor: Colors.teal,
-      //   accentColor: Colors.yellow,
-      //   errorColor: Colors.deepOrange,
-      //   pageColorLight: Colors.indigo.shade300,
-      //   pageColorDark: Colors.indigo.shade500,
-      //   logoWidth: 0.80,
-      //   titleStyle: TextStyle(
-      //     color: Colors.greenAccent,
-      //     fontFamily: 'Quicksand',
-      //     letterSpacing: 4,
-      //   ),
-      //   // beforeHeroFontSize: 50,
-      //   // afterHeroFontSize: 20,
-      //   bodyStyle: TextStyle(
-      //     fontStyle: FontStyle.italic,
-      //     decoration: TextDecoration.underline,
-      //   ),
-      //   textFieldStyle: TextStyle(
-      //     color: Colors.orange,
-      //     shadows: [Shadow(color: Colors.yellow, blurRadius: 2)],
-      //   ),
-      //   buttonStyle: TextStyle(
-      //     fontWeight: FontWeight.w800,
-      //     color: Colors.yellow,
-      //   ),
-      //   cardTheme: CardTheme(
-      //     color: Colors.yellow.shade100,
-      //     elevation: 5,
-      //     margin: EdgeInsets.only(top: 15),
-      //     shape: ContinuousRectangleBorder(
-      //         borderRadius: BorderRadius.circular(100.0)),
-      //   ),
-      //   inputTheme: InputDecorationTheme(
-      //     filled: true,
-      //     fillColor: Colors.purple.withOpacity(.1),
-      //     contentPadding: EdgeInsets.zero,
-      //     errorStyle: TextStyle(
-      //       backgroundColor: Colors.orange,
-      //       color: Colors.white,
-      //     ),
-      //     labelStyle: TextStyle(fontSize: 12),
-      //     enabledBorder: UnderlineInputBorder(
-      //       borderSide: BorderSide(color: Colors.blue.shade700, width: 4),
-      //       borderRadius: inputBorder,
-      //     ),
-      //     focusedBorder: UnderlineInputBorder(
-      //       borderSide: BorderSide(color: Colors.blue.shade400, width: 5),
-      //       borderRadius: inputBorder,
-      //     ),
-      //     errorBorder: UnderlineInputBorder(
-      //       borderSide: BorderSide(color: Colors.red.shade700, width: 7),
-      //       borderRadius: inputBorder,
-      //     ),
-      //     focusedErrorBorder: UnderlineInputBorder(
-      //       borderSide: BorderSide(color: Colors.red.shade400, width: 8),
-      //       borderRadius: inputBorder,
-      //     ),
-      //     disabledBorder: UnderlineInputBorder(
-      //       borderSide: BorderSide(color: Colors.grey, width: 5),
-      //       borderRadius: inputBorder,
-      //     ),
-      //   ),
-      //   buttonTheme: LoginButtonTheme(
-      //     splashColor: Colors.purple,
-      //     backgroundColor: Colors.pinkAccent,
-      //     highlightColor: Colors.lightGreen,
-      //     elevation: 9.0,
-      //     highlightElevation: 6.0,
-      //     shape: BeveledRectangleBorder(
-      //       borderRadius: BorderRadius.circular(10),
-      //     ),
-      //     // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-      //     // shape: CircleBorder(side: BorderSide(color: Colors.green)),
-      //     // shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
-      //   ),
-      ),
+          //  primaryColor: Colors.teal,
+          //   accentColor: Colors.yellow,
+          //   errorColor: Colors.deepOrange,
+          //   pageColorLight: Colors.indigo.shade300,
+          //   pageColorDark: Colors.indigo.shade500,
+          //   logoWidth: 0.80,
+          //   titleStyle: TextStyle(
+          //     color: Colors.greenAccent,
+          //     fontFamily: 'Quicksand',
+          //     letterSpacing: 4,
+          //   ),
+          //   // beforeHeroFontSize: 50,
+          //   // afterHeroFontSize: 20,
+          //   bodyStyle: TextStyle(
+          //     fontStyle: FontStyle.italic,
+          //     decoration: TextDecoration.underline,
+          //   ),
+          //   textFieldStyle: TextStyle(
+          //     color: Colors.orange,
+          //     shadows: [Shadow(color: Colors.yellow, blurRadius: 2)],
+          //   ),
+          //   buttonStyle: TextStyle(
+          //     fontWeight: FontWeight.w800,
+          //     color: Colors.yellow,
+          //   ),
+          //   cardTheme: CardTheme(
+          //     color: Colors.yellow.shade100,
+          //     elevation: 5,
+          //     margin: EdgeInsets.only(top: 15),
+          //     shape: ContinuousRectangleBorder(
+          //         borderRadius: BorderRadius.circular(100.0)),
+          //   ),
+          //   inputTheme: InputDecorationTheme(
+          //     filled: true,
+          //     fillColor: Colors.purple.withOpacity(.1),
+          //     contentPadding: EdgeInsets.zero,
+          //     errorStyle: TextStyle(
+          //       backgroundColor: Colors.orange,
+          //       color: Colors.white,
+          //     ),
+          //     labelStyle: TextStyle(fontSize: 12),
+          //     enabledBorder: UnderlineInputBorder(
+          //       borderSide: BorderSide(color: Colors.blue.shade700, width: 4),
+          //       borderRadius: inputBorder,
+          //     ),
+          //     focusedBorder: UnderlineInputBorder(
+          //       borderSide: BorderSide(color: Colors.blue.shade400, width: 5),
+          //       borderRadius: inputBorder,
+          //     ),
+          //     errorBorder: UnderlineInputBorder(
+          //       borderSide: BorderSide(color: Colors.red.shade700, width: 7),
+          //       borderRadius: inputBorder,
+          //     ),
+          //     focusedErrorBorder: UnderlineInputBorder(
+          //       borderSide: BorderSide(color: Colors.red.shade400, width: 8),
+          //       borderRadius: inputBorder,
+          //     ),
+          //     disabledBorder: UnderlineInputBorder(
+          //       borderSide: BorderSide(color: Colors.grey, width: 5),
+          //       borderRadius: inputBorder,
+          //     ),
+          //   ),
+          //   buttonTheme: LoginButtonTheme(
+          //     splashColor: Colors.purple,
+          //     backgroundColor: Colors.pinkAccent,
+          //     highlightColor: Colors.lightGreen,
+          //     elevation: 9.0,
+          //     highlightElevation: 6.0,
+          //     shape: BeveledRectangleBorder(
+          //       borderRadius: BorderRadius.circular(10),
+          //     ),
+          //     // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          //     // shape: CircleBorder(side: BorderSide(color: Colors.green)),
+          //     // shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
+          //   ),
+          ),
       userValidator: (value) {
         if (value!.isEmpty) {
           return "아이디를 입력하세요.";

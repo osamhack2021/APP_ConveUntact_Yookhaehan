@@ -1,8 +1,6 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:myapp/main.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
-import 'package:myapp/pages/login/login_screen.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -73,7 +71,14 @@ class MenuWidget extends StatelessWidget {
       } else if(title == "앱 설정"){
         Navigator.push(context, MaterialPageRoute(builder: (context) => SettingPage()));
       } else if(title == "로그아웃"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        CoolAlert.show(
+          context: context,
+          type: CoolAlertType.confirm,
+          text: "로그아웃 하시겠습니까?",
+          onConfirmBtnTap: () async {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+          }
+        );
       }
     }
   );

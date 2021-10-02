@@ -1,4 +1,4 @@
-   import 'package:cool_alert/cool_alert.dart';
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

@@ -16,36 +16,36 @@ class HomePage extends StatelessWidget {
         IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
       ],
       headerWidget: headerWidget(context),
-      headerBottomBar: headerBottomBarWidget(),
+      //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
           children: [
             Padding(padding: EdgeInsets.all(10)),
-            Text("공지사항    ", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
-            Text("${notice.length}건의 내용 존재", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
-            
+            Text("공지사항", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
+            Text("${notice.length}건의 내용 존재", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
             SizedBox(width: 6),
           ]
         ),
+        Divider(),
         listView(),
       ],
-      fullyStretchable: true,
-      expandedBody: Text("Expanded"),
+      //fullyStretchable: true,
+      //expandedBody: Text("Expanded"),
     );
   }
 
-  Container headerBottomBarWidget() {
-    return Container(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [//설정 아이콘
-          IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
-        ],
-      ),
-    );
-  }
+  //Container headerBottomBarWidget() {
+    //return Container(
+      //child: Row(
+        //mainAxisSize: MainAxisSize.min,
+        //mainAxisAlignment: MainAxisAlignment.end,
+        //crossAxisAlignment: CrossAxisAlignment.center,
+        //children: [//설정 아이콘
+          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
+        //],
+      //),
+    //);
+  //}
 
   Container headerWidget(BuildContext context) => Container(
         child: LineChartSample1(),

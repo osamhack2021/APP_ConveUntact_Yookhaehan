@@ -19,7 +19,7 @@ class PostProvider {
           .collection(_collection)
           .add(SaveReqDto(title, content).toJson())
           .then((v) {
-        v.update({"id": v.id});
+        v.update({"id": v.id}); // 문법인가? DocumentReference의 id를 가져와서 그 id를 post의 id로 업데이트 하는것???
         return v.get();
       });
 

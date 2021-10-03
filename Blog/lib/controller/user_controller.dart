@@ -8,14 +8,14 @@ class UserController extends GetxController {
   final principal = User().obs;
 
   Future<void> logout() async {
-    await _userRepository.logout();
-    this.principal.value = User();
-    this.isLogin.value = false;
+    await _userRepository.logout(); //  1. firebase auth에서 로그아웃
+    this.principal.value = User(); // 2. 빈 객체로 초기화
+    this.isLogin.value = false; // 3. 로그인확인변수를 false로 초기화
     // Get.Storage()
   }
 
   Future<int> login(String email, String password) async {
-    User principal = await _userRepository.login(email, password);
+    User principal = await _userRepository.login(email, password);// 로그인 후 user 객체 반환
 
     if (principal.uid != null) {
       this.isLogin.value = true;

@@ -48,10 +48,15 @@ class UserRepository {
     } catch (e) {
       // Create 실패 시 익셉션 일어남
     }
+    /*
+    샘플 코드
+    if("${userCredential!.user!.uid}" != null){
+      print("uid 존재");
+    }*/
 
     if (userCredential != null) {
       User principal = User(
-        uid: "${userCredential.user!.uid}",
+        uid: "${userCredential.user!.uid}", // null 방지를 위해 ""안에 값을 넣는다.
         email: userCredential.user!.email,
         username: username,
         created: userCredential.user!.metadata.creationTime,

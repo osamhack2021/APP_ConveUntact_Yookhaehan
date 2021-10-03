@@ -15,12 +15,14 @@ class DetailPage extends StatelessWidget {
     //String data = Get.arguments;
     UserController u = Get.find();
     PostController p = Get.find();
-    print("로그인 유저아이디 : ${u.principal.value.uid}");
+    print("로그인 유저아이디 : Obx${u.principal.value.uid}");
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "게시글 아이디 : $id,\n로그인 상태 : ${u.isLogin}",
-          style: TextStyle(fontSize: 12),
+        title: Obx(
+          () => Text(
+            "게시글 아이디 : $id,\n로그인 상태 : ${u.isLogin}",
+            style: TextStyle(fontSize: 12),
+          ),
         ),
       ),
       body: Padding(

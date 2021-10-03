@@ -11,7 +11,7 @@ class SaveReqDto {
   Map<String, dynamic> toJson() => {
         "title": title,
         "content": content,
-        "user": Get.find<UserController>().principal.value.toJson(),
+        "user": Get.find<UserController>().principal.value.toJson(), // user객체 통째로 post에다가 넣기 -> 비정규화 작업
         "created": FieldValue.serverTimestamp(),
         "updated": FieldValue.serverTimestamp(),
       };

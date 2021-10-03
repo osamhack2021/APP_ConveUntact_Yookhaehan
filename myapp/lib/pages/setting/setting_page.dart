@@ -7,8 +7,8 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var submitTextStyle = GoogleFonts.nunito(
-        fontSize: 28,
-        letterSpacing: 5,
+        fontSize: 15,
+        //letterSpacing: 5,
         color: Colors.white,
         fontWeight: FontWeight.w300);
     return Scaffold(
@@ -37,7 +37,7 @@ class SettingPage extends StatelessWidget {
                     AnimatedButton(
                       onPress: () {},
                       height: 70,
-                      width: 200,
+                      width: 150,
                       text: 'SOUND',
                       gradient: LinearGradient(colors: [Colors.white, Colors.white]),
                       selectedGradientColor: LinearGradient(
@@ -52,7 +52,7 @@ class SettingPage extends StatelessWidget {
                     AnimatedButton(
                       onPress: () {},
                       height: 70,
-                      width: 200,
+                      width: 150,
                       text: 'VIBRATION',
                       gradient: LinearGradient(colors: [Colors.white, Colors.white]),
                       selectedGradientColor: LinearGradient(
@@ -67,7 +67,7 @@ class SettingPage extends StatelessWidget {
                     AnimatedButton(
                       onPress: () {},
                       height: 70,
-                      width: 200,
+                      width: 150,
                       text: 'MUTE',
                       gradient: LinearGradient(colors: [Colors.white, Colors.white]),
                       selectedGradientColor: LinearGradient(
@@ -84,7 +84,6 @@ class SettingPage extends StatelessWidget {
               ],
             ),
           ),
-          
           Divider(),
         ],
       ),

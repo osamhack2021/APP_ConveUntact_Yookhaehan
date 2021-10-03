@@ -2,9 +2,9 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/home_page/constants.dart';
-import 'package:myapp/pages/menu/menu_main.dart';
-import 'package:myapp/pages/users.dart';
+import 'package:myapp/components/constants.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
+import 'package:myapp/components/id_info.dart';
 import 'package:validators/validators.dart';
 
 class LoginPage extends StatelessWidget {
@@ -217,7 +217,7 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSubmitAnimationCompleted: () {
-        Get.to(MyApp());
+        Get.to(HomePage());
       },
       onRecoverPassword: (name) {
         print('Recover password info');

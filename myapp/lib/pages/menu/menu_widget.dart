@@ -2,8 +2,10 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/main.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/login/login_screen.dart';
-import 'package:myapp/pages/my_page/my_page.dart';
+import 'package:myapp/pages/my_page/mypage_menu.dart';
+import 'package:myapp/pages/reservation/reservation_menu.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -25,7 +27,7 @@ class MenuWidget extends StatelessWidget {
           CircleAvatar(
             radius: 65,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('myapp/icons/computer.png'),
+            child: Icon(Icons.person), foregroundColor: Colors.grey,
           ),
           SizedBox(
             height: 20,
@@ -65,19 +67,19 @@ class MenuWidget extends StatelessWidget {
     ),
     onTap: () {
       onItemClick!(title);
-      if(title == "홈페이지"){
-        PageRoute: () => Get.to(MyApp());
-      } else if(title == "시설 예약하기"){
-        PageRoute: () => Get.to(MyApp());
-      } else if(title == "나의 예약"){
-        PageRoute: () => Get.to(MyApp());
-      } else if(title == "신고하기"){
-        PageRoute: () => Get.to(MyApp());
-      } else if(title == "앱 설정"){
+      if(icons == Icons.home){
+        Get.to(HomePage());
+      } else if(icons == Icons.add_circle){
+        Get.to(Reservation());
+      } else if(icons == Icons.notifications_active){
+        Get.to(HomePage());
+      } else if(icons == Icons.question_answer_rounded){
+        Get.to(HomePage());
+      } else if(icons == Icons.settings){
         Get.to(SettingPage());
-      } else if(title == "마이 페이지"){
+      } else if(icons == Icons.person){
         Get.to(MyPage());
-      }else if(title == "로그아웃"){
+      }else if(icons == Icons.logout){
         CoolAlert.show(
           context: context,
           type: CoolAlertType.confirm,

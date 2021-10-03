@@ -15,15 +15,6 @@ class Notice{
     {required this.icon, required this.name, required this.intro, required this.date});
 }
 
-List<Notice> me = [
-  Notice(
-    icon: Icon(Icons.person),
-    name: "${_urlPrefix}_me.jpg",
-    intro: "ㅎ",
-    date: "ㅂ",
-  )
-];
-
 List<Notice> notice = [
   Notice(
     icon: Icon(Icons.sports_soccer),

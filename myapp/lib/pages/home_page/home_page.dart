@@ -1,30 +1,32 @@
-   
 import 'package:flutter/widgets.dart';
-import 'package:myapp/pages/home_page/line_chart_1.dart';
-import 'package:myapp/pages/notice/notice_info.dart';
-
-import 'draggable_home.dart';
+import 'package:myapp/components/notice_info.dart';
+import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/home_page/constants.dart';
 
-class HomePage extends StatelessWidget {
+import '../../components/line_chart_1.dart';
+
+class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
       title: Text("공지사항"),
-      actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
-      ],
+      //actions: [
+        //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
+      //],
       headerWidget: headerWidget(context),
       //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
           children: [
             Padding(padding: EdgeInsets.all(10)),
             Text("공지사항", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
             Text("${notice.length}건의 내용 존재", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
             SizedBox(width: 6),
+            
           ]
+          
         ),
         Divider(),
         listView(),

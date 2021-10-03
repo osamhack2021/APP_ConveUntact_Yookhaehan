@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/notice/notice_info.dart';
+import 'package:myapp/components/notice_info.dart';
 
 class NoticeCard extends StatelessWidget {
   final Notice notice;

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
-
 import 'package:myapp/pages/menu/menu_widget.dart';
+import 'package:myapp/pages/reservation/reservation.dart';
 
-
-class MyApp extends StatefulWidget {
+class Reservation extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<Reservation> {
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
   late String title;
@@ -44,7 +42,7 @@ class _MyAppState extends State<MyApp> {
                 });
               },
             ),
-            sliderMain: HomePage()),
+            sliderMain: ReservationScreen()),
       ),
     );
   }

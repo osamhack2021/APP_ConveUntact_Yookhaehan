@@ -1,12 +1,13 @@
    
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
-import 'package:myapp/pages/my_page/user_info.dart';
-import 'package:myapp/pages/home_page/draggable_home.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
+import 'package:myapp/components/user_info.dart';
 import 'package:flutter/material.dart';
+import 'package:draggable_home/draggable_home.dart';
 
-class MyPage extends StatelessWidget {
+class MyPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
@@ -28,29 +29,25 @@ class MyPage extends StatelessWidget {
           ]
         ),
         listView(),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 10.0),
-          child: MaterialButton(
-            color: Colors.pink.shade100,
-            minWidth: double.infinity,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            onPressed: (){
-              setState(){
+        Column(
+          children: <Widget>[
+            Container(
+              height: 50,
+              width: double.infinity,
+              child: RaisedButton(
+              onPressed: (){
                 Get.to(HomePage());
-              }
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15.0),
-              child: Text(
-                "수정하기",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+              },
+              padding: EdgeInsets.all(10.0),
+              child: Text('수정하기', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+              textColor: Colors.white,
+              color: Colors.pink.shade100,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30))
               ),
             ),
-          ),
+            )
+          ],
         ),
       ],
       //fullyStretchable: true,

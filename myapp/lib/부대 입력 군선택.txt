@@ -22,10 +22,7 @@ class MyApp extends StatelessWidget {
       child: Column(
         children: <Widget>[
           InkWell(
-            child: Image.asset(
-                'https://files.slack.com/files-pri/T02DEDTJZ1R-F02GABHH338/image.png',
-                width: 120,
-                height: 120),
+            child: Image.asset('images/family_1.jpg', width: 120, height: 120),
             onTap: () => showMessage('ImageButton'),
           ),
         ],

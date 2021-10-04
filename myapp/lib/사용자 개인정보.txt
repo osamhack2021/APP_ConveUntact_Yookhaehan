@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 void main() => runApp(MyApp());
 const primaryColor = Color(0xFFF7CBD4);
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text(''),
+          title: Text('사용자 개인정보 입력페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
@@ -47,152 +48,158 @@ class MyCustomFormState extends State<MyCustomForm> {
     // Build a Form widget using the _formKey created above.
     return Column(
       children: [
+        SizedBox(height: 120),
         Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                '개인정보',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.white),
+          child: Container(
+            margin: const EdgeInsets.all(30),
+            padding: EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                width: 3.0,
+                color: Colors.white,
               ),
-              SizedBox(height: 40),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  icon: const Icon(Icons.person),
-                  hintText: '- 를 포함하여 입력해 주세요.',
-                  labelText: '아이디(군번)',
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 40),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.person),
+                    hintText: '- 를 포함하여 입력해 주세요.',
+                    labelText: '아이디(군번)',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '군번을 입력해주세요';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return '군번을 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  icon: const Icon(Icons.password),
-                  hintText: '비밀번호를 입력해주세요',
-                  labelText: '비밀번호',
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.password),
+                    hintText: '비밀번호를 입력해주세요',
+                    labelText: '비밀번호',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '비밀번호를 입력해주세요';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return '비밀번호를 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  icon: const Icon(Icons.near_me),
-                  hintText: '이름을 입력해 주세요  ex) 홍길동',
-                  labelText: '이름',
+                const SizedBox(height: 10),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.near_me),
+                    hintText: '이름을 입력해 주세요  ex) 홍길동',
+                    labelText: '이름',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '이름을 입력해주세요';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return '이름을 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  icon: const Icon(Icons.person_add_alt_rounded),
-                  hintText: '계급을 입력해 주세요  ex) 일병',
-                  labelText: '계급',
+                const SizedBox(height: 10),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.person_add_alt_rounded),
+                    hintText: '계급을 입력해 주세요  ex) 일병',
+                    labelText: '계급',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '계급을 입력해주세요';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return '계급을 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                  icon: const Icon(Icons.email),
-                  hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                  labelText: '이메일 주소',
+                const SizedBox(height: 10),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.email),
+                    hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
+                    labelText: '이메일 주소',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '이메일주소를 입력해주세요';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return '이메일주소를 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
-              // new Container(
-              //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-              //     child: new RaisedButton(
-              //       child: const Text('다음'),
-              //       onPressed: () {
-              //         // It returns true if the form is valid, otherwise returns false
-              //         if (_formKey.currentState!.validate()) {
-              //           // If the form is valid, display a Snackbar.
-              //           Scaffold.of(context)
-              //               .showSnackBar(SnackBar(content: Text('완료.')));
-              //         }
-              //       },
-              //     )),
-              const SizedBox(height: 60),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    Positioned.fill(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: <Color>[
-                              Color(0xFFF4F4F4),
-                              Color(0xFFF4F4F4),
-                              Color(0xFFF4F4F4),
-                            ],
+                // new Container(
+                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
+                //     child: new RaisedButton(
+                //       child: const Text('다음'),
+                //       onPressed: () {
+                //         // It returns true if the form is valid, otherwise returns false
+                //         if (_formKey.currentState!.validate()) {
+                //           // If the form is valid, display a Snackbar.
+                //           Scaffold.of(context)
+                //               .showSnackBar(SnackBar(content: Text('완료.')));
+                //         }
+                //       },
+                //     )),
+                const SizedBox(height: 60),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                Color(0xFFF3D0D8),
+                                Color(0xFFF3D0D8),
+                                Color(0xFFF3D0D8),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(20.0),
-                        primary: Color(0xFFF3D0D8),
-                        alignment: Alignment.center,
-                        textStyle: const TextStyle(fontSize: 50),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.all(20.0),
+                          primary: Color(0xFFFFFFFF),
+                          alignment: Alignment.center,
+                          textStyle: const TextStyle(fontSize: 50),
+                        ),
+                        onPressed: () {
+                          // It returns true if the form is valid, otherwise returns false
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a Snackbar.
+                            Scaffold.of(context)
+                                .showSnackBar(SnackBar(content: Text('완료.')));
+                          }
+                        },
+                        child: const Text('다음'),
                       ),
-                      onPressed: () {
-                        // It returns true if the form is valid, otherwise returns false
-                        if (_formKey.currentState!.validate()) {
-                          // If the form is valid, display a Snackbar.
-                          Scaffold.of(context)
-                              .showSnackBar(SnackBar(content: Text('완료.')));
-                        }
-                      },
-                      child: const Text('다음'),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

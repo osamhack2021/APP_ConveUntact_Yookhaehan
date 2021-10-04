@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/%EA%B4%80%EB%A6%AC%EC%9E%90%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4.dart';
+import 'package:myapp/%EC%82%AC%EC%9A%A9%EC%9E%90%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4.dart';
 
 const primaryColor = Color(0xFFF7CBD4);
-void main() => runApp(const MyApp());
+void main() => runApp(const SignType());
 
 /// This is the main application widget.
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SignType extends StatelessWidget {
+  const SignType({Key? key}) : super(key: key);
 
   //static const String _title = 'Test TextButton';
 
@@ -24,7 +27,9 @@ class MyApp extends StatelessWidget {
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
           ),
         ),
         body: const MyStatelessWidget(),
@@ -87,7 +92,9 @@ class MyStatelessWidget extends StatelessWidget {
                     primary: Colors.black,
                     textStyle: const TextStyle(fontSize: 80),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(UserInfo());
+                  },
                   child: const Text('사용자'),
                 ),
               ],
@@ -116,7 +123,9 @@ class MyStatelessWidget extends StatelessWidget {
                     primary: Colors.black,
                     textStyle: const TextStyle(fontSize: 80),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(AdminInfo());
+                  },
                   child: const Text('관리자'),
                 ),
               ],

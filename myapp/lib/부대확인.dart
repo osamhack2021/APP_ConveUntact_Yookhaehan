@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(CheckUnit());
 const primaryColor = Color(0xFFF7CBD4);
 
-class MyApp extends StatelessWidget {
+class CheckUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
           ),
         ),
         body: MyCustomForm(),
@@ -174,8 +177,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               // It returns true if the form is valid, otherwise returns false
                               if (_formKey.currentState!.validate()) {
                                 // If the form is valid, display a Snackbar.
-                                Scaffold.of(context).showSnackBar(
-                                    SnackBar(content: Text('완료.')));
+                                // Scaffold.of(context).showSnackBar(
+                                //     SnackBar(content: Text('완료.')));
+                                Get.back();
                               }
                             },
                             child: const Text('아니오'),

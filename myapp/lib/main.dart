@@ -1,95 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:myapp/%ED%9A%8C%EC%9B%90%EC%9C%A0%ED%98%95.dart';
+import 'package:myapp/binding/app_binding.dart';
 
-const primaryColor = Color(0xFFACBDF4);
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      scaffoldBackgroundColor: Color(0xFFACBDF4),
-      primaryColor: primaryColor,
-    ),
-    title: '부대 선택',
-    home: Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        title: Text('부대선택 페이지'),
-        automaticallyImplyLeading: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: () {},
-        ),
-      ),
-      body: MyApp(),
-    ),
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  late BuildContext ctx;
-
   @override
   Widget build(BuildContext context) {
-    ctx = context;
-    return Container(
-      margin: const EdgeInsets.all(30),
-      padding: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          width: 1.0,
-          color: Colors.white,
-        ),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Column(
-              children: <Widget>[
-                InkWell(
-                  child: InkWell(
-                    child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/image.png',
-                        width: 180,
-                        height: 180),
-                    onTap: () => showMessage('육군'),
-                  ),
-                ),
-                InkWell(
-                  child: Image.asset(
-                      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/image(1).png',
-                      width: 180,
-                      height: 180),
-                  onTap: () => showMessage('해군'),
-                ),
-                InkWell(
-                  child: Image.asset(
-                      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/image(3).png',
-                      width: 180,
-                      height: 180),
-                  onTap: () => showMessage('공군'),
-                ),
-                InkWell(
-                  child: Image.asset(
-                      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/image(2).png',
-                      width: 180,
-                      height: 180),
-                  onTap: () => showMessage('해병대'),
-                ),
-              ],
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            ),
-          ),
-        ],
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialBinding: AppBinding(), // 의존성 주입등록한 바인딩 클래스 초기화 하는곳
+      // 라우트 설계 필요없음. GetX 사용할 예정
+      home: SignType(),
     );
-  }
-
-  void showMessage(String msg) {
-    final snackbar = SnackBar(content: Text(msg));
-
-    Scaffold.of(ctx)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(snackbar);
   }
 }

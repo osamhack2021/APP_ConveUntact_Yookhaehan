@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+void main() => runApp(AdminInfo());
+const primaryColor = Color(0xFFACBDF4);
 
-void main() => runApp(MyApp());
-const primaryColor = Color(0xFFF7CBD4);
-
-class MyApp extends StatelessWidget {
+class AdminInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFF7CBD4),
+        scaffoldBackgroundColor: Color(0xFFACBDF4),
         primaryColor: primaryColor,
       ),
       //title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('부대 코드 입력 페이지'),
+          title: Text('관리자 개인정보 입력페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
@@ -48,12 +48,12 @@ class MyCustomFormState extends State<MyCustomForm> {
     // Build a Form widget using the _formKey created above.
     return Column(
       children: [
-        const SizedBox(height: 170),
+        SizedBox(height: 200),
         Form(
           key: _formKey,
           child: Container(
             margin: const EdgeInsets.all(30),
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(30.0),
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(
@@ -65,18 +65,50 @@ class MyCustomFormState extends State<MyCustomForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(height: 100),
+                SizedBox(height: 70),
                 TextFormField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.person),
-                    hintText: '부대 코드를 입력하세요.',
-                    labelText: '코드 입력',
+                    hintText: '부대번호를 입력해주세요.',
+                    labelText: '아이디(부대 번호)',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return '부대 코드를 입력하세요.';
+                      return '부대번호를 입력해주세요';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.password),
+                    hintText: '비밀번호를 입력해주세요',
+                    labelText: '비밀번호',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '비밀번호를 입력해주세요';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.email),
+                    hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
+                    labelText: '이메일 주소',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '이메일주소를 입력해주세요';
                     }
                     return null;
                   },
@@ -94,7 +126,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 //         }
                 //       },
                 //     )),
-                const SizedBox(height: 60),
+                const SizedBox(height: 30),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Stack(
@@ -105,9 +137,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                           decoration: const BoxDecoration(
                             gradient: LinearGradient(
                               colors: <Color>[
-                                Color(0xFFF3D0D8),
-                                Color(0xFFF3D0D8),
-                                Color(0xFFF3D0D8),
+                                Color(0xFFACBDF4),
+                                Color(0xFFACBDF4),
+                                Color(0xFFACBDF4),
                               ],
                             ),
                           ),

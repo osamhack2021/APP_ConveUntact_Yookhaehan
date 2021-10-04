@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/menu/menu_widget.dart';
-import 'package:myapp/pages/reservation/facility/facility_football.dart';
-import 'package:myapp/pages/reservation/reservation.dart';
+import 'package:myapp/pages/reservation/facility/basketball/facility_basketball.dart';
+import 'package:myapp/pages/reservation/facility/karaoke/facility_karaoke.dart';
 
-class Reservation extends StatefulWidget {
+class ReservBasketball extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<Reservation> {
+class _MyAppState extends State<ReservBasketball> {
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
   late String title;
@@ -43,7 +43,7 @@ class _MyAppState extends State<Reservation> {
                 });
               },
             ),
-            sliderMain: ReservFootball()),
+            sliderMain: ReservBasketballScreen()),
       ),
     );
   }

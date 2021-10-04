@@ -1,65 +1,49 @@
    
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
-import 'package:get/get.dart';
-import 'package:myapp/components/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 
-class ReservFootball extends StatelessWidget {
+class ReservBasketballScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      title: Text("풋살장"),
+      title: Text("농구장"),
       headerWidget: headerWidget(context),
       //headerBottomBar: headerBottomBarWidget(),
       body: [
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "현재 이용 가능",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.grey,
+                fontWeight: FontWeight.bold
+              )
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container(
               height: 50,
               width: double.infinity,
-              child: Row(
-                children: [
-                  RaisedButton(
-                    child: Text(
-                      '다음',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                      )
-                    ),
-                    onPressed: (){
-                      //Get.to(InfoChangePage());
-                    },
-                    padding: EdgeInsets.all(10.0),
-                    textColor: Colors.white,
-                    color: Colors.pink.shade100,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30))
-                    ),
-                  ),
-                  RaisedButton(
-                    child: Text(
-                      '다음2',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20
-                      ),
-                    ),
-                    onPressed: (){
-                      //Get.to(InfoChangePage());
-                    },
-                    padding: EdgeInsets.all(10.0),
-                    textColor: Colors.white,
-                    color: Colors.pink.shade100,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30))
-                    ),
-                  ),
-                ],
+              child: RaisedButton(
+              onPressed: (){
+                //Get.to(InfoChangePage());
+              },
+              padding: EdgeInsets.all(10.0),
+              child: Text('예약하기', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+              textColor: Colors.white,
+              color: Colors.pink.shade100,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30))
               ),
+            ),
             )
           ],
         ),
@@ -91,7 +75,7 @@ class ReservFootball extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "풋살장",
+              "농구장",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -105,7 +89,7 @@ class ReservFootball extends StatelessWidget {
           radius: 100,
           backgroundColor: Color(0x00000000),
           child: Image.asset(
-            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/football.png',
+            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/basketball.png',
             width: 100,
             height: 100,
           ),

@@ -2,9 +2,11 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/main.dart';
+import 'package:myapp/pages/declaration/declaration_menu.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 import 'package:myapp/pages/my_page/mypage_menu.dart';
+import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
 import 'package:myapp/pages/reservation/reservation_menu.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
@@ -76,9 +78,9 @@ class MenuWidget extends StatelessWidget {
       } else if(icons == Icons.add_circle){
         Get.to(Reservation());
       } else if(icons == Icons.notifications_active){
-        Get.to(HomePage());
+        Get.to(MyReservation());
       } else if(icons == Icons.question_answer_rounded){
-        Get.to(HomePage());
+        Get.to(Declaration());
       } else if(icons == Icons.settings){
         Get.to(SettingPage());
       } else if(icons == Icons.person){

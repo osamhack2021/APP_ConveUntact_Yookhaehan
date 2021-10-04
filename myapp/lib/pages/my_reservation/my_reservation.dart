@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/line_chart_1.dart';
 
-class HomePageScreen extends StatelessWidget {
+class MyReservationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
@@ -64,8 +64,8 @@ class HomePageScreen extends StatelessWidget {
         color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor: Color(0x00000000),
-            child: notice[index].icon,
+            backgroundColor: Colors.pink.shade100,
+            child: notice[index].icon, foregroundColor: Colors.white,
           ),
           title: Text("${notice[index].name} / ${notice[index].date}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(notice[index].intro),

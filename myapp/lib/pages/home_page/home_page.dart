@@ -51,7 +51,7 @@ class HomePageScreen extends StatelessWidget {
 
   Container headerWidget(BuildContext context) => Container(
         child: LineChartSample1(),
-        color: Colors.pink.shade200
+        color: Colors.pink.shade100
       );
 
   ListView listView() {
@@ -61,13 +61,13 @@ class HomePageScreen extends StatelessWidget {
       itemCount: notice.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
-        color: Colors.pink.shade100,
+        color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: Colors.pink.shade100,
             child: notice[index].icon, foregroundColor: Colors.white,
           ),
-          title: Text("${notice[index].name} / ${notice[index].date}", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          title: Text("${notice[index].name} / ${notice[index].date}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(notice[index].intro),
         ),
       ),

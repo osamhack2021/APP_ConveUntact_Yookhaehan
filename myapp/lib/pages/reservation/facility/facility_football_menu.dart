@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/menu/menu_widget.dart';
+import 'package:myapp/pages/reservation/facility/facility_football.dart';
 import 'package:myapp/pages/reservation/reservation.dart';
 
 class Reservation extends StatefulWidget {
@@ -42,7 +43,7 @@ class _MyAppState extends State<Reservation> {
                 });
               },
             ),
-            sliderMain: ReservationScreen()),
+            sliderMain: ReservFootball()),
       ),
     );
   }

@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/components/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
@@ -36,7 +35,7 @@ class MyPageScreen extends StatelessWidget {
               width: double.infinity,
               child: RaisedButton(
               onPressed: (){
-                Get.to(HomePage());
+                //Get.to(InfoChangePage());
               },
               padding: EdgeInsets.all(10.0),
               child: Text('수정하기', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
@@ -69,14 +68,18 @@ class MyPageScreen extends StatelessWidget {
   //}
 
   Container headerWidget(BuildContext context) => Container(
-    color: Colors.pink.shade200,
+    color: Colors.pink.shade100,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CircleAvatar(
           radius: 100,
           backgroundColor: Colors.white,
-          child: Icon(Icons.person), foregroundColor: Colors.grey,
+          child: Image.asset(
+            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
+            width: 150,
+            height: 150
+          ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,

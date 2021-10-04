@@ -12,10 +12,10 @@ class SettingPage extends StatelessWidget {
         color: Colors.white,
         fontWeight: FontWeight.w300);
     return Scaffold(
-      backgroundColor: Colors.pink.shade200,
+      backgroundColor: Colors.pink.shade100,
       appBar: AppBar(
         title: Text("앱 설정"),
-        backgroundColor: Colors.pink.shade200,
+        backgroundColor: Colors.pink.shade100,
       ),
       body: Column(
         children: [

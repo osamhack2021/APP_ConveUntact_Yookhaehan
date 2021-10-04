@@ -16,7 +16,7 @@ class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink.shade200,
+      color: Colors.pink.shade100,
       padding: const EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +27,11 @@ class MenuWidget extends StatelessWidget {
           CircleAvatar(
             radius: 65,
             backgroundColor: Colors.white,
-            child: Icon(Icons.person), foregroundColor: Colors.grey,
+            child: Image.asset(
+              '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
+              width: 100,
+              height: 100
+            ),
           ),
           SizedBox(
             height: 20,

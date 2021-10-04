@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:myapp/components/facility_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/reservation/facility/facility_football.dart';
 
 import '../../components/line_chart_1.dart';
 
@@ -52,7 +54,7 @@ class ReservationScreen extends StatelessWidget {
   //}
 
   Container headerWidget(BuildContext context) => Container(
-    color: Colors.pink.shade200,
+    color: Colors.pink.shade100,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -70,9 +72,13 @@ class ReservationScreen extends StatelessWidget {
           ],
         ),
         CircleAvatar(
-          radius: 80,
-          backgroundColor: Colors.white,
-          child: Icon(Icons.person), foregroundColor: Colors.grey,
+          radius: 50,
+          backgroundColor: Color(0x00000000),
+          child: Image.asset(
+            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/reserved.png',
+            width: 100,
+            height: 100
+          ),
         ),
       ],
     ),
@@ -85,14 +91,17 @@ class ReservationScreen extends StatelessWidget {
       itemCount: teamFacility.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
-        color: Colors.pink.shade100,
+        color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: teamFacility[index].icon, foregroundColor: Colors.pink.shade200,
+            backgroundColor: Colors.pink.shade100,
+            child: teamFacility[index].icon, foregroundColor: Colors.white,
           ),
-          title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(teamFacility[index].intro),
+          onTap: (){
+            Get.to(ReservFootball());
+          },
         ),
       ),
     );
@@ -112,6 +121,9 @@ class ReservationScreen extends StatelessWidget {
           ),
           title: Text("${personalFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(personalFacility[index].intro),
+          onTap: (){
+            Get.to(ReservFootball());
+          },
         ),
       ),
     );

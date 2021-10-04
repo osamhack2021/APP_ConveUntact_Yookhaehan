@@ -26,7 +26,7 @@ class _MyAppState extends State<HomePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SliderMenuContainer(
-            appBarColor: Colors.pink.shade200,
+            appBarColor: Colors.pink.shade100,
             key: _key,
             sliderMenuOpenSize: 200,
             slideDirection: SlideDirection.RIGHT_TO_LEFT,

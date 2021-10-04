@@ -48,6 +48,7 @@ dependencies:
   flutter_animated_button: ^2.0.0
   google_fonts: ^2.1.0
   draggable_home: ^1.0.2
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:

@@ -7,8 +7,10 @@ import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/login/custom_route.dart';
 import 'package:myapp/pages/home_page/home_page.dart';
 import 'package:myapp/pages/menu/menu_main.dart';
-import 'package:myapp/pages/users.dart';
+import 'package:myapp/pages/user/users.dart';
 import 'package:validators/validators.dart';
+
+void main() => runApp(Loginpage());
 
 class Loginpage extends StatelessWidget {
   @override
@@ -220,7 +222,6 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSubmitAnimationCompleted: () {
-
         Navigator.of(context).pushReplacement(FadePageRoute(
           builder: (context) => MyApp(),
         ));

@@ -1,1 +1,0 @@
-// (컴퓨터 번호, 운영체제선택 -> 기존 facility_reservation 화면처럼 구성)

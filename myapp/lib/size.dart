@@ -9,5 +9,5 @@ double getButtonWidth(BuildContext context) {
 }
 
 double getDropDownButtonWidth(BuildContext context) {
-  return getScreenWidth(context) * 0.5;
+  return getScreenWidth(context) * 0.35;
 }

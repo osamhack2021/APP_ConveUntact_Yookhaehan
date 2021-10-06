@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(AdminCheckUnit());
-const primaryColor = Color(0xFFACBDF4);
+void main() => runApp(UserCheckUnit());
+const primaryColor = Color(0xFFF7CBD4);
 
-class AdminCheckUnit extends StatelessWidget {
+class UserCheckUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFACBDF4),
+        scaffoldBackgroundColor: Color(0xFFF7CBD4),
         primaryColor: primaryColor,
       ),
       //title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('생성 부대확인 페이지'),
+          title: Text('사용자 부대확인 페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
@@ -71,7 +71,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 InkWell(
                   child: InkWell(
                     child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/navy.png',
+                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
                         width: 120,
                         height: 120),
                   ),
@@ -120,9 +120,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
                                   ],
                                 ),
                               ),
@@ -133,7 +133,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false
@@ -158,9 +158,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
                                   ],
                                 ),
                               ),
@@ -171,7 +171,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false

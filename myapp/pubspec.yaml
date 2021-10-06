@@ -50,6 +50,8 @@ dependencies:
   draggable_home: ^1.0.2
   flutter_svg: ^0.22.0
   menu_button: ^1.4.2+1
+  fluent_ui: ^3.2.0
+  flutter_combo_box: ^0.0.2+5
 
 dev_dependencies:
   flutter_test:

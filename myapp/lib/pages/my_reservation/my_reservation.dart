@@ -3,13 +3,11 @@ import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/line_chart_1.dart';
-
 class MyReservationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      title: Text("공지사항"),
+      title: Text("나의 예약"),
       //actions: [
         //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
       //],
@@ -17,18 +15,11 @@ class MyReservationScreen extends StatelessWidget {
       //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
           children: [
-            Padding(padding: EdgeInsets.all(10)),
-            Text("공지사항", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
-            Text("${notice.length}건의 내용 존재", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
-            SizedBox(width: 6),
             
           ]
           
         ),
-        Divider(),
         listView(),
       ],
       //fullyStretchable: true,
@@ -50,9 +41,35 @@ class MyReservationScreen extends StatelessWidget {
   //}
 
   Container headerWidget(BuildContext context) => Container(
-        child: LineChartSample1(),
-        color: Colors.pink.shade100
-      );
+    color: Colors.pink.shade100,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "나의 예약",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+          ],
+        ),
+        CircleAvatar(
+          radius: 50,
+          backgroundColor: Color(0x00000000),
+          child: Image.asset(
+            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/reservation_check.png',
+            width: 100,
+            height: 100
+          ),
+        ),
+      ],
+    ),
+    );
 
   ListView listView() {
     return ListView.builder(

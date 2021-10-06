@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/menu/menu_widget.dart';
-import 'package:myapp/pages/reservation/facility/computer/facility_computer.dart';
 import 'package:myapp/pages/reservation/facility/football/facility_football.dart';
-import 'package:myapp/pages/reservation/facility/karaoke/facility_karaoke.dart';
+import 'package:myapp/pages/reservation/facility/karaoke/facility_1co_karaoke.dart';
 import 'package:myapp/pages/reservation/reservation.dart';
 
-class ReservComputer extends StatefulWidget {
+class Reserv1Karaoke extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<ReservComputer> {
+class _MyAppState extends State<Reserv1Karaoke> {
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
   late String title;
@@ -45,7 +44,7 @@ class _MyAppState extends State<ReservComputer> {
                 });
               },
             ),
-            sliderMain: ReservComputerScreen()),
+            sliderMain: Reserv1KaraokeScreen()),
       ),
     );
   }

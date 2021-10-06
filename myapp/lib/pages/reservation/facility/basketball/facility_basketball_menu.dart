@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/menu/menu_widget.dart';
 import 'package:myapp/pages/reservation/facility/basketball/facility_basketball.dart';
-import 'package:myapp/pages/reservation/facility/karaoke/facility_karaoke.dart';
+import 'package:myapp/pages/reservation/facility/karaoke/facility_1co_karaoke.dart';
 
 class ReservBasketball extends StatefulWidget {
   @override

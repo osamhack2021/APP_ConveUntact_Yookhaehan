@@ -4,9 +4,9 @@ import 'package:myapp/components/facility_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/reservation/facility/basketball/facility_basketball_menu.dart';
-import 'package:myapp/pages/reservation/facility/computer/facility_computer_menu.dart';
+import 'package:myapp/pages/reservation/facility/computer/facility_1co_computer_menu.dart';
 import 'package:myapp/pages/reservation/facility/football/facility_football_menu.dart';
-import 'package:myapp/pages/reservation/facility/karaoke/facility_karaoke_menu.dart';
+import 'package:myapp/pages/reservation/facility/karaoke/facility_1co_karaoke_menu.dart';
 import 'package:myapp/pages/reservation/facility/library/facility_library_menu.dart';
 import 'package:myapp/pages/reservation/facility/playground/facility_playground_menu.dart';
 import 'package:myapp/pages/reservation/facility/soccer/facility_soccer_menu.dart';
@@ -138,10 +138,18 @@ class ReservationScreen extends StatelessWidget {
           title: Text("${personalFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(personalFacility[index].intro),
           onTap: (){
-            if(personalFacility[index].name == '노래방'){
-              Get.to(ReservKaraoke());
-            } else if(personalFacility[index].name == '사이버 지식 정보방'){
-              Get.to(ReservComputer());
+            if(personalFacility[index].name == '1CO 노래방'){
+              Get.to(Reserv1Karaoke());
+            } else if(personalFacility[index].name == '2CO 노래방'){
+              Get.to(Reserv1Karaoke());
+            } else if(personalFacility[index].name == '3CO 노래방'){
+              Get.to(Reserv1Karaoke());
+            } else if(personalFacility[index].name == '1CO 사이버지식정보방'){
+              Get.to(Reserv1Computer());
+            } else if(personalFacility[index].name == '2CO 사이버지식정보방'){
+              Get.to(Reserv1Computer());
+            } else if(personalFacility[index].name == '3CO 사이버지식정보방'){
+              Get.to(Reserv1Computer());
             }
           },
         ),

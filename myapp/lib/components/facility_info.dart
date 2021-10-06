@@ -41,32 +41,32 @@ List<Facility> teamFacility = [
 List<Facility> personalFacility = [
   Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
-    name: "사이버 지식 정보방",
+    name: "1CO 사이버지식정보방",
     intro: "1 중대 이용 가능",
   ),
     Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
-    name: "사이버 지식 정보방",
+    name: "2CO 사이버지식정보방",
     intro: "2 중대 이용 가능",
   ),
     Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
-    name: "사이버 지식 정보방",
+    name: "3CO 사이버지식정보방",
     intro: "3 중대 이용 가능",
   ),
   Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/karaoke.png'),
-    name: "노래방",
+    name: "1CO 노래방",
     intro: "1 중대 이용 가능",
   ),
     Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/karaoke.png'),
-    name: "노래방",
+    name: "2CO 노래방",
     intro: "2 중대 이용 가능",
   ),
     Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/karaoke.png'),
-    name: "노래방",
+    name: "3CO노래방",
     intro: "3 중대 이용 가능",
   ),
 ];

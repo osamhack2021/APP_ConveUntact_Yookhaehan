@@ -134,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  fluent_ui:
+    dependency: "direct main"
+    description:
+      name: fluent_ui
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -146,6 +153,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  flutter_combo_box:
+    dependency: "direct main"
+    description:
+      name: flutter_combo_box
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2+5"
   flutter_inner_drawer:
     dependency: "direct main"
     description:
@@ -382,6 +396,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   rxdart:
     dependency: "direct main"
     description:

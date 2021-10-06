@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 
-class ReservKaraokeScreen extends StatelessWidget {
+class Reserv1KaraokeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(

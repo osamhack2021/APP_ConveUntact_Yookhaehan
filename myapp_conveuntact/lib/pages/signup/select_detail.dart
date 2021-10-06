@@ -191,15 +191,53 @@ class _FullyFunctionalAwesomeDropDownState
                       },
                     ),
                   ),
+                  SizedBox(height: 70),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: <Color>[
+                                  Color(0xFFACBDF4),
+                                  Color(0xFFACBDF4),
+                                  Color(0xFFACBDF4),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(20.0),
+                            primary: Color(0xFFFFFFFF),
+                            alignment: Alignment.center,
+                            textStyle: const TextStyle(fontSize: 50),
+                          ),
+                          onPressed: () {
+                            // It returns true if the form is valid, otherwise returns false
+                            // if (_formKey.currentState!.validate()) {
+                            //   // If the form is valid, display a Snackbar.
+                            //   Scaffold.of(context)
+                            //       .showSnackBar(SnackBar(content: Text('완료.')));
+                            //   Get.to(());
+                            // }
+                            print(_list[1]);
+                          },
+                          child: const Text('다음'),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
-                
               ),
-
             ),
           ),
         ));
   }
-
 
   /// this func is used to close dropDown (if open) when you tap or pandown anywhere in the screen
   /// this method is also used for iOS backPressed as mentioned in gif

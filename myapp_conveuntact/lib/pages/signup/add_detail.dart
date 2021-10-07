@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
+import 'package:myapp/pages/signup/admin_finish_signup.dart';
 
 void main() => runApp(AddDetail());
 const primaryColor = Color(0xFFACBDF4);
@@ -79,7 +80,7 @@ class Selectdtail extends State<Add_detail_Unit> {
                       RaisedButton(
                           onPressed: () {
                             print(todos);
-                            Get.to(Loginpage());
+                            Get.to(AdminFinishSignup());
                           },
                           child: Text('저장')),
                     ]);

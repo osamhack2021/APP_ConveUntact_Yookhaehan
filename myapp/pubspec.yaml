@@ -32,8 +32,7 @@ dependencies:
   get: ^4.1.4 # GetX
   draggable_home: ^1.0.2
   intl: ^0.17.0 # date 형식 변환
-  charts_flutter: ^0.11.0 # 그래프그리기 후보 1
-  fl_chart: ^0.40.0 # 그래프 후보 2
+  syncfusion_flutter_charts: ^19.3.44+1 # 그래프 그리기
 
 
   # The following adds the Cupertino Icons font to your application.

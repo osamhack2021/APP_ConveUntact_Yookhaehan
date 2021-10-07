@@ -82,7 +82,7 @@ class FacilityPage extends StatelessWidget {
         color: Colors.indigo[200],
         child: Column(
           children: [
-            CustomAppbar(),
+            CustomAppbar(title: "부대 시설 현황"),
             Padding(
               padding: const EdgeInsets.only(top: 40),
               child: Row(

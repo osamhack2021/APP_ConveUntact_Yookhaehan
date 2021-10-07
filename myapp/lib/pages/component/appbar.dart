@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
+  final String title;
 
+  const CustomAppbar({required this.title});
+  
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,7 +29,7 @@ class CustomAppbar extends StatelessWidget {
       ],
       centerTitle: true,
       title: Text(
-        "공지사항 작성",
+        "${title}",
         textAlign: TextAlign.center,
         style: TextStyle(color: Colors.black),
       ),

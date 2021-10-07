@@ -314,7 +314,7 @@ class _WriteNoticeState extends State<WriteNotice> {
         color: Colors.indigo[200],
         child: Column(
           children: [
-            CustomAppbar(),
+            CustomAppbar(title: "공지사항 작성"),
             Padding(
               padding: const EdgeInsets.only(top: 40),
               child: Row(

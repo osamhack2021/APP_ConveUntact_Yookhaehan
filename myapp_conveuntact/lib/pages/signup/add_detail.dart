@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/login/login_screen.dart';
 
 void main() => runApp(AddDetail());
 const primaryColor = Color(0xFFACBDF4);
@@ -75,6 +76,12 @@ class Selectdtail extends State<Add_detail_Unit> {
                             Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                           },
                           child: Text("확인")),
+                      RaisedButton(
+                          onPressed: () {
+                            print(todos);
+                            Get.to(Loginpage());
+                          },
+                          child: Text('저장')),
                     ]);
               });
         },

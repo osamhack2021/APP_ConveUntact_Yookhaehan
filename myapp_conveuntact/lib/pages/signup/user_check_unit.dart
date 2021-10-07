@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/signup/user_finish_signup.dart';
 
 void main() => runApp(UserCheckUnit());
 const primaryColor = Color(0xFFF7CBD4);
@@ -24,7 +25,7 @@ class UserCheckUnit extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
-              Get.back();
+              Get.to(UserFinishSignup());
             },
           ),
         ),
@@ -134,6 +135,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
+                                Get.to(UserFinishSignup());
                               }
                             },
                             child: const Text('   예   '),

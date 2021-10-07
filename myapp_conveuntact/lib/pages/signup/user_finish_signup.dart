@@ -4,12 +4,12 @@ import 'package:myapp/pages/login/login_screen.dart';
 import 'package:myapp/pages/signup/unitcode.dart';
 
 const unitcode = '211022';
-const primaryColor = Color(0xFFACBDF4);
-void main() => runApp(const FinishSignup());
+const primaryColor = Color(0xFFF7CBD4);
+void main() => runApp(const UserFinishSignup());
 
 /// This is the main application widget.
-class FinishSignup extends StatelessWidget {
-  const FinishSignup({Key? key}) : super(key: key);
+class UserFinishSignup extends StatelessWidget {
+  const UserFinishSignup({Key? key}) : super(key: key);
 
   //static const String _title = 'Test TextButton';
 
@@ -17,7 +17,7 @@ class FinishSignup extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFACBDF4),
+        scaffoldBackgroundColor: Color(0xFFF7CBD4),
         primaryColor: primaryColor,
       ),
       //title: _title,
@@ -55,17 +55,17 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 50,
                   color: Colors.white)),
           SizedBox(height: 120),
-          Text('환영합니다!',
+          Text('환영합니다! \n000님',
               style: TextStyle(
                   //fontWeight: FontWeight.bold,
                   fontSize: 70,
                   color: Colors.white)),
-          SizedBox(height: 30),
-          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${unitcode} 입니다.',
+          SizedBox(height: 40),
+          Text('회원가입이 성공적으로 완료되었습니다.',
               style: TextStyle(
-                  // fontWeight: FontWeight.,
-                  fontSize: 25,
-                  color: Colors.white)),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black26)),
           // TextButton(
           //   style: TextButton.styleFrom(
           //     textStyle: const TextStyle(fontSize: 20),
@@ -81,7 +81,7 @@ class MyStatelessWidget extends StatelessWidget {
           //   onPressed: () {},
           //   child: const Text('관리자'),
           // ),
-          SizedBox(height: 250),
+          SizedBox(height: 130),
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Stack(

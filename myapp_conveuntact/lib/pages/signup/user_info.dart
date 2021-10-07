@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/signup/unitcode.dart';
 import 'user_check_unit.dart';
 
 void main() => runApp(UserInfo());
@@ -195,7 +196,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(UserCheckUnit());
+                            Get.to(UnitCode());
                           }
                         },
                         child: const Text('다음'),

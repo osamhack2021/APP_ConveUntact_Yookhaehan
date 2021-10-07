@@ -74,7 +74,7 @@ class Selectdtail extends State<Add_detail_Unit> {
                             });
                             Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                           },
-                          child: Text("확인"))
+                          child: Text("확인")),
                     ]);
               });
         },

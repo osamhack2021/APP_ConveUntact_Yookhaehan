@@ -4,7 +4,7 @@ import 'package:myapp/pages/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:myapp/pages/reservation.dart/reservation.dart';
+import 'package:myapp/pages/signup/finish_signup.dart';
 import 'package:myapp/pages/signup/select_army.dart';
 import 'package:myapp/pages/signup/add_detail.dart';
 import 'package:myapp/pages/signup/select_detail.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // 라우트 설계 필요없음. GetX 사용할 예정
-      home: Reservation(),
+      home: SignType(),
     );
   }
 }

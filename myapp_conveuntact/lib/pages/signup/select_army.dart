@@ -61,17 +61,17 @@ class buildCon extends StatelessWidget {
                   children: [
                     InkWell(
                       child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/army.png',
-                          width: 240,
-                          height: 240),
+                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/army.png',
+                          width: 120,
+                          height: 120),
                       onTap: () => Get.to((AddUnit())),
                     ),
                     const Divider(),
                     InkWell(
                       child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/navy.png',
-                          width: 240,
-                          height: 240),
+                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
+                          width: 120,
+                          height: 120),
                       onTap: () => Get.to((AddUnit())),
                     ),
                   ],
@@ -82,17 +82,17 @@ class buildCon extends StatelessWidget {
                   children: [
                     InkWell(
                       child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/airforce.png',
-                          width: 240,
-                          height: 240),
+                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/airforce.png',
+                          width: 120,
+                          height: 120),
                       onTap: () => Get.to((AddUnit())),
                     ),
                     const Divider(),
                     InkWell(
                       child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/marine.png',
-                          width: 240,
-                          height: 240),
+                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/marine.png',
+                          width: 120,
+                          height: 120),
                       onTap: () => Get.to((AddUnit())),
                     ),
                   ],

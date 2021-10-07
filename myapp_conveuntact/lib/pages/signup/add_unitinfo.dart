@@ -72,7 +72,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 InkWell(
                   child: InkWell(
                     child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/navy.png',
+                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
                         width: 120,
                         height: 120),
                   ),
@@ -134,7 +134,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false
@@ -173,7 +173,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false

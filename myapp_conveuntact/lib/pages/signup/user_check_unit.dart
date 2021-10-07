@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 void main() => runApp(UserCheckUnit());
 const primaryColor = Color(0xFFF7CBD4);
+const Unitinfo = '해군사이버작전센터';
 
 class UserCheckUnit extends StatelessWidget {
   @override
@@ -77,21 +78,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ),
                 ),
                 SizedBox(height: 40),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.person),
-                    hintText: '',
-                    labelText: '부대명',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '';
-                    }
-                    return null;
-                  },
-                ),
+                //Unitinfo 부대확인
+                Text('${Unitinfo}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.black)),
 
                 // new Container(
                 //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
@@ -106,6 +98,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 //         }
                 //       },
                 //     )),
+
                 SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

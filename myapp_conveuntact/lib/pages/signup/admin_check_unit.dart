@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/signup/add_detail.dart';
 
+const Unitinfo = '해군사이버작전센터';
 void main() => runApp(AdminCheckUnit());
 const primaryColor = Color(0xFFACBDF4);
 
@@ -72,27 +73,17 @@ class MyCustomFormState extends State<MyCustomForm> {
                 InkWell(
                   child: InkWell(
                     child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myappP/lib/images/navy.png',
+                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
                         width: 120,
                         height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.person),
-                    hintText: '',
-                    labelText: '부대명',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '';
-                    }
-                    return null;
-                  },
-                ),
+                Text('${Unitinfo}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.black)),
 
                 // new Container(
                 //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
@@ -134,7 +125,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false
@@ -173,7 +164,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 50),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false

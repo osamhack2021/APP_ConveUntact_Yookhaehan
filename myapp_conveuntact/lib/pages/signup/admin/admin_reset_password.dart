@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/finish_reset_password.dart';
-import 'package:myapp/pages/signup/unitcode.dart';
-import 'user_check_unit.dart';
+import 'package:myapp/pages/signup/admin/admin_finish_reset_password.dart';
 
-void main() => runApp(ResetPassword());
-const primaryColor = Color(0xFFF7CBD4);
 
-class ResetPassword extends StatelessWidget {
+void main() => runApp(AdminResetPassword());
+const primaryColor = Color(0xFFACBDF4);
+
+class AdminResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFF7CBD4),
+        scaffoldBackgroundColor: Color(0xFFACBDF4),
         primaryColor: primaryColor,
       ),
       //title: appTitle,
@@ -150,7 +149,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(FinishResetPassword());
+                            Get.to(AdminFinishResetPassword());
                           }
                         },
                         child: const Text('다음'),

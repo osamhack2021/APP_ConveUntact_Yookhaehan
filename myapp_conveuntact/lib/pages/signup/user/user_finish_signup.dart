@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/user/user_info.dart';
+import 'package:myapp/pages/login/login_screen.dart';
 
-import 'admin/admin_info.dart';
 
+const unitcode = '211022';
 const primaryColor = Color(0xFFF7CBD4);
-void main() => runApp(const SignType());
+void main() => runApp(const UserFinishSignup());
 
 /// This is the main application widget.
-class SignType extends StatelessWidget {
-  const SignType({Key? key}) : super(key: key);
+class UserFinishSignup extends StatelessWidget {
+  const UserFinishSignup({Key? key}) : super(key: key);
 
   //static const String _title = 'Test TextButton';
 
@@ -22,17 +22,17 @@ class SignType extends StatelessWidget {
       ),
       //title: _title,
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: primaryColor,
-          title: Text('가입유형 확인페이지'),
-          automaticallyImplyLeading: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Get.back();
-            },
-          ),
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: primaryColor,
+        //   title: Text(''),
+        //   automaticallyImplyLeading: true,
+        //   leading: IconButton(
+        //     icon: Icon(Icons.arrow_back_ios_new),
+        //     onPressed: () {
+        //       Get.back();
+        //     },
+        //   ),
+        // ),
         body: const MyStatelessWidget(),
       ),
     );
@@ -49,12 +49,23 @@ class MyStatelessWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('가입 유형을 선택하세요',
+          Text('ConveUntact',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 50,
                   color: Colors.white)),
-          SizedBox(height: 100),
+          SizedBox(height: 120),
+          Text('환영합니다! \n000님',
+              style: TextStyle(
+                  //fontWeight: FontWeight.bold,
+                  fontSize: 70,
+                  color: Colors.white)),
+          SizedBox(height: 40),
+          Text('회원가입이 성공적으로 완료되었습니다.',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black26)),
           // TextButton(
           //   style: TextButton.styleFrom(
           //     textStyle: const TextStyle(fontSize: 20),
@@ -70,6 +81,7 @@ class MyStatelessWidget extends StatelessWidget {
           //   onPressed: () {},
           //   child: const Text('관리자'),
           // ),
+          SizedBox(height: 130),
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Stack(
@@ -91,43 +103,12 @@ class MyStatelessWidget extends StatelessWidget {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.all(20.0),
                     primary: Colors.black,
-                    textStyle: const TextStyle(fontSize: 65),
+                    textStyle: const TextStyle(fontSize: 60),
                   ),
                   onPressed: () {
-                    Get.to(UserInfo());
+                    Get.to(Loginpage());
                   },
-                  child: const Text('사용자'),
-                ),
-              ],
-            ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[
-                          Color(0xFFFFFFFF),
-                          Color(0xFFFFFFFF),
-                          Color(0xFFFFFFFF),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(20.0),
-                    primary: Colors.black,
-                    textStyle: const TextStyle(fontSize: 65),
-                  ),
-                  onPressed: () {
-                    Get.to(AdminInfo());
-                  },
-                  child: const Text('관리자'),
+                  child: const Text('시작하기'),
                 ),
               ],
             ),

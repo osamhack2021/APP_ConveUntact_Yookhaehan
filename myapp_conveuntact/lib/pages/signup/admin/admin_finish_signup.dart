@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
-import 'package:myapp/pages/signup/unitcode.dart';
 
 const unitcode = '211022';
-const primaryColor = Color(0xFFF7CBD4);
-void main() => runApp(const UserFinishSignup());
+const primaryColor = Color(0xFFACBDF4);
+void main() => runApp(const AdminFinishSignup());
 
 /// This is the main application widget.
-class UserFinishSignup extends StatelessWidget {
-  const UserFinishSignup({Key? key}) : super(key: key);
+class AdminFinishSignup extends StatelessWidget {
+  const AdminFinishSignup({Key? key}) : super(key: key);
 
   //static const String _title = 'Test TextButton';
 
@@ -17,7 +16,7 @@ class UserFinishSignup extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFF7CBD4),
+        scaffoldBackgroundColor: Color(0xFFACBDF4),
         primaryColor: primaryColor,
       ),
       //title: _title,
@@ -55,13 +54,13 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 50,
                   color: Colors.white)),
           SizedBox(height: 120),
-          Text('환영합니다! \n000님',
+          Text('환영합니다! \n관리자님',
               style: TextStyle(
                   //fontWeight: FontWeight.bold,
                   fontSize: 70,
                   color: Colors.white)),
-          SizedBox(height: 40),
-          Text('회원가입이 성공적으로 완료되었습니다.',
+          SizedBox(height: 20),
+          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${unitcode} 입니다.',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

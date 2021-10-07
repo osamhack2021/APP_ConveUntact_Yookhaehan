@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/add_detail.dart';
+import 'package:myapp/pages/signup/admin/admin_check_unit.dart';
 
-const Unitinfo = '해군사이버작전센터';
-void main() => runApp(AdminCheckUnit());
+
+void main() => runApp(AddUnit());
 const primaryColor = Color(0xFFACBDF4);
 
-class AdminCheckUnit extends StatelessWidget {
+class AddUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
@@ -20,7 +20,7 @@ class AdminCheckUnit extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('생성 부대확인 페이지'),
+          title: Text('생성 부대 정보 입력페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
@@ -79,11 +79,21 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ),
                 ),
                 SizedBox(height: 40),
-                Text('${Unitinfo}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.black)),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.person),
+                    hintText: '',
+                    labelText: '당신의 부대정보를 입력하세요.',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '';
+                    }
+                    return null;
+                  },
+                ),
 
                 // new Container(
                 //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
@@ -133,7 +143,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
-                                Get.to(AddDetail());
+                                Get.to(AdminCheckUnit());
                               }
                             },
                             child: const Text('   예   '),

@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/admin_check_unit.dart';
+import 'package:myapp/pages/signup/user/user_finish_signup.dart';
 
-void main() => runApp(AddUnit());
-const primaryColor = Color(0xFFACBDF4);
+void main() => runApp(UserCheckUnit());
+const primaryColor = Color(0xFFF7CBD4);
+const Unitinfo = '해군사이버작전센터';
 
-class AddUnit extends StatelessWidget {
+class UserCheckUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFACBDF4),
+        scaffoldBackgroundColor: Color(0xFFF7CBD4),
         primaryColor: primaryColor,
       ),
       //title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('생성 부대 정보 입력페이지'),
+          title: Text('사용자 부대확인 페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
-              Get.back();
+              Get.to(UserFinishSignup());
             },
           ),
         ),
@@ -78,21 +79,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ),
                 ),
                 SizedBox(height: 40),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.person),
-                    hintText: '',
-                    labelText: '당신의 부대정보를 입력하세요.',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '';
-                    }
-                    return null;
-                  },
-                ),
+                //Unitinfo 부대확인
+                Text('${Unitinfo}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.black)),
 
                 // new Container(
                 //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
@@ -107,6 +99,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 //         }
                 //       },
                 //     )),
+
                 SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -121,9 +114,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
                                   ],
                                 ),
                               ),
@@ -134,7 +127,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 35),
+                              textStyle: const TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false
@@ -142,7 +135,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
-                                Get.to(AdminCheckUnit());
+                                Get.to(UserFinishSignup());
                               }
                             },
                             child: const Text('   예   '),
@@ -160,9 +153,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
-                                    Color(0xFFACBDF4),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
+                                    Color(0xFFF3D0D8),
                                   ],
                                 ),
                               ),
@@ -173,7 +166,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 35),
+                              textStyle: const TextStyle(fontSize: 30),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false

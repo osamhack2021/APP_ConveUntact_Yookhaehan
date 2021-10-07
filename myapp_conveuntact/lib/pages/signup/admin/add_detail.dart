@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
-import 'package:myapp/pages/signup/admin_finish_signup.dart';
+import 'package:myapp/pages/signup/admin/admin_finish_signup.dart';
+
 
 void main() => runApp(AddDetail());
 const primaryColor = Color(0xFFACBDF4);

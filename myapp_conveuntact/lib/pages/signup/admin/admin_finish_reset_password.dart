@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
-import 'package:myapp/pages/signup/unitcode.dart';
 
-const primaryColor = Color(0xFFF7CBD4);
-void main() => runApp(const FinishResetPassword());
+
+const primaryColor = Color(0xFFACBDF4);
+void main() => runApp(const AdminFinishResetPassword());
 
 /// This is the main application widget.
-class FinishResetPassword extends StatelessWidget {
-  const FinishResetPassword({Key? key}) : super(key: key);
+class AdminFinishResetPassword extends StatelessWidget {
+  const AdminFinishResetPassword({Key? key}) : super(key: key);
 
   //static const String _title = 'Test TextButton';
 
@@ -16,7 +16,7 @@ class FinishResetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFF7CBD4),
+        scaffoldBackgroundColor: Color(0xFFACBDF4),
         primaryColor: primaryColor,
       ),
       //title: _title,

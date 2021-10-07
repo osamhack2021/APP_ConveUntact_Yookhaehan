@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/user_check_unit.dart';
+import 'package:myapp/pages/signup/user/user_check_unit.dart';
 
 void main() => runApp(UnitCode());
 const primaryColor = Color(0xFFF7CBD4);

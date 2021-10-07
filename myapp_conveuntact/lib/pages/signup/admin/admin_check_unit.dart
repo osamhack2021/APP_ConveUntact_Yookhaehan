@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/user_finish_signup.dart';
+import 'package:myapp/pages/signup/admin/add_detail.dart';
 
-void main() => runApp(UserCheckUnit());
-const primaryColor = Color(0xFFF7CBD4);
 const Unitinfo = '해군사이버작전센터';
+void main() => runApp(AdminCheckUnit());
+const primaryColor = Color(0xFFACBDF4);
 
-class UserCheckUnit extends StatelessWidget {
+class AdminCheckUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFF7CBD4),
+        scaffoldBackgroundColor: Color(0xFFACBDF4),
         primaryColor: primaryColor,
       ),
       //title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('사용자 부대확인 페이지'),
+          title: Text('생성 부대확인 페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
-              Get.to(UserFinishSignup());
+              Get.back();
             },
           ),
         ),
@@ -79,7 +79,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ),
                 ),
                 SizedBox(height: 40),
-                //Unitinfo 부대확인
                 Text('${Unitinfo}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -99,7 +98,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                 //         }
                 //       },
                 //     )),
-
                 SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -114,9 +112,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFF3D0D8),
-                                    Color(0xFFF3D0D8),
-                                    Color(0xFFF3D0D8),
+                                    Color(0xFFACBDF4),
+                                    Color(0xFFACBDF4),
+                                    Color(0xFFACBDF4),
                                   ],
                                 ),
                               ),
@@ -127,7 +125,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 30),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false
@@ -135,7 +133,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
-                                Get.to(UserFinishSignup());
+                                Get.to(AddDetail());
                               }
                             },
                             child: const Text('   예   '),
@@ -153,9 +151,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                               decoration: const BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: <Color>[
-                                    Color(0xFFF3D0D8),
-                                    Color(0xFFF3D0D8),
-                                    Color(0xFFF3D0D8),
+                                    Color(0xFFACBDF4),
+                                    Color(0xFFACBDF4),
+                                    Color(0xFFACBDF4),
                                   ],
                                 ),
                               ),
@@ -166,7 +164,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               padding: const EdgeInsets.all(20.0),
                               primary: Color(0xFFFFFFFF),
                               alignment: Alignment.center,
-                              textStyle: const TextStyle(fontSize: 30),
+                              textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () {
                               // It returns true if the form is valid, otherwise returns false

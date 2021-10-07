@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/signup/add_unitinfo.dart';
-import 'package:myapp/pages/signup/admin_check_unit.dart';
-import 'package:myapp/pages/signup/admin_info.dart';
 import 'package:get/get.dart';
+
+import 'add_unitinfo.dart';
 
 void main() => runApp(SelectArmy());
 const primaryColor = Color(0xFFACBDF4);

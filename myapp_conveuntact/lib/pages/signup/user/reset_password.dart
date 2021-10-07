@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/unitcode.dart';
+import 'package:myapp/pages/signup/user/user_finish_reset_password.dart';
 import 'user_check_unit.dart';
 
-void main() => runApp(UserInfo());
+void main() => runApp(UserResetPassword());
 const primaryColor = Color(0xFFF7CBD4);
 
-class UserInfo extends StatelessWidget {
+class UserResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
@@ -20,7 +20,7 @@ class UserInfo extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('사용자 개인정보 입력페이지'),
+          title: Text('비밀번호 초기화 페이지'),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
@@ -81,7 +81,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return '군번을 입력해주세요';
+                      return '군번을 입력해주세요.';
                     }
                     return null;
                   },
@@ -93,64 +93,17 @@ class MyCustomFormState extends State<MyCustomForm> {
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.password),
-                    hintText: '비밀번호를 입력해주세요',
-                    labelText: '비밀번호',
+                    hintText: '@ 를 포함하여 입력해 주세요.',
+                    labelText: '이메일',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return '비밀번호를 입력해주세요';
+                      return '이메일을 입력해 주세요.';
                     }
                     return null;
                   },
                 ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.near_me),
-                    hintText: '이름을 입력해 주세요  ex) 홍길동',
-                    labelText: '이름',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '이름을 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.person_add_alt_rounded),
-                    hintText: '계급을 입력해 주세요  ex) 일병',
-                    labelText: '계급',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '계급을 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.email),
-                    hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                    labelText: '이메일 주소',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '이메일주소를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
+
                 // new Container(
                 //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
                 //     child: new RaisedButton(
@@ -196,7 +149,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(UnitCode());
+                            Get.to(UserFinishResetPassword());
                           }
                         },
                         child: const Text('다음'),

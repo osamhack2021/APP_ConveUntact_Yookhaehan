@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/components/scroll_menu_button.dart';
 
 class DeclarationScreen extends StatelessWidget {
+  //text editing controller for text field
+
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
@@ -16,7 +18,52 @@ class DeclarationScreen extends StatelessWidget {
       headerWidget: headerWidget(context),
       //headerBottomBar: headerBottomBarWidget(),
       body: [
-        Row(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "시설 : ",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                      ),
+                    ),
+                    // dropdownButton
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ScrollPhysicsMenuButton(
+                          theme: Theme.of(context),
+                        ),
+                    // dropdownButton 끝
+                      ],
+                    ),
+                    const Text(
+                      "신고 / 문의 내용 : ",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                      ),
+                    ),
+                    //입력 필드
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: '+ 사 유 작 성',
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ],
       //fullyStretchable: true,

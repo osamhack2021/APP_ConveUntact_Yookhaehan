@@ -9,6 +9,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MyReservationScreen extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  
   @override
   Widget build(BuildContext context) {
     final pages = List.generate(
@@ -16,20 +17,50 @@ class MyReservationScreen extends StatelessWidget {
         (index) => Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.grey.shade300,
+                color: Colors.white70,
               ),
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               child: Container(
-                height: 280,
-                child: Center(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.pink.shade100,
-                      child: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/reservation_check.png'),
+                padding: EdgeInsets.all(10),
+                height: 350,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Color(0x00000000),
+                        child: my_reserv[index].image,
+                      ),
+                      title: Text("${my_reserv[index].facility}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+                      //subtitle: Text(my_reserv[index].time),
                     ),
-                    title: Text("${my_reserv[index].facility} / ${my_reserv[index].seat}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-                    subtitle: Text(notice[index].intro),
-                  ),
+                    Divider(),
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Color(0x00000000),
+                        child: Text("좌석"),
+                      ),
+                      title: Text("${my_reserv[index].seat}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      //subtitle: Text(my_reserv[index].time),
+                    ),
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Color(0x00000000),
+                        child: Text("이용 시간"),
+                      ),
+                      title: Text("${my_reserv[index].time}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      //subtitle: Text(my_reserv[index].time),
+                    ),
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Color(0x00000000),
+                        child: Text("승인 여부"),
+                      ),
+                      title: Text("${my_reserv[index].isconfirm}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      //subtitle: Text(my_reserv[index].time),
+                    ),
+                  ],
                 ),
               ),
             )
@@ -117,24 +148,4 @@ class MyReservationScreen extends StatelessWidget {
       ],
     ),
     );
-
-  ListView listView() {
-    return ListView.builder(
-      padding: EdgeInsets.only(top: 0),
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: notice.length,
-      shrinkWrap: true,
-      itemBuilder: (context, index) => Card(
-        color: Colors.white,
-        child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.pink.shade100,
-            child: notice[index].icon, foregroundColor: Colors.white,
-          ),
-          title: Text("${my_reserv[index].facility} / ${notice[index].date}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(notice[index].intro),
-        ),
-      ),
-    );
-  }
 }

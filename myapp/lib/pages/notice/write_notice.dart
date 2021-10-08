@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:intl/intl.dart';
-import 'package:myapp/component/custom_textarea.dart';
-import 'package:myapp/pages/component/appbar.dart';
-import 'package:myapp/size.dart';
-import 'package:myapp/util/validator_util.dart';
 
 class Item {
   const Item(this.name, this.icon);
@@ -107,7 +102,7 @@ class _WriteNoticeState extends State<WriteNotice> {
                                 (Item item) => DropdownMenuItem<Item>(
                                   value: item,
                                   child: Container(
-                                    width: getDropDownButtonWidth(context),
+                                    width: 100,
                                     alignment: Alignment.centerRight,
                                     child: Row(
                                       children: [
@@ -148,10 +143,10 @@ class _WriteNoticeState extends State<WriteNotice> {
                       fontSize: 20),
                 ),
                 //입력 필드
-                CustomTextArea(
-                  controller: _content,
-                  hint: "공지 내용을 입력하세요.",
-                  funValidator: validateContent(),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: '+ 사유를 작성하시오',
+                  ),
                 ),
                 const Text(
                   "적용 날짜 : ",
@@ -277,7 +272,7 @@ class _WriteNoticeState extends State<WriteNotice> {
             children: <Widget>[
               Container(
                 height: 35,
-                width: getButtonWidth(context),
+                width: 100,
                 child: RaisedButton(
                   onPressed: () {
                     //Get.to(HomePage());
@@ -314,7 +309,6 @@ class _WriteNoticeState extends State<WriteNotice> {
         color: Colors.indigo[200],
         child: Column(
           children: [
-            CustomAppbar(),
             Padding(
               padding: const EdgeInsets.only(top: 40),
               child: Row(

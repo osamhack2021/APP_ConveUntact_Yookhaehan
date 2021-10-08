@@ -8,7 +8,7 @@ class Reservation{
     {required this.facility, required this.seat, required this.time, required this.isconfirm});
 }
 
-List<Reservation> computer_1co = [
+List<Reservation> my_reserv = [
   Reservation(
     facility: "1CO 사이버지식정보방",
     seat: "1번 PC",

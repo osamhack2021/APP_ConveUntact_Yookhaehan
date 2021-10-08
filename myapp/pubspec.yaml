@@ -52,6 +52,9 @@ dependencies:
   menu_button: ^1.4.2+1
   fluent_ui: ^3.2.0
   flutter_combo_box: ^0.0.2+5
+  card_swiper: ^1.0.4
+  flutter_swiper: ^1.1.6
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:

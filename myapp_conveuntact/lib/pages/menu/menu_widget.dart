@@ -1,8 +1,13 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/main.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
+import 'package:myapp/pages/declaration/declaration_menu.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/login/login_screen.dart';
+import 'package:myapp/pages/my_page/mypage_menu.dart';
+import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
+import 'package:myapp/pages/reservation/reservation_menu.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -13,7 +18,7 @@ class MenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink.shade200,
+      color: Colors.pink.shade100,
       padding: const EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -24,7 +29,11 @@ class MenuWidget extends StatelessWidget {
           CircleAvatar(
             radius: 65,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('myapp/icons/computer.png'),
+            child: Image.asset(
+              '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
+              width: 100,
+              height: 100
+            ),
           ),
           SizedBox(
             height: 20,
@@ -40,11 +49,13 @@ class MenuWidget extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          Divider(),
           sliderItem('홈 페이지', Icons.home, context),
           sliderItem('시설 예약하기', Icons.add_circle, context),
           sliderItem('나의 예약', Icons.notifications_active, context),
           sliderItem('신고하기', Icons.question_answer_rounded, context),
           sliderItem('앱 설정', Icons.settings, context),
+          sliderItem('마이 페이지', Icons.person, context),
           sliderItem('로그아웃', Icons.logout, context),
         ],
       ),
@@ -62,18 +73,28 @@ class MenuWidget extends StatelessWidget {
     ),
     onTap: () {
       onItemClick!(title);
-      if(title == "홈페이지"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-      } else if(title == "시설 예약하기"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-      } else if(title == "나의 예약"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-      } else if(title == "신고하기"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-      } else if(title == "앱 설정"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SettingPage()));
-      } else if(title == "로그아웃"){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      if(icons == Icons.home){
+        Get.to(HomePage());
+      } else if(icons == Icons.add_circle){
+        Get.to(Reservation());
+      } else if(icons == Icons.notifications_active){
+        Get.to(MyReservation());
+      } else if(icons == Icons.question_answer_rounded){
+        Get.to(Declaration());
+      } else if(icons == Icons.settings){
+        Get.to(SettingPage());
+      } else if(icons == Icons.person){
+        Get.to(MyPage());
+      }else if(icons == Icons.logout){
+        CoolAlert.show(
+          context: context,
+          type: CoolAlertType.confirm,
+          text: "로그아웃 하시겠습니까?",
+          confirmBtnColor: Colors.pink.shade200,
+          onConfirmBtnTap: () async {
+            Get.to(LoginPage());
+          }
+        );
       }
     }
   );

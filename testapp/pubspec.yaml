@@ -36,7 +36,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
   cool_alert: ^1.1.0
+<<<<<<< HEAD:testapp/pubspec.yaml
 
+=======
+  flutter_animated_button: ^2.0.0
+  firebase_core: ^1.6.0
+  firebase_auth: ^3.1.1
+  cloud_firestore: ^2.5.3
+  awesome_dropdown: ^0.0.4
+  multi_select_flutter: ^4.0.0
+>>>>>>> GetXblog_jiho:myapp_conveuntact/pubspec.yaml
 dev_dependencies:
   flutter_test:
     sdk: flutter

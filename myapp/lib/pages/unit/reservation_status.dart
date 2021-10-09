@@ -20,9 +20,9 @@ class Employee {
   String? lastName;
   int? id;
   String? email;
- 
+
   Employee({this.firstName, this.lastName, this.id, this.email});
- 
+
   static List<Employee> getUsers() {
     return <Employee>[
       Employee(
@@ -54,20 +54,16 @@ class Employee {
   }
 }
 
-
-
-class PostNotice extends StatefulWidget {
+class ReservationStatus extends StatefulWidget {
   @override
-  _PostNoticeState createState() => _PostNoticeState();
+  _ReservationStatusState createState() => _ReservationStatusState();
 }
 
-class _PostNoticeState extends State<PostNotice> {
-
+class _ReservationStatusState extends State<ReservationStatus> {
   List<Employee>? emps;
- 
+
   @override
   void initState() {
- 
     emps = Employee.getUsers();
     super.initState();
   }
@@ -79,11 +75,10 @@ class _PostNoticeState extends State<PostNotice> {
       headerWidget: headerWidget(context),
       //headerBottomBar: headerBottomBarWidget(),
       body: [
-          Expanded(
-            child: tableBody(
-              context,
-            ),
-          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 20.0),
+          child: custumTable(),
+        ),
       ],
       //fullyStretchable: true,
       //expandedBody: Text("Expanded"),
@@ -103,7 +98,7 @@ class _PostNoticeState extends State<PostNotice> {
                   Row(
                     children: [
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "9월 19일",
@@ -120,25 +115,24 @@ class _PostNoticeState extends State<PostNotice> {
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               //letterSpacing: 0.5,
-                              fontSize: 40,
+                              fontSize: 30,
                             ),
                           ),
                         ],
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Text(
-                            "육군 어느 부대",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              //letterSpacing: 0.5,
-                              fontSize: 40,
-                            ),
-                          ),
+                        "부대명",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          //letterSpacing: 0.5,
+                          fontSize: 30,
+                        ),
+                      ),
                     ],
-                  ),
-                  Icon(
-                    Icons.notifications_none,
-                    size: 80,
                   ),
                 ],
               ),
@@ -146,84 +140,159 @@ class _PostNoticeState extends State<PostNotice> {
           ],
         ),
       );
-      
-      SingleChildScrollView tableBody(BuildContext ctx) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: DataTable(
-          dataRowHeight: 50,
-          dividerThickness: 5,
-     
-          columns: [
-            DataColumn(
-              label: Text(
-                "First Name",
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.deepOrange,
-                ),
-              ),
-              numeric: false,
-              tooltip: "This is First Name",
-          
-            ),
-            DataColumn(
-              label: Text(
-                "Last Name",
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.deepOrange,
-                ),
-              ),
-              numeric: false,
-              tooltip: "This is Last Name",
-            ),
-            DataColumn(
-              label: Text(
-                "Id",
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.deepOrange,
-                ),
-              ),
-              numeric: true,
-        
-            ),
-            DataColumn(
-              label: Text(
-                "Email Id",
-                style: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.deepOrange,
-                ),
-              ),
-              numeric: false,
-             ),
-          ],
-          rows: emps!
-              .map(
-                (emp) => DataRow(
-                   cells: [
-                      DataCell(
-                        Text(emp.firstName!),
-                                      ),
-                      DataCell(
-                        Text(emp.firstName!),
-                                      ),
-                      DataCell(
-                        Text('${emp.id}'),
-                                    ),
-                      DataCell(
-                        Text('${emp.email}'),
-                      ),
-                    ]),
-              ) .toList(),
+
+  DataTable custumTable() {
+    return DataTable(
+      dividerThickness: 2,
+      columns: const <DataColumn>[
+        DataColumn(
+          label: Text(
+            '상태',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
+      
+        DataColumn(
+          label: Text(
+            '계급',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            '이름',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        DataColumn(
+          label: Text(
+            '장소',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+      rows: const <DataRow>[
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '3층 사지방',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '3층 사지방',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '3층 사지방',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '독서실',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '독서실',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+            DataCell(Text(
+              '??',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '일병',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '홍길동',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+            DataCell(Text(
+              '독서실',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            )),
+          ],
+        ),
+      ],
     );
   }
 }
-
-

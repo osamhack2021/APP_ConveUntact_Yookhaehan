@@ -33,12 +33,9 @@ dependencies:
   draggable_home: ^1.0.2
   intl: ^0.17.0 # date 형식 변환
   syncfusion_flutter_charts: ^19.3.44+1 # 그래프 그리기
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   validators: ^3.0.0
+  
 
 dev_dependencies:
   flutter_test:

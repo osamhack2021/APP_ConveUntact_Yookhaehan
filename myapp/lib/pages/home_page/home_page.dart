@@ -7,7 +7,7 @@ import 'draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 
-class HomePage extends StatelessWidget {
+class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(

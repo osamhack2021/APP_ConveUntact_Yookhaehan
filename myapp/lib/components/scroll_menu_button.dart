@@ -22,6 +22,8 @@ class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
     '농구장',
     '족구장',
     '연병장',
+    '탁구장',
+    '다목적실',
     '독서실',
     '1CO 사이버지식정보방',
     '2CO 사이버지식정보방',
@@ -40,7 +42,7 @@ class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
   @override
   Widget build(BuildContext context) {
     final Widget scrollChildButton = SizedBox(
-      width: 400,
+      width: 300,
       height: 40,
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 11),

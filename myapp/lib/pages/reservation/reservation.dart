@@ -3,17 +3,11 @@ import 'package:get/get.dart';
 import 'package:myapp/components/facility_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/football_list_page.dart';
 import 'package:myapp/pages/reservation/facility/basketball/basketball_rez_page.dart';
-import 'package:myapp/pages/reservation/facility/basketball/facility_basketball_menu.dart';
 import 'package:myapp/pages/reservation/facility/computer/facility_1co_computer_menu.dart';
-import 'package:myapp/pages/reservation/facility/football/facility_football_menu.dart';
 import 'package:myapp/pages/reservation/facility/football/football_rez_page.dart';
 import 'package:myapp/pages/reservation/facility/karaoke/facility_1co_karaoke_menu.dart';
-import 'package:myapp/pages/reservation/facility/library/facility_library_menu.dart';
-import 'package:myapp/pages/reservation/facility/playground/facility_playground_menu.dart';
 import 'package:myapp/pages/reservation/facility/playground/playground_rez_page.dart';
-import 'package:myapp/pages/reservation/facility/soccer/facility_soccer_menu.dart';
 import 'package:myapp/components/controller/football_controller.dart';
 import 'package:myapp/components/controller/soccer_controller.dart';
 import 'package:myapp/components/controller/basketball_controller.dart';
@@ -21,8 +15,6 @@ import 'package:myapp/components/controller/playground_controller.dart';
 import 'package:myapp/components/controller/utilityHall_controller.dart';
 import 'package:myapp/pages/reservation/facility/soccer/soccer_rez_page.dart';
 import 'package:myapp/pages/reservation/facility/utilityhall/utilityHall_rez_page.dart';
-
-import '../../components/line_chart_1.dart';
 
 class ReservationScreen extends StatelessWidget {
   SoccerController _soccercontroller = Get.put(SoccerController());
@@ -160,6 +152,7 @@ class ReservationScreen extends StatelessWidget {
     );
   }
   ListView personalListView() {
+    bool selected = true;
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
@@ -176,7 +169,7 @@ class ReservationScreen extends StatelessWidget {
           subtitle: Text(personalFacility[index].intro),
           onTap: (){
             if(personalFacility[index].name == '1CO 노래방'){
-              Get.to(Reserv1Karaoke());
+              //Get.to(Reserv1Karaoke());
             } else if(personalFacility[index].name == '2CO 노래방'){
               Get.to(Reserv1Karaoke());
             } else if(personalFacility[index].name == '3CO 노래방'){

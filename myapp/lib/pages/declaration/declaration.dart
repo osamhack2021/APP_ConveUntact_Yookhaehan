@@ -1,12 +1,18 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:myapp/components/pc_info.dart';
 import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/components/scroll_menu_button.dart';
+import 'package:myapp/components/textarea.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
 
 class DeclarationScreen extends StatelessWidget {
   //text editing controller for text field
+  final _content = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class DeclarationScreen extends StatelessWidget {
                     Text(
                       "시설 : ",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.grey,
                         fontWeight: FontWeight.bold,
                         fontSize: 20
                       ),
@@ -45,19 +51,49 @@ class DeclarationScreen extends StatelessWidget {
                     // dropdownButton 끝
                       ],
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
                     const Text(
                       "신고 / 문의 내용 : ",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.grey,
                         fontWeight: FontWeight.bold,
                         fontSize: 20
                       ),
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
                     //입력 필드
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: '+ 사 유 작 성',
+                    Expanded(
+                      child: CustomTextArea(
+                        controller: _content,
+                        hint: "+ 사 유 작 성",
+                        funValidator: null,
+                        bordercolor: Colors.pink.shade100,
                       ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustromElevatedButton(
+                      text: "작성 완료",
+                      onPressed: () {
+                        CoolAlert.show(
+                          context: context,
+                          type: CoolAlertType.success,
+                          text: "신고/문의가 접수되었습니다.",
+                          confirmBtnColor: Colors.pink.shade200,
+                          onConfirmBtnTap: () async {
+                            Get.to(HomePage());
+                          }
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -111,17 +147,17 @@ class DeclarationScreen extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-                child: ScrollPhysicsMenuButton(
-                  theme: Theme.of(context),
-                ),
-            ),
-          ],
-        ),
+        //Row(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //children: <Widget>[
+            //Padding(
+              //padding: const EdgeInsets.only(bottom: 12),
+                //child: ScrollPhysicsMenuButton(
+                  //theme: Theme.of(context),
+                //),
+            //),
+          //],
+        //),
       ],
     ),
   );

@@ -6,8 +6,9 @@ class CustomTextArea extends StatelessWidget {
   final String hint;
   final funValidator;
   final TextEditingController controller;
+  final bordercolor;
   
-  const CustomTextArea({required this.hint, required this.funValidator, required this.controller});
+  const CustomTextArea({required this.hint, required this.funValidator, required this.controller, required this.bordercolor});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +19,14 @@ class CustomTextArea extends StatelessWidget {
         maxLines: 20,
         validator: funValidator,
         decoration: InputDecoration(
-          hintText: "Enter $hint",
+          hintText: "$hint",
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: Colors.grey),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: bordercolor),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),

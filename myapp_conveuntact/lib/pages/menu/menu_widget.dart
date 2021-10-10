@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/main.dart';
 import 'package:myapp/pages/declaration/declaration_menu.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/login/login_screen.dart';

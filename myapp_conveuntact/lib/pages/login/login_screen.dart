@@ -2,12 +2,25 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
+<<<<<<< HEAD:myapp_conveuntact/lib/pages/login/login_screen.dart
 import 'package:myapp/components/constants.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/components/id_info.dart';
 import 'package:validators/validators.dart';
 
 class LoginPage extends StatelessWidget {
+=======
+import 'package:myapp/pages/home_page/constants.dart';
+import 'package:myapp/pages/login/custom_route.dart';
+import 'package:myapp/pages/home_page/home_page.dart';
+import 'package:myapp/pages/menu/menu_main.dart';
+import 'package:myapp/pages/user/users.dart';
+import 'package:validators/validators.dart';
+
+void main() => runApp(Loginpage());
+
+class Loginpage extends StatelessWidget {
+>>>>>>> GetXblog_jiho:myapp/lib/pages/login/login_screen.dart
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

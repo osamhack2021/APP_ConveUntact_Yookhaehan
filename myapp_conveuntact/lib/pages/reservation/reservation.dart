@@ -3,26 +3,17 @@ import 'package:get/get.dart';
 import 'package:myapp/components/facility_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/reservation/facility/basketball/basketball_rez_page.dart';
+import 'package:myapp/pages/reservation/facility/basketball/facility_basketball_menu.dart';
 import 'package:myapp/pages/reservation/facility/computer/facility_1co_computer_menu.dart';
-import 'package:myapp/pages/reservation/facility/football/football_rez_page.dart';
+import 'package:myapp/pages/reservation/facility/football/facility_football_menu.dart';
 import 'package:myapp/pages/reservation/facility/karaoke/facility_1co_karaoke_menu.dart';
-import 'package:myapp/pages/reservation/facility/playground/playground_rez_page.dart';
-import 'package:myapp/components/controller/football_controller.dart';
-import 'package:myapp/components/controller/soccer_controller.dart';
-import 'package:myapp/components/controller/basketball_controller.dart';
-import 'package:myapp/components/controller/playground_controller.dart';
-import 'package:myapp/components/controller/utilityHall_controller.dart';
-import 'package:myapp/pages/reservation/facility/soccer/soccer_rez_page.dart';
-import 'package:myapp/pages/reservation/facility/utilityhall/utilityHall_rez_page.dart';
+import 'package:myapp/pages/reservation/facility/library/facility_library_menu.dart';
+import 'package:myapp/pages/reservation/facility/playground/facility_playground_menu.dart';
+import 'package:myapp/pages/reservation/facility/soccer/facility_soccer_menu.dart';
+
+import '../../components/line_chart_1.dart';
 
 class ReservationScreen extends StatelessWidget {
-  SoccerController _soccercontroller = Get.put(SoccerController());
-  BasketballController _basketballcontroller = Get.put(BasketballController());
-  FootballController _footballcontroller = Get.put(FootballController());
-  PlaygroundController _playgroundcontroller = Get.put(PlaygroundController());
-  UtilityHallController _utilityHallcontroller = Get.put(UtilityHallController());
-
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
@@ -40,7 +31,7 @@ class ReservationScreen extends StatelessWidget {
           ]
         ),
         Divider(),
-        personalListView(),
+        teamListView(),
         Row(
           children: [
             Padding(padding: EdgeInsets.all(10)),
@@ -48,7 +39,7 @@ class ReservationScreen extends StatelessWidget {
           ]
         ),
         Divider(),
-        teamListView(),
+        personalListView(),
       ],
       //fullyStretchable: true,
       //expandedBody: Text("Expanded"),
@@ -116,35 +107,15 @@ class ReservationScreen extends StatelessWidget {
           subtitle: Text(teamFacility[index].intro),
           onTap: (){
             if(teamFacility[index].name == '풋살장'){
-              _soccercontroller.soccerField.value =
-                _soccercontroller.soccerFieldList[index];
-                _soccercontroller.stAbsTime.value = null;
-                _soccercontroller.endAbsTime.value = null;
-              Get.to(SoccerRezPage(DateTime.now()));
+              Get.to(ReservSoccer());
             } else if(teamFacility[index].name == '농구장'){
-              _basketballcontroller.basketballField.value =
-                _basketballcontroller.basketballFieldList[index];
-                _basketballcontroller.stAbsTime.value = null;
-                _basketballcontroller.endAbsTime.value = null;
-              Get.to(BasketballRezPage(DateTime.now()));
+              Get.to(ReservBasketball());
             } else if(teamFacility[index].name == '족구장'){
-              _footballcontroller.footballField.value =
-                _footballcontroller.footballFieldList[index];
-                _footballcontroller.stAbsTime.value = null;
-                _footballcontroller.endAbsTime.value = null;
-              Get.to(FootballRezPage(DateTime.now()));
-            } else if(teamFacility[index].name == '다목적실'){
-              _utilityHallcontroller.utilityHall.value =
-                _utilityHallcontroller.utilityHallList[index];
-                _utilityHallcontroller.stAbsTime.value = null;
-                _utilityHallcontroller.endAbsTime.value = null;
-              Get.to(UtilityHallRezPage(DateTime.now()));
+              Get.to(ReservFootball());
+            } else if(teamFacility[index].name == '독서실'){
+              Get.to(ReservLibrary());
             } else if(teamFacility[index].name == '연병장'){
-              _playgroundcontroller.playground.value =
-                _playgroundcontroller.playgroundList[index];
-                _playgroundcontroller.stAbsTime.value = null;
-                _playgroundcontroller.endAbsTime.value = null;
-              Get.to(PlaygroundRezPage(DateTime.now()));
+              Get.to(ReservPlayground());
             } 
           },
         ),
@@ -152,7 +123,6 @@ class ReservationScreen extends StatelessWidget {
     );
   }
   ListView personalListView() {
-    bool selected = true;
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
@@ -169,7 +139,7 @@ class ReservationScreen extends StatelessWidget {
           subtitle: Text(personalFacility[index].intro),
           onTap: (){
             if(personalFacility[index].name == '1CO 노래방'){
-              //Get.to(Reserv1Karaoke());
+              Get.to(Reserv1Karaoke());
             } else if(personalFacility[index].name == '2CO 노래방'){
               Get.to(Reserv1Karaoke());
             } else if(personalFacility[index].name == '3CO 노래방'){

@@ -1,5 +1,5 @@
 import 'package:get/instance_manager.dart';
-import 'package:myapp/components/football_controller.dart';
+import 'package:myapp/components/controller/football_controller.dart';
 
 class AppBinding extends Bindings {
 

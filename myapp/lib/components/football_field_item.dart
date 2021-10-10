@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/football_field.dart';
+import 'package:myapp/components/facility_rez_info.dart';
 
 class FootballFieldItem extends StatelessWidget {
   FootballFieldItem({ Key? key, required this.footballField}) : super(key: key);
@@ -16,7 +16,7 @@ class FootballFieldItem extends StatelessWidget {
           color: Color(0xffffffff),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: Colors.blue,
+            color: Colors.pink.shade100,
           ),
         ),
         child: Text(

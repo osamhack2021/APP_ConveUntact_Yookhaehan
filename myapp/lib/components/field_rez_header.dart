@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/facility_info.dart';
 
-class FootballFieldRezHeader extends StatelessWidget {
-  FootballFieldRezHeader({ Key? key, required this.today}) : super(key: key);
+class FieldRezHeader extends StatelessWidget {
+  FieldRezHeader({ Key? key, required this.today, required this.facility}) : super(key: key);
 
   DateTime today;
+  Facility facility;
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +18,10 @@ class FootballFieldRezHeader extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.pink[50],
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: Colors.blue,
-            width: 2,
-          )
+          //border: Border.all(
+            //color: Colors.blue,
+            //width: 2,
+          //)
         ),
         child: Column(
           children: [
@@ -32,10 +34,13 @@ class FootballFieldRezHeader extends StatelessWidget {
                   },
                 ),
                 Spacer(),
-                Container(
-                  width: 36,
-                  height: 36,
-                  color: Colors.blue,
+                CircleAvatar(
+                  backgroundColor: Color(0xffffffff),
+                  child: Image.asset(
+                    '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
+                    width: 30,
+                    height: 30
+                  ),
                 ),
               ],
             ),
@@ -44,17 +49,17 @@ class FootballFieldRezHeader extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "${today.month}월 ${today.day}일\n족구장",
+                    "${today.month}월 ${today.day}일\n${facility.name}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey[800]
                     ),
                   ),
                   Spacer(),
-                  Container(
-                    width: 70,
-                    height: 70,
-                    color: Colors.amber,
+                  CircleAvatar(
+                    backgroundColor: Color(0x00000000),
+                    child: facility.icon,
                   ),
                 ],
               ),

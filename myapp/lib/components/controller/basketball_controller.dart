@@ -1,32 +1,32 @@
-import 'dart:ffi';
-import 'dart:html';
-
+import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
+import 'package:myapp/components/facility_info.dart';
 import 'package:myapp/components/facility_rez.dart';
-import 'package:myapp/components/football_field.dart';
+import 'package:myapp/components/facility_rez_info.dart';
 
-class FootballController extends GetxController {
-  Rx<FootballField> footballField = Rx(FootballField());
-  RxList<FootballField> footballFieldList = RxList();
+class BasketballController extends GetxController {
+  Rx<BasketballField> basketballField = Rx(BasketballField());
+  RxList<BasketballField> basketballFieldList = RxList();
 
   Rx<int?> stAbsTime = Rx<int?>(null);
   Rx<int?> endAbsTime = Rx<int?>(null);
 
   @override
   void onInit() {
-    for(int i=1; i<10; i++){
-      footballFieldList.add(
-        FootballField(
+    Text("단체 이용시설");
+    for(int i=0; i<teamFacility.length; i++){
+      basketballFieldList.add(
+        BasketballField(
           id: i,
-          name: "족구장$i",
+          name: teamFacility[i].name,
           rezs: [
-            FootballRez(
+            BasketballRez(
               id: 1,
               fieldId: i,
               stTime: DateTime.parse("2021-10-08 12:20"),
               endTime: DateTime.parse("2021-10-08 16:20"),
             ),
-            FootballRez(
+            BasketballRez(
               id: 2,
               fieldId: i,
               stTime: DateTime.parse("2021-10-08 14:50"),

@@ -22,11 +22,6 @@ List<Facility> teamFacility = [
     intro: "전 중대 이용 가능",
   ),
   Facility(
-    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/library.png'),
-    name: "독서실",
-    intro: "전 중대 이용 가능",
-  ),
-  Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/playground.png'),
     name: "연병장",
     intro: "전 중대 이용 가능",
@@ -34,6 +29,16 @@ List<Facility> teamFacility = [
   Facility(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/football.png'),
     name: "족구장",
+    intro: "전 중대 이용 가능",
+  ),
+  Facility(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/table_tennis.png'),
+    name: "탁구장",
+    intro: "전 중대 이용 가능",
+  ),
+  Facility(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/utility_hall.png'),
+    name: "다목적실",
     intro: "전 중대 이용 가능",
   ),
 ];
@@ -68,5 +73,10 @@ List<Facility> personalFacility = [
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/karaoke.png'),
     name: "3CO노래방",
     intro: "3 중대 이용 가능",
+  ),
+  Facility(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/library.png'),
+    name: "독서실",
+    intro: "전 중대 이용 가능",
   ),
 ];

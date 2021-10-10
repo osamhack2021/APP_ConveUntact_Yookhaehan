@@ -1,14 +1,17 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/custom_elevated_button.dart';
+import 'package:myapp/components/facility_info.dart';
 import 'package:myapp/components/facility_rez.dart';
-import 'package:myapp/components/football_controller.dart';
-import 'package:myapp/components/football_field_rez_header.dart';
+import 'package:myapp/components/controller/soccer_controller.dart';
+import 'package:myapp/components/field_rez_header.dart';
+import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
 
-class FootballRezPage extends StatelessWidget {
-  FootballRezPage(this.date);
+class SoccerRezPage extends StatelessWidget {
+  SoccerRezPage(this.date);
 
-  FootballController _controller = Get.find<FootballController>();
+  SoccerController _controller = Get.find<SoccerController>();
   DateTime date;
 
   DateTime absMinToDateTime(int absMin) =>
@@ -45,7 +48,15 @@ class FootballRezPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: MediaQuery.of(context).padding.top),
-          FootballFieldRezHeader(today: date),
+          FieldRezHeader(today: date,
+          facility: Facility(
+              icon: Image.asset(
+                '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soccer.png'
+              ),
+              name: "풋살장",
+              intro: "전 중대 이용 가능",
+            )
+          ),
           _gridViewHeader(),
           Expanded(
             child: GridView.builder(
@@ -79,9 +90,9 @@ class FootballRezPage extends StatelessWidget {
                       }
 
                       if(state == RezState.ABLE) {
-                        int cnt = _controller.footballField.value.rezs!.length;
+                        int cnt = _controller.soccerField.value.rezs!.length;
                         for(int i=0; i<cnt; i++){
-                          FootballRez rz = _controller.footballField.value.rezs![i];
+                          SoccerRez rz = _controller.soccerField.value.rezs![i];
                           int stAbsMin = rz.stTime.toAbsMin;
                           int endAbsMin = rz.endTime.toAbsMin;
                           if(stAbsMin <= absMin && endAbsMin > absMin) {
@@ -106,9 +117,9 @@ class FootballRezPage extends StatelessWidget {
                             return;
                           }
                           if(_controller.endAbsTime.value == null) {
-                            int cnt = _controller.footballField.value.rezs!.length;
+                            int cnt = _controller.soccerField.value.rezs!.length;
                             for(int i=0; i<cnt; i++) {
-                              FootballRez rz = _controller.footballField.value.rezs![i];
+                              SoccerRez rz = _controller.soccerField.value.rezs![i];
                               int stAbsMin = rz.stTime.toAbsMin;
                               int endAbsMin = rz.endTime.toAbsMin;
                             
@@ -133,7 +144,23 @@ class FootballRezPage extends StatelessWidget {
               onPressed: () {
                 DateTime s = absMinToDateTime(_controller.stAbsTime.value ?? 0);
                 DateTime e = absMinToDateTime(_controller.endAbsTime.value ?? 0);
-                Get.snackbar("예약일정", "$s ~\n $e");
+                CoolAlert.show(
+                  context: context,
+                  type: CoolAlertType.confirm,
+                  text: "풋살장\n$s ~ $e\n예약하시겠습니까?",
+                  confirmBtnColor: Colors.pink.shade200,
+                  onConfirmBtnTap: () async {
+                    CoolAlert.show(
+                      context: context,
+                      type: CoolAlertType.success,
+                      text: "풋살장\n$s ~ $e\n예약이 성공적으로 완료되었습니다.",
+                      confirmBtnColor: Colors.pink.shade200,
+                      onConfirmBtnTap: () async {
+                        Get.to(MyReservation());
+                      }
+                    );
+                  }
+                );
               },
             ),
           ],

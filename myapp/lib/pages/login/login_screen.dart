@@ -9,9 +9,9 @@ import 'package:myapp/pages/menu/menu_main.dart';
 import 'package:myapp/pages/user/users.dart';
 import 'package:validators/validators.dart';
 
-void main() => runApp(Loginpage());
+void main() => runApp(LoginPage());
 
-class Loginpage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -221,7 +221,7 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSubmitAnimationCompleted: () {
-        Get.to(HomePage());
+        Get.to(HomePageScreen());
       },
       onRecoverPassword: (name) {
         print('Recover password info');

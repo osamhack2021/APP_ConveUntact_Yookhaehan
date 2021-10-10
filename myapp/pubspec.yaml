@@ -1,4 +1,4 @@
-name: testapp
+name: myapp
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -49,9 +49,6 @@ dependencies:
   card_swiper: ^1.0.4
   flutter_swiper: ^1.1.6
   smooth_page_indicator: ^1.0.0+2
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -59,6 +56,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  get: ^4.3.8
+  fl_chart: ^0.40.0
+  cool_alert: ^1.1.0
+  flutter_slider_drawer: ^2.0.0
+  flutter_login: ^2.2.1
+  validators: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

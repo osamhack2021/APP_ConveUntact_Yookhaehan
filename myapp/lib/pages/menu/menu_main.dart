@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                 });
               },
             ),
-            sliderMain: HomePage()),
+            sliderMain: HomePageScreen()),
       ),
     );
   }

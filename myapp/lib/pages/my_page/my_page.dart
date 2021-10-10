@@ -1,11 +1,10 @@
    
 import 'package:flutter/widgets.dart';
 import 'package:myapp/pages/home_page/line_chart_1.dart';
-import 'package:myapp/pages/notice/notice_info.dart';
+import 'package:myapp/components/notice_info.dart';
 
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/home_page/constants.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -49,7 +48,7 @@ class HomePage extends StatelessWidget {
 
   Container headerWidget(BuildContext context) => Container(
         child: LineChartSample1(),
-        color: Colors.pink.shade200
+        color: Colors.pink.shade100
       );
 
   ListView listView() {

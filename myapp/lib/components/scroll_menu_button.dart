@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:menu_button/menu_button.dart';
-
 class ScrollPhysicsMenuButton extends StatefulWidget {
   const ScrollPhysicsMenuButton({
     Key? key,
     required this.theme,
   }) : super(key: key);
-
   final ThemeData theme;
-
   @override
   _ScrollPhysicsMenuButtonState createState() =>
       _ScrollPhysicsMenuButtonState();
 }
-
 class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
   late String selectedKey;
-
   List<String> keys = <String>[
     '풋살장',
     '농구장',
     '족구장',
     '연병장',
+    '탁구장',
+    '다목적실',
     '독서실',
     '1CO 사이버지식정보방',
     '2CO 사이버지식정보방',
@@ -30,17 +27,15 @@ class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
     '2CO 노래방',
     '3CO 노래방',
   ];
-
   @override
   void initState() {
     selectedKey = keys[0];
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     final Widget scrollChildButton = SizedBox(
-      width: 400,
+      width: 300,
       height: 40,
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 11),
@@ -68,7 +63,6 @@ class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
         ),
       ),
     );
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

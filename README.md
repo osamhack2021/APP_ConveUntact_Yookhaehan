@@ -35,25 +35,42 @@
     <li><a href="#Function"><span style="color:grey">기능 설명</a></li>
       <ul>
         <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
       </ul>
     <li><a href="#Prerequisites"><span style="color:grey">컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
     <li><a href="#Stack"><span style="color:grey"> 기술 스택 (Techniques Used)</a></li>
     <li><a href="#Install"><span style="color:grey">설치 안내 (Installation Process)</a></li>
     <li><a href="#Usage"><span style="color:grey">프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#Team"><span style="color:grey">팀 정보 (Team Information)</a></li>
-    <li><a href="#License"><span style="color:grey">저작권 및 사용권 정보 (Copyleft / End User License</a></li>
+    <li><a href="#License"><span style="color:grey">저작권 및 사용권 정보 (Copyleft / End User License)</a></li>
   </ol>
 </details>
 
 
-<h2 id="Introduce">프로잭트 소개</h2>
+<h2 id="Introduce">프로젝트 소개</h2>
 
-- 설명 기입
+### UX/UI Design 
+<table>
+    <tr>
+        <td width="50%">
+            <img src="https://github.com/osamhack2021/APP_ConveUntact_Yookhaehan/blob/6a95086297e8686ea0a608cbade925b8a3ffb766/figma11.PNG">
+        </td>
+        <td width="50%">
+            <img src="https://github.com/osamhack2021/APP_ConveUntact_Yookhaehan/blob/6a95086297e8686ea0a608cbade925b8a3ffb766/figma22.PNG">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="">UI Prototyping</a>
+        </td>
+        <td align="center">
+            <a href="">UI Prototyping (add Comment)</a>
+        </td>
+    </tr>
+</table>
 
 <h2 id="Function">기능 설명</h2>
+###
 
- - 설명 기입
 <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 
 * ECMAScript 6 지원 브라우저 사용
@@ -98,7 +115,7 @@
  </tbody></table>
 
 
-### Server(back-end)
+<!-- ### Server(back-end)
  -  nodejs, php, java 등 서버 언어 버전 
  - express, laravel, sptring boot 등 사용한 프레임워크 
  - DB 등 사용한 다른 프로그램 
@@ -107,7 +124,8 @@
  -  react.js, vue.js 등 사용한 front-end 프레임워크 
  -  UI framework
  - 기타 사용한 라이브러리
-
+ -->
+ 
 <h2 id="Install"> 설치 안내 (Installation Process)</h2>
 
 ```bash

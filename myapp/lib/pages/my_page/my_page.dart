@@ -1,8 +1,6 @@
-   
 import 'package:flutter/widgets.dart';
-import 'package:myapp/pages/home_page/line_chart_1.dart';
+import 'package:myapp/components/line_chart_1.dart';
 import 'package:myapp/components/notice_info.dart';
-
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
 

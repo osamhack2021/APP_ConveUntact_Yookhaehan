@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // 라우트 설계 필요없음. GetX 사용할 예정
-      home: (AdminResetPassword()),
+      home: LoginPage(),
     );
   }
 }

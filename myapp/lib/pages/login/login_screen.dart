@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/home_page/constants.dart';
-import 'package:myapp/pages/login/custom_route.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
-import 'package:myapp/pages/menu/menu_main.dart';
+import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/user/users.dart';
 import 'package:validators/validators.dart';
 
@@ -221,7 +219,7 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSubmitAnimationCompleted: () {
-        Get.to(HomePageScreen());
+        Get.to(HomePage());
       },
       onRecoverPassword: (name) {
         print('Recover password info');

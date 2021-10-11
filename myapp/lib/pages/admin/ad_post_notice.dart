@@ -115,6 +115,7 @@ class _WriteNoticeState extends State<WriteNotice> {
                   controller: _content,
                   hint: "공지 내용을 입력하세요.",
                   funValidator: null,
+                  bordercolor: Colors.indigo.shade200,
                 ),
                 const Text(
                   "적용 날짜 : ",

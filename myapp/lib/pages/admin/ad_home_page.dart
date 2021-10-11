@@ -1,12 +1,11 @@
-   
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/ad_homepage_item.dart';
-import 'package:myapp/pages/home_page/line_chart_1.dart';
-import 'package:myapp/pages/notice/notice_info.dart';
+import 'package:myapp/pages/admin/ad_post_notice.dart';
+import 'package:myapp/components/line_chart_1.dart';
+import 'package:myapp/components/notice_info.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/notice/write_notice.dart';
 
 class ADHomePageScreen extends StatelessWidget {
   @override

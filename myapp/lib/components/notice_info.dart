@@ -1,9 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-final String _urlPrefix = "https://raw.githubusercontent.com/flutter-coder/ui_images/master/messenger";
 
 class Notice{
   final Image icon;

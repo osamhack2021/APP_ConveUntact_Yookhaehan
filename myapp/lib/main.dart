@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/home_page/home_page.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:myapp/pages/signup/admin/admin_reset_password.dart';
-import 'package:myapp/pages/signup/admin/select_army.dart';
-import 'package:myapp/pages/signup/admin/add_detail.dart';
-import 'package:myapp/pages/signup/admin/select_detail.dart';
-import 'package:myapp/pages/signup/signtype.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //await Firebase.initializeApp();
   runApp(MyApp());
 }
 

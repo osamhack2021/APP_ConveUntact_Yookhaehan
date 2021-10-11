@@ -109,7 +109,7 @@ class LoginScreen extends StatelessWidget {
           confirmPasswordError: '비밀번호가 일치하지 않습니다.',
           recoverPasswordIntro: '아이디를 입력하여 PASSWORD를 찾으세요.',
           recoverPasswordDescription: '해당 계정에 등록된 이메일로 비밀번호를 재설정할 링크를 보냅니다.',
-          recoverPasswordSuccess: '비밀번호가 성공적으로 변경되었습니다!',
+          recoverPasswordSuccess: '해당 이메일로 비밀번호를 재설정 할 수 있는 링크를 보냈습니다.',
           flushbarTitleError: 'Error!',
           flushbarTitleSuccess: 'Succes!',
           providersTitle: 'login with'),

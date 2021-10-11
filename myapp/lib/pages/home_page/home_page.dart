@@ -19,8 +19,8 @@ class HomePageScreen extends StatelessWidget {
           children: [
             Padding(padding: EdgeInsets.all(10)),
             Text("공지사항    ", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
+            Spacer(),
             Text("${notice.length}건의 내용 존재", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
-            
             SizedBox(width: 6),
           ]
         ),

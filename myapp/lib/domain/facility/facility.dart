@@ -1,7 +1,7 @@
 import 'package:myapp/domain/unit/unit.dart';
 
 class Facility {
-  final Unit? unit; // 유저네임 (보여지는 이름)
+  final Unit? unit; // 부대 이름, 사진
   final String? name;
   final String? picture;
   final String? detail;

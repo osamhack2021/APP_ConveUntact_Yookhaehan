@@ -6,12 +6,17 @@ class NoticeController extends GetxController {
   final NoticeRepository _NoticeRepository = NoticeRepository();
   final notices = <Notice>[].obs;
   final notice = Notice().obs;
+  final unitcode;
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //   findByUnitCode(unitcode);
-  // }
+  // 객체 생성(create) onInit 함수실행(initialize)
+  // NoticeController n = Get.put(NoticeController());
+  NoticeController(this.unitcode);
+
+  @override
+  void onInit() {
+    super.onInit();
+    findByUnitCode(unitcode);
+  }
 
   Future<List<Notice>> findByUnitCode(String unitcode) async {
     List<Notice> Notices = await _NoticeRepository.findbyCode(unitcode);
@@ -20,7 +25,7 @@ class NoticeController extends GetxController {
   }
 
   Future<void> add(Notice newnotice) async {
-    Notice notice = await _NoticeRepository.save(newnotice);
+    Notice notice = await _NoticeRepository.add(newnotice);
     if (notice.id != null) {
       this.notices.add(notice);
     }

@@ -17,7 +17,7 @@ class NoticeRepository {
     return Notices;
   }
 
-  Future<Notice> save(Notice newNotice) async {
+  Future<Notice> add(Notice newNotice) async {
     DocumentSnapshot result = await _NoticeProvider.add(newNotice);
     return Notice.fromJson(result.data() as Map<String, dynamic>);
   }

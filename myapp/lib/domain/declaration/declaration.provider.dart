@@ -9,7 +9,7 @@ class DeclarationProvider {
   UserController u = Get.find<UserController>();
 
   // 부대코드로 특정 부대에 해당하는 모든 문의 불러오기
-  Future<QuerySnapshot> findbyCode(String unitcode) => FirebaseFirestore.instance
+  Future<QuerySnapshot> findByUnitCode(String unitcode) => FirebaseFirestore.instance
       .collection(_collection)
       .where("unitcode", isEqualTo: "$unitcode")
       .orderBy("created", descending: true)

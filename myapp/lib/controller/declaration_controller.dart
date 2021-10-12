@@ -19,7 +19,7 @@ class DeclarationController extends GetxController {
   }
 
   Future<List<Declaration>> findByUnitCode(String unitcode) async {
-    List<Declaration> declarations = await _DeclarationRepository.findbyCode(unitcode);
+    List<Declaration> declarations = await _DeclarationRepository.findByUnitCode(unitcode);
     this.declarations.value = declarations;
     return declarations;
   }

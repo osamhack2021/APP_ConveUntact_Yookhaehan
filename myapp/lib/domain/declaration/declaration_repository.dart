@@ -9,8 +9,8 @@ class DeclarationRepository {
   UserController u = Get.find<UserController>();
   final DeclarationProvider _DeclarationProvider = DeclarationProvider();
 
-  Future<List<Declaration>> findbyCode(String unitcode) async {
-    QuerySnapshot querySnapshot = await _DeclarationProvider.findbyCode(unitcode);
+  Future<List<Declaration>> findByUnitCode(String unitcode) async {
+    QuerySnapshot querySnapshot = await _DeclarationProvider.findByUnitCode(unitcode);
     List<Declaration> declarations = querySnapshot.docs
         .map((doc) => Declaration.fromJson(doc.data() as Map<String, dynamic>))
         .toList();

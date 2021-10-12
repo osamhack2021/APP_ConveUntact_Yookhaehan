@@ -19,7 +19,7 @@ class NoticeController extends GetxController {
   }
 
   Future<List<Notice>> findByUnitCode(String unitcode) async {
-    List<Notice> Notices = await _NoticeRepository.findbyCode(unitcode);
+    List<Notice> Notices = await _NoticeRepository.findByUnitCode(unitcode);
     this.notices.value = Notices;
     return Notices;
   }

@@ -9,8 +9,8 @@ class NoticeRepository {
   UserController u = Get.find<UserController>();
   final NoticeProvider _NoticeProvider = NoticeProvider();
 
-  Future<List<Notice>> findbyCode(String unitcode) async {
-    QuerySnapshot querySnapshot = await _NoticeProvider.findbyCode(unitcode);
+  Future<List<Notice>> findByUnitCode(String unitcode) async {
+    QuerySnapshot querySnapshot = await _NoticeProvider.findByUnitCode(unitcode);
     List<Notice> Notices = querySnapshot.docs
         .map((doc) => Notice.fromJson(doc.data() as Map<String, dynamic>))
         .toList();

@@ -4,6 +4,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
+import 'package:myapp/pages/signup/signtype.dart';
 import 'package:myapp/pages/user/users.dart';
 import 'package:validators/validators.dart';
 
@@ -213,10 +214,7 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSignup: (loginData) {
-        print('Signup info');
-        print('Name: ${loginData.name}');
-        print('Password: ${loginData.password}');
-        return _loginUser(loginData);
+        Get.to(SignType());
       },
       onSubmitAnimationCompleted: () {
         Get.to(HomePage());

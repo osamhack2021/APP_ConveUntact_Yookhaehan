@@ -5,11 +5,13 @@ import 'package:myapp/pages/menu/menu_widget.dart';
 
 
 class HomePage extends StatefulWidget {
+  static String routeName = "/home_page";
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
   late String title;

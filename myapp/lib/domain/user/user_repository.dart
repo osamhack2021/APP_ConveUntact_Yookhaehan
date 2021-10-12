@@ -49,8 +49,7 @@ class UserRepository {
 
 
   //회원가입
-  Future<User> join(String email, String password, String username, 
-  String rank, String picture, String number, Unit unit, Manner manner, Reservation reservation) async {
+  Future<User> join(String email, String password, String username, String rank, String picture, String number, String unitcode) async {
     UserCredential? userCredential;
     //1. FirebaseAuth에 화원추가
     try {
@@ -71,9 +70,10 @@ class UserRepository {
         rank: rank,
         picture: picture,
         number: number,
-        unit: unit,
-        manner: manner,
-        reservation: reservation,
+        unitcode: unitcode,
+        //unit: unit,
+        //manner: manner,
+        //reservation: reservation,
         created: userCredential.user!.metadata.creationTime,
         updated: userCredential.user!.metadata.creationTime,
       );

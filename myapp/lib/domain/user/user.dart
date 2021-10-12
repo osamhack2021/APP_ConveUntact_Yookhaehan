@@ -4,14 +4,15 @@ import 'package:myapp/domain/unit/unit.dart';
 
 class User {
   final String? uid; // provider_firebaseUid
-  final String? username; // 유저네임 (보여지는 이름)
-  final String? rank;
+  final String? username;
+  final String? rank; // 계급
   final String? email;
   final String? picture; // firestore에서 받아옴 -> 타입변경 가능
-  final String? number;
-  final Unit? unit;
-  final Manner? manner;
-  final Reservation? reservation;
+  final String? number; // 군번
+  final String? unitcode; // 부대코드
+  //final Unit? unit;
+  //final Manner? manner;
+  //final Reservation? reservation;
   final DateTime? created;
   final DateTime? updated;
 
@@ -22,9 +23,10 @@ class User {
     this.email,
     this.picture,
     this.number,
-    this.unit,
-    this.manner,
-    this.reservation,
+    this.unitcode,
+    //this.unit,
+    //this.manner,
+    //this.reservation,
     this.created,
     this.updated,
   });
@@ -38,9 +40,10 @@ class User {
         email = json["email"],
         picture = json["picture"],
         number = json["number"],
-        unit = Unit.fromJson(json["unit"]),
-        manner = Manner.fromJson(json["manner"]),
-        reservation = Reservation.fromJson(json["reservation"]),
+        unitcode = json["unitcode"],
+        //unit = Unit.fromJson(json["unit"]),
+        //manner = Manner.fromJson(json["manner"]),
+        //reservation = Reservation.fromJson(json["reservation"]),
         created = json["created"].toDate(),
         updated = json["updated"].toDate();
 
@@ -51,9 +54,10 @@ class User {
         "email": email,
         "picture": picture,
         "number": number,
-        "unit": unit,
-        "manner": manner,
-        "reservation": reservation,
+        "unitcode": unitcode,
+        //"unit": unit,
+        //"manner": manner,
+        //"reservation": reservation,
         "created": created,
         "updated": updated,
       };

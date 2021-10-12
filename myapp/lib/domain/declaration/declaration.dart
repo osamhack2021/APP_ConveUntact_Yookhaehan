@@ -1,18 +1,20 @@
-import 'package:myapp/domain/facility/facility.dart';
-import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/domain/user/user.dart';
 
 class Declaration {
-  final Unit? unit;
+  final String? id;
   final User? user;
-  final Facility? facility;
+  final String? unitcode;
+  final String? facility_name;
+  final String? facility_picture;
   final String? contents;
   final String? created;
 
   Declaration({
-    this.unit,
+    this.id,
     this.user,
-    this.facility,
+    this.unitcode,
+    this.facility_name,
+    this.facility_picture,
     this.contents,
     this.created,
   });
@@ -20,16 +22,20 @@ class Declaration {
   // 통신을 위해서 json 처럼 생긴 문자열 {"id":1} => Dart 오브젝트
 
   Declaration.fromJson(Map<String, dynamic> json)
-      : unit = Unit.fromJson(json["unit"]),
+      : id = json["id"],
         user = User.fromJson(json["user"]),
-        facility = Facility.fromJson(json["facility"]),
+        unitcode = json["unitcode"],
+        facility_name = json["facility_name"],
+        facility_picture = json["facility_picture"],
         contents = json["contents"],
         created = json["created"].toDate();
 
   Map<String, dynamic> toJson() => {
-        "unit": unit,
+        "id": id,
         "user": user,
-        "facility": facility,
+        "unitcode": unitcode,
+        "facility_name": facility_name,
+        "facility_picture": facility_picture,
         "contents": contents,
         "created": created,
       };

@@ -1,5 +1,3 @@
-import 'package:myapp/domain/facility/facility.dart';
-import 'package:myapp/domain/unit/unit.dart';
 
 class Notice {
   final String? id;

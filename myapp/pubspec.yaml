@@ -38,6 +38,7 @@ dev_dependencies:
   cupertino_icons: ^1.0.2
   flutter_animated_button: ^2.0.0
   firebase_core: ^1.6.0
+  firebase_storage: ^10.0.5
   firebase_auth: ^3.1.1
   cloud_firestore: ^2.5.3
   awesome_dropdown: ^0.0.4
@@ -51,6 +52,11 @@ dev_dependencies:
   card_swiper: ^1.0.4
   flutter_swiper: ^1.1.6
   smooth_page_indicator: ^1.0.0+2
+  # image_picker: ^0.8.4+2
+  dio: ^4.0.0
+  video_player: ^2.2.5 # need uploadimagefile
+
+  image_picker_gallery_camera: ^0.2.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

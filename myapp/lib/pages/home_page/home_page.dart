@@ -24,9 +24,7 @@ class HomePageScreen extends StatelessWidget {
             Spacer(),
             Text("${notice.length}건의 내용 존재", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
             SizedBox(width: 6),
-            
           ]
-          
         ),
         Divider(),
         listView(),

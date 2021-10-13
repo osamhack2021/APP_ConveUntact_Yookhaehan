@@ -2,6 +2,7 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/admin/ad_home_page_menu.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/signup/signtype.dart';
@@ -217,7 +218,7 @@ class LoginScreen extends StatelessWidget {
         Get.to(SignType());
       },
       onSubmitAnimationCompleted: () {
-        Get.to(HomePage());
+        Get.to(ADHomePage());
       },
       onRecoverPassword: (name) {
         print('Recover password info');

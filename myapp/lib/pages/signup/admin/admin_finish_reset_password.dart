@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 
-
 const primaryColor = Color(0xFFACBDF4);
 void main() => runApp(const AdminFinishResetPassword());
 

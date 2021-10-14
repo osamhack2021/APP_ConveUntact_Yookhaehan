@@ -15,6 +15,11 @@ class UserProvider {
   //User 생성하기
   Future<DocumentReference> join(User newUser) =>
       FirebaseFirestore.instance.collection(_collection).add(newUser.toJson());
+      
+  Future<QuerySnapshot> findByEmail(String email) => FirebaseFirestore.instance
+      .collection(_collection)
+      .where("email", isEqualTo: email)
+      .get();
 
   //email 중복체크
   Future<QuerySnapshot> checkEmail(String email) => FirebaseFirestore.instance

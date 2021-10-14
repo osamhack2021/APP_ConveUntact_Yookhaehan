@@ -55,7 +55,7 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 50,
                   color: Colors.white)),
           SizedBox(height: 120),
-          Text('환영합니다! \n000님',
+          Text('환영합니다! \n${Get.arguments}님',
               style: TextStyle(
                   //fontWeight: FontWeight.bold,
                   fontSize: 70,

@@ -49,13 +49,13 @@ class UserRepository {
 
 
   //회원가입
-  Future<User> join(String email, String password, String username, String rank, String picture, String number, String unitcode) async {
+  Future<User> join(User newuser, String password) async {
     UserCredential? userCredential;
     //1. FirebaseAuth에 화원추가
     try {
       userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
+        email: newuser.email!,
         password: password,
       );
     } catch (e) {
@@ -66,11 +66,11 @@ class UserRepository {
       User principal = User(
         uid: "${userCredential.user!.uid}",
         email: userCredential.user!.email,
-        username: username,
-        rank: rank,
-        picture: picture,
-        number: number,
-        unitcode: unitcode,
+        username: newuser.username,
+        rank: newuser.rank,
+        picture: newuser.picture,
+        number: newuser.number,
+        unitcode: newuser.unitcode,
         //unit: unit,
         //manner: manner,
         //reservation: reservation,
@@ -87,6 +87,13 @@ class UserRepository {
     }
   }
 
+  Future<User> findByEmail(String email) async {
+    QuerySnapshot snapshot = await _userProvider.findByEmail(email);
+    DocumentSnapshot result = snapshot.docs.first;
+    return result.data() == null
+        ? User()
+        : User.fromJson(result.data() as Map<String, dynamic>);
+  }
   //중복체크용
   Future<int> checkEmail(String email) async {
     QuerySnapshot querySnapshot = await _userProvider.checkEmail(email);

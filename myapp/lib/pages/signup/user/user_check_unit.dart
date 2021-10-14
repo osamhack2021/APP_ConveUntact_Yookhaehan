@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/pages/signup/user/user_finish_signup.dart';
 
 void main() => runApp(UserCheckUnit());
 const primaryColor = Color(0xFFF7CBD4);
-const Unitinfo = '해군사이버작전센터';
 
 class UserCheckUnit extends StatelessWidget {
   @override
@@ -47,11 +49,21 @@ class MyCustomForm extends StatefulWidget {
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+  final UnitController unit = Get.put(UnitController());
+  final UserController user = Get.put(UserController());
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    String? password = Get.arguments["Password"];
+    print("--------------------------");
+    print("password : $password");
+    print("--------------------------");
+    unit.findByCode(password!);
+
     // Build a Form widget using the _formKey created above.
     return Column(
+      //unit.findByCode(unitcode),
       children: [
         SizedBox(height: 120),
         Form(
@@ -73,14 +85,15 @@ class MyCustomFormState extends State<MyCustomForm> {
                 InkWell(
                   child: InkWell(
                     child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
+                        //'/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
+                        '${unit.principal.value.picture}',
                         width: 120,
                         height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
                 //Unitinfo 부대확인
-                Text('${Unitinfo}',
+                Text('${unit.principal.value.name}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -129,13 +142,44 @@ class MyCustomFormState extends State<MyCustomForm> {
                               alignment: Alignment.center,
                               textStyle: const TextStyle(fontSize: 30),
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               // It returns true if the form is valid, otherwise returns false
                               if (_formKey.currentState!.validate()) {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
-                                Get.to(UserFinishSignup());
+                                
+                                //이메일 중복 체크
+                                int emailCheck = await user.checkEmail(Get.arguments["email"]);
+                                if (emailCheck < 1) {
+                                  Get.snackbar("회원가입 실패", "이메일 중복");
+                                  return;
+                                }
+                                
+                                //유저네임 중복 체크
+                                int usernameCheck = await user.checkUsername(Get.arguments["username"]);
+                                if (usernameCheck < 1) {
+                                  Get.snackbar("회원가입 실패", "유저네임 중복");
+                                  return;
+                                }
+
+
+                              //get arguments로 받은 값들로 user 객체 생성 후 join 함수 날리기
+                                User newuser = User(
+                                  unitcode: Get.arguments["unitcode"],
+                                  email: Get.arguments["email"],
+                                  username: Get.arguments["username"],
+                                  rank: Get.arguments["rank"],
+                                  //picture: Get.arguments["picture"],
+                                  number: Get.arguments["number"],
+                                );
+
+                                int result = await user.join(newuser, password);
+                                if (result == 1) {
+                                  Get.offAll(() => UserFinishSignup(), arguments : Get.arguments["username"]);
+                                } else {
+                                  Get.snackbar("회원가입 시도", "회원가입 실패");
+                                }
                               }
                             },
                             child: const Text('   예   '),

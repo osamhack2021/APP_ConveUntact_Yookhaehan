@@ -89,13 +89,21 @@ class UnitRepository {
     return querySnapshot.docs.length > 0 ? -1 : 1;
   }
 
-  Future<Unit> findById(String id) async {
-    DocumentSnapshot result = await _unitProvider.findById(id);
+  Future<Unit> findByEmail(String email) async {
+    QuerySnapshot snapshot = await _unitProvider.findByEmail(email);
+    DocumentSnapshot result = snapshot.docs.first;
     return result.data() == null
         ? Unit()
         : Unit.fromJson(result.data() as Map<String, dynamic>);
   }
 
+  Future<Unit> findByCode(String unitcode) async {
+    QuerySnapshot snapshot = await _unitProvider.findByCode(unitcode);
+    DocumentSnapshot result = snapshot.docs.first;
+    return result.data() == null
+        ? Unit()
+        : Unit.fromJson(result.data() as Map<String, dynamic>);
+  }
   // unit update코드 (미완) -> 멘토님께 질문
   // Future<int> updateById(String id, String title, String content) async {
   //   // 업데이트 리턴 타입 void라 예외처리하기 위해 한번더 select

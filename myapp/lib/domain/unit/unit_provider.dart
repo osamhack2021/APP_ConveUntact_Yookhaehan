@@ -30,8 +30,15 @@ class UnitProvider {
       .where("unitcode", isEqualTo: unitcode)
       .get();
 
-  Future<DocumentSnapshot> findById(String id) =>
-      FirebaseFirestore.instance.doc("$_collection/$id").get();
+  Future<QuerySnapshot> findByEmail(String email) => FirebaseFirestore.instance
+      .collection(_collection)
+      .where("email", isEqualTo: email)
+      .get();
+
+  Future<QuerySnapshot> findByCode(String unitcode) => FirebaseFirestore.instance
+      .collection(_collection)
+      .where("unitcode", isEqualTo: unitcode)
+      .get();
 
   
   Future<void> updateById(Unit newunit, String id) =>

@@ -14,6 +14,16 @@ class UnitController extends GetxController {
     // Get.Storage()
   }
 
+  Future<void> findByEmail(String email) async {
+    Unit unit = await _UnitRepository.findByEmail(email);
+    this.principal.value = unit;
+  }
+
+  Future<void> findByCode(String unitcode) async {
+    Unit unit = await _UnitRepository.findByCode(unitcode);
+    this.principal.value = unit;
+  }
+
   Future<int> login(String email, String password) async {
     Unit principal = await _UnitRepository.login(email, password);
 

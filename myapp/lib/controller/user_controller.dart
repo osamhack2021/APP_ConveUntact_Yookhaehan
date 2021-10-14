@@ -7,6 +7,8 @@ class UserController extends GetxController {
   final RxBool isLogin = false.obs; // UI가 관찰 가능한 변수 => 변경 => UI가 자동 업데이트
   final principal = User().obs;
 
+  get required => null;
+
   Future<void> logout() async {
     await _userRepository.logout();
     this.principal.value = User();
@@ -26,8 +28,8 @@ class UserController extends GetxController {
     }
   }
 
-  Future<int> join(String email, String password, String username, String rank, String picture, String number, String unitcode) async {
-    User principal = await _userRepository.join(email, password, username, rank, picture,  number, unitcode);
+  Future<int> join(User newuser, String? password) async {
+    User principal = await _userRepository.join(newuser, password!);
 
     if (principal.uid != null) {
       this.isLogin.value = true;
@@ -38,6 +40,10 @@ class UserController extends GetxController {
     }
   }
 
+  Future<void> findByEmail(String email) async {
+    User user = await _userRepository.findByEmail(email);
+    this.principal.value = user;
+  }
   Future<int> checkEmail(String email) async =>
       await _userRepository.checkEmail(email);
 

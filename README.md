@@ -1,5 +1,5 @@
 # APP_ConveUntact_Yookhaehan
-컨비언텍트_육해한녀석들♬
+컨비언택트_육해한녀석들♬
 
   
 <div align='center'>
@@ -55,14 +55,14 @@
 기존 방식의 시설예약 및 일지 작성 문제 등을 해결할 수 있다. 해당 앱이 활성화 될 경우 장병들의 시설 이용 현황 파악에 용이하여 부대 시설 운용에도 도움이 될 것으로 기대된다. 또한 Covid-19로 인해 비대면 서비스가 활성화되는 가운데 감염에 대한 위험부담도 낮출 수 있으며,  부대 내 병들의 휴대폰 사용이 활성화됨에 따라 시설들을 앱의 예약기능을 이용해 편의성을 높일 수 있다.
 
 
-### UX/UI Design 
+### UI/UX Design 
 <table>
     <tr>
         <td width="50%">
-            <img src="/workspaces/APP_ConveUntact_Yookhaehan/Images/figma11.PNG">
+            <img src="Images/figma11.PNG">
         </td>
         <td width="50%">
-            <img src="/workspaces/APP_ConveUntact_Yookhaehan/Images/figma22.PNG">
+            <img src="Images/figma22.PNG">
         </td>
     </tr>
     <tr>

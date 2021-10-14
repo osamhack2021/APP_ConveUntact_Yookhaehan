@@ -157,9 +157,9 @@ $ yarn start or npm run start
 </thead>
 <tbody>
 	
-	
+	Images/Yookhaehan_member/JiHo.jpg
 <tr>
-<td width="100" align="center"><img src="/image/PROFILE1.png" width="100" height="100"></td>
+<td width="100" align="center"><img src="/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/Yookhaehan_member/SeungHuyn.jpg" width="80" height="100"></td>
 <td width="100" align="center">고승현</td>
 <td width="250">Front Developer<br>Fimga Designer</td>
 <td width="150" align="legt">	
@@ -185,7 +185,7 @@ $ yarn start or npm run start
 </tr>
 	
 <tr>
-<td width="100" align="center"><img src="/image/PROFILE1.png" width="100" height="100"></td>
+<td width="100" align="center"><img src="/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/Yookhaehan_member/JiHo.jpg" width="80" height="100"></td>
 <td width="100" align="center">최지호</td>
 <td width="250">Product Manager<br></td>
 <td width="150" align="">	

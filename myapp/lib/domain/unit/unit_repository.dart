@@ -46,16 +46,15 @@ class UnitRepository {
 
   //회원가입
   //parameter 수정
-  Future<Unit> join(String email, String password, String unitcode, 
-    String name, String picture) async {
+  Future<Unit> join(Unit newunit, String? password) async {
 
     UserCredential? unitCredential;
     //1. FirebaseAuth에 관리자추가
     try {
       unitCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: newunit.email!,
+        password: password!,
       );
     } catch (e) {
       // Create 실패 시 익셉션 일어남
@@ -64,9 +63,9 @@ class UnitRepository {
     if (unitCredential != null) {
       Unit principal = Unit(
         uid: "${unitCredential.user!.uid}",
-        unitcode: unitcode,
-        name: name,
-        picture: picture,
+        unitcode: newunit.unitcode,
+        unitname: newunit.unitname,
+        picture: newunit.picture,
         email: unitCredential.user!.email,
         // manners: manners,
         // declarations: declarations,

@@ -94,7 +94,7 @@ class MyStatelessWidget extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 65),
                   ),
                   onPressed: () {
-                    Get.to(UserInfo());
+                    Get.to(UserInfo(), arguments: Get.arguments);
                   },
                   child: const Text('사용자'),
                 ),
@@ -125,7 +125,7 @@ class MyStatelessWidget extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 65),
                   ),
                   onPressed: () {
-                    Get.to(AdminInfo());
+                    Get.to(AdminInfo(), arguments: Get.arguments);
                   },
                   child: const Text('관리자'),
                 ),

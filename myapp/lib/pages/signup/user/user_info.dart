@@ -211,7 +211,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
                                 
-                            Get.to(UnitCode(), arguments: {
+                            Get.to(() => UnitCode(), arguments: {
                               "password": _password.text.trim(),
                               "number": _number.text.trim(),
                               "username": _username.text.trim(),

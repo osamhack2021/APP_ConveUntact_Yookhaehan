@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/signup/admin/add_detail.dart';
 
-const Unitinfo = '해군사이버작전센터';
 void main() => runApp(AdminCheckUnit());
 const primaryColor = Color(0xFFACBDF4);
 
@@ -73,31 +72,17 @@ class MyCustomFormState extends State<MyCustomForm> {
                 InkWell(
                   child: InkWell(
                     child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
+                        '${Get.arguments["picture"]}',
                         width: 120,
                         height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
-                Text('${Unitinfo}',
+                Text('${Get.arguments["unitname"]}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: Colors.black)),
-
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
                 SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +118,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 // If the form is valid, display a Snackbar.
                                 Scaffold.of(context).showSnackBar(
                                     SnackBar(content: Text('완료.')));
-                                Get.to(AddDetail());
+                                Get.to(AddDetail(), arguments:Get.arguments);
                               }
                             },
                             child: const Text('   예   '),

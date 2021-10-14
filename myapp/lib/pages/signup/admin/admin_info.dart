@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/pages/signup/admin/select_army.dart';
 
 void main() => runApp(AdminInfo());
@@ -46,7 +47,14 @@ class MyCustomForm extends StatefulWidget {
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+
+  final UnitController unit = Get.put(UnitController());
   final _formKey = GlobalKey<FormState>();
+  final _unitcode = TextEditingController();
+  final _unitname = TextEditingController();
+  final _password = TextEditingController();
+  final _email = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -71,12 +79,13 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 SizedBox(height: 70),
                 TextFormField(
+                  controller: _unitcode,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.person),
                     hintText: '부대번호를 입력해주세요.',
-                    labelText: '아이디(부대 번호)',
+                    labelText: '부대 번호',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -87,6 +96,24 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: _unitname,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    icon: const Icon(Icons.password),
+                    hintText: '부대이름을 입력해주세요',
+                    labelText: '부대이름',
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '부대이름을 입력해주세요';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                TextFormField(
+                  controller: _password,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -103,12 +130,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: _email,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.email),
                     hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                    labelText: '이메일 주소',
+                    labelText: '(아이디)이메일 주소',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -162,7 +190,15 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(SelectArmy());
+                            
+                            print("Get.to(SelectArmy()");
+                            
+                            Get.to(SelectArmy(), arguments: Get.arguments + {
+                              "unitcode": _unitcode.text.trim(),
+                              "unitname": _unitname.text.trim(),
+                              "password": _password.text.trim(),
+                              "email": _email.text.trim(),
+                            });
                           }
                         },
                         child: const Text('다음'),

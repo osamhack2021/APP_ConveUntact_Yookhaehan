@@ -93,7 +93,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 SizedBox(height: 40),
                 //Unitinfo 부대확인
-                Text('${unit.principal.value.name}',
+                Text('${unit.principal.value.unitname}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,

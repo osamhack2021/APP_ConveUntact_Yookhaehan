@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 
-const unitcode = '211022';
 const primaryColor = Color(0xFFACBDF4);
 void main() => runApp(const AdminFinishSignup());
 
@@ -60,7 +59,7 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 70,
                   color: Colors.white)),
           SizedBox(height: 20),
-          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${unitcode} 입니다.',
+          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${Get.arguments["unitcode"]} 입니다.',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

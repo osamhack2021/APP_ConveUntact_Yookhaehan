@@ -36,8 +36,8 @@ class UnitController extends GetxController {
     }
   }
 
-  Future<int> join(String email, String password, String unitcode, String name, String picture) async {
-    Unit principal = await _UnitRepository.join(email, password, unitcode, name, picture);
+  Future<int> join(Unit newunit, String? password) async {
+    Unit principal = await _UnitRepository.join(newunit, password);
 
     if (principal.uid != null) {
       this.isLogin.value = true;

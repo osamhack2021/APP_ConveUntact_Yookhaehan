@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/domain/user/user.dart';
+import 'package:myapp/pages/admin/ad_home_page.dart';
 import 'package:myapp/pages/admin/ad_home_page_menu.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
@@ -74,9 +75,12 @@ class LoginScreen extends StatelessWidget {
   Future<String?> _loginUser(LoginData data) {
     return Future.delayed(loginTime).then((_) async {
       if (_formKey.currentState!.validate()) {
-        int result = await user.login(data.name.trim(), data.password.trim());
-        if (result == 1) {
+        await user.findByEmail(data.name.trim());
+        await unit.findByEmail(data.name.trim());
+        if (user.principal.value.uid != null) {
           Get.to(() => HomePage());
+        } else if (unit.principal.value.uid != null) {
+          Get.to(() => ADHomePageScreen());
         } else {
           Get.snackbar("로그인 시도", "로그인 실패");
         }
@@ -86,7 +90,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<String?> _recoverPassword(String name) {
-    return Future.delayed(loginTime).then((_) async{
+    return Future.delayed(loginTime).then((_) async {
       await user.findByEmail(name);
       if (user.principal.value.uid == null) {
         return '존재하지 않는 계정입니다.';
@@ -139,7 +143,10 @@ class LoginScreen extends StatelessWidget {
         return _loginUser(loginData);
       },
       onSignup: (loginData) {
-        Get.to(SignType());
+        Get.to(() => SignType(), arguments: {
+          "email": loginData.name.trim(),
+          "password": loginData.password.trim(),
+        });
       },
       onSubmitAnimationCompleted: () {
         Get.to(ADHomePage());

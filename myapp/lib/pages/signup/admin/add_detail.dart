@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 import 'package:myapp/pages/signup/admin/admin_finish_signup.dart';
-
 
 void main() => runApp(AddDetail());
 const primaryColor = Color(0xFFACBDF4);
@@ -54,38 +55,72 @@ class Selectdtail extends State<Add_detail_Unit> {
     todos.add("4중대");
   }
 
+  UnitController unit = Get.put(UnitController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                    title: Text("세부 부대 추가"),
-                    content: TextField(
-                      onChanged: (String value) {
-                        input = value;
-                      },
-                    ),
-                    actions: <Widget>[
-                      FlatButton(
-                          onPressed: () {
-                            setState(() {
-                              todos.add(input);
-                            });
-                            Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                          },
-                          child: Text("확인")),
-                      RaisedButton(
-                          onPressed: () {
-                            print(todos);
-                            Get.to(AdminFinishSignup());
-                          },
-                          child: Text('저장')),
-                    ]);
-              });
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("세부 부대 추가"),
+                content: TextField(
+                  onChanged: (String value) {
+                    input = value;
+                  },
+                ),
+                actions: <Widget>[
+                  FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        todos.add(input);
+                      });
+                      Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                    },
+                    child: Text("확인"),
+                  ),
+                  // ignore: deprecated_member_use
+                  RaisedButton(
+                    onPressed: () async {
+                      print(todos);
+
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text('완료.')));
+
+                      //부대코드 중복 체크
+                      int emailCheck =
+                          await unit.checkCode(Get.arguments["email"]);
+                      if (emailCheck < 1) {
+                        Get.snackbar("회원가입 실패", "부대코드 중복");
+                        return;
+                      }
+
+                      //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
+                      Unit newunit = Unit(
+                        unitcode: Get.arguments["unitcode"],
+                        unitname: Get.arguments["unitname"],
+                        picture: Get.arguments["picture"],
+                        email: Get.arguments["email"],
+                      );
+
+                      int result =
+                          await unit.join(newunit, Get.arguments["password"]);
+                      if (result == 1) {
+                        Get.offAll(() => AdminFinishSignup(),
+                            arguments: Get.arguments);
+                      } else {
+                        Get.snackbar("회원가입 시도", "회원가입 실패");
+                      }
+                    },
+                    child: Text('저장'),
+                  ),
+                ],
+              );
+            },
+          );
         },
         child: Icon(
           Icons.add,

@@ -1,12 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     hide User; // 이 프로젝트의 User 모델과 이름이 겹쳐서..
-import 'package:myapp/domain/manner/manner.dart';
-import 'package:myapp/domain/reservation/reservation.dart';
 import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/domain/unit/unit_provider.dart';
-import 'package:myapp/domain/user/user.dart';
-
 // FireStore에서 응답되는 데이터를 예쁘게 가공!! => json => Dart 오브젝트
 class UnitRepository {
   //통신을 담당하는 provider 객체를 불러옴
@@ -51,7 +47,8 @@ class UnitRepository {
   //회원가입
   //parameter 수정
   Future<Unit> join(String email, String password, String unitcode, 
-  String name, String picture) async {
+    String name, String picture) async {
+
     UserCredential? unitCredential;
     //1. FirebaseAuth에 관리자추가
     try {
@@ -92,13 +89,21 @@ class UnitRepository {
     return querySnapshot.docs.length > 0 ? -1 : 1;
   }
 
-  Future<Unit> findById(String id) async {
-    DocumentSnapshot result = await _unitProvider.findById(id);
+  Future<Unit> findByEmail(String email) async {
+    QuerySnapshot snapshot = await _unitProvider.findByEmail(email);
+    DocumentSnapshot result = snapshot.docs.first;
     return result.data() == null
         ? Unit()
         : Unit.fromJson(result.data() as Map<String, dynamic>);
   }
 
+  Future<Unit> findByCode(String unitcode) async {
+    QuerySnapshot snapshot = await _unitProvider.findByCode(unitcode);
+    DocumentSnapshot result = snapshot.docs.first;
+    return result.data() == null
+        ? Unit()
+        : Unit.fromJson(result.data() as Map<String, dynamic>);
+  }
   // unit update코드 (미완) -> 멘토님께 질문
   // Future<int> updateById(String id, String title, String content) async {
   //   // 업데이트 리턴 타입 void라 예외처리하기 위해 한번더 select

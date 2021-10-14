@@ -30,14 +30,21 @@ class UnitProvider {
       .where("unitcode", isEqualTo: unitcode)
       .get();
 
-  Future<DocumentSnapshot> findById(String id) =>
-      FirebaseFirestore.instance.doc("$_collection/$id").get();
+  Future<QuerySnapshot> findByEmail(String email) => FirebaseFirestore.instance
+      .collection(_collection)
+      .where("email", isEqualTo: email)
+      .get();
 
-  //중요 - 신고나 메너 업데이트 되면 업데이트 되어야함.
-  // Future<void> updateById(String id, String title, String content) =>
-  //     FirebaseFirestore.instance
-  //         .doc("$_collection/$id")
-  //         .update(UpdateReqDto(title, content).toJson());
+  Future<QuerySnapshot> findByCode(String unitcode) => FirebaseFirestore.instance
+      .collection(_collection)
+      .where("unitcode", isEqualTo: unitcode)
+      .get();
+
+  
+  Future<void> updateById(Unit newunit, String id) =>
+      FirebaseFirestore.instance
+          .doc("$_collection/$id")
+          .update(newunit.toJson());
 
   Future<void> deleteById(String id) =>
       FirebaseFirestore.instance.doc("$_collection/$id").delete();

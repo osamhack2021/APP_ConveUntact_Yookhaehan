@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/pages/signup/user/user_check_unit.dart';
 
 void main() => runApp(UnitCode());
 const primaryColor = Color(0xFFF7CBD4);
 
 class UnitCode extends StatelessWidget {
+
+  
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
@@ -46,7 +49,11 @@ class MyCustomForm extends StatefulWidget {
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+
   final _formKey = GlobalKey<FormState>();
+  final UserController user = Get.put(UserController());
+  final _unitcode = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -71,6 +78,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 const SizedBox(height: 100),
                 TextFormField(
+                  controller: _unitcode,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -130,7 +138,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(UserCheckUnit());
+                              
+                            //임시 user 객체에 unitcode 저장
+                            //user.temp.unitcode = _unitcode.text.trim();
+                            
+                            //arguments로 password 보내기
+                            Get.to(UserCheckUnit(), arguments : Get.arguments + {"unitcode" : _unitcode.text.trim()});
                           }
                         },
                         child: const Text('다음'),

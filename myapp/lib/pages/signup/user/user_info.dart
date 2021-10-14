@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/pages/signup/user/unitcode.dart';
 import 'user_check_unit.dart';
 
@@ -48,6 +50,13 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
+  final UserController user = Get.put(UserController());
+  final _number = TextEditingController();
+  final _password = TextEditingController();
+  final _username = TextEditingController();
+  final _rank = TextEditingController();
+  final _email = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -72,12 +81,13 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 SizedBox(height: 40),
                 TextFormField(
+                  controller: _number,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.person),
                     hintText: '- 를 포함하여 입력해 주세요.',
-                    labelText: '아이디(군번)',
+                    labelText: '군번',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -89,6 +99,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 const SizedBox(height: 10),
 
                 TextFormField(
+                  controller: _password,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -105,6 +116,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: _username,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -121,6 +133,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: _rank,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -137,12 +150,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: _email,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.email),
                     hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                    labelText: '이메일 주소',
+                    labelText: '(아이디)이메일 주소',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -196,7 +210,14 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                            Get.to(UnitCode());
+                                
+                            Get.to(UnitCode(), arguments: {
+                              "password": _password.text.trim(),
+                              "number": _number.text.trim(),
+                              "username": _username.text.trim(),
+                              "rank": _rank.text.trim(),
+                              "email": _email.text.trim(),
+                            });
                           }
                         },
                         child: const Text('다음'),

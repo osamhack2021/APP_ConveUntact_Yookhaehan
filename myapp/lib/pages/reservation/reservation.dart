@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:myapp/components/facility_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/controller/facility_controller.dart';
+import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/pages/reservation/facility/basketball/basketball_rez_page.dart';
 import 'package:myapp/pages/reservation/facility/computer/facility_1co_computer_menu.dart';
 import 'package:myapp/pages/reservation/facility/football/football_rez_page.dart';
@@ -26,11 +28,7 @@ class ReservationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableHome(
       title: Text("시설 예약 페이지"),
-      //actions: [
-        //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
-      //],
       headerWidget: headerWidget(context),
-      //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
           children: [
@@ -49,22 +47,8 @@ class ReservationScreen extends StatelessWidget {
         Divider(),
         teamListView(),
       ],
-      //fullyStretchable: true,
-      //expandedBody: Text("Expanded"),
     );
   }
-  //Container headerBottomBarWidget() {
-    //return Container(
-      //child: Row(
-        //mainAxisSize: MainAxisSize.min,
-        //mainAxisAlignment: MainAxisAlignment.end,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        //children: [//설정 아이콘
-          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
-        //],
-      //),
-    //);
-  //}
   Container headerWidget(BuildContext context) => Container(
     color: Colors.pink.shade100,
     child: Row(
@@ -96,20 +80,29 @@ class ReservationScreen extends StatelessWidget {
     ),
   );
   ListView teamListView() {
+
+    UnitController unit = Get.put(UnitController());
+    FacilityController f = Get.put(FacilityController());
+    f.findByUnitCode(unit.principal.value.unitcode!);
+
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
-      itemCount: teamFacility.length,
+      //itemCount: teamFacility.length,
+      itemCount: f.facilitys.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: Color(0x00000000),
-            child: teamFacility[index].icon,
+            //child: teamFacility[index].icon,
+            child: Image.asset('${f.facilitys[index].picture!}'),
           ),
-          title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(teamFacility[index].intro),
+          //title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          //subtitle: Text(teamFacility[index].intro),
+          title: Text("${f.facilitys[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("${f.facilitys[index].detail}"),
           onTap: (){
             if(teamFacility[index].name == '풋살장'){
               _soccercontroller.soccerField.value =

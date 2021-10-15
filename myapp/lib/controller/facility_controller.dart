@@ -10,7 +10,7 @@ class FacilityController extends GetxController {
 
   // 객체 생성(create) onInit 함수실행(initialize)
   // FacilityController n = Get.put(FacilityController());
-  FacilityController(this.unitcode);
+  FacilityController({this.unitcode});
 
   @override
   void onInit() {

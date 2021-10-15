@@ -61,7 +61,6 @@ class UserRepository {
     } catch (e) {
       // Create 실패 시 익셉션 일어남
     }
-
     if (userCredential != null) {
       User principal = User(
         uid: "${userCredential.user!.uid}",

@@ -37,11 +37,22 @@ class UnitController extends GetxController {
   }
 
   Future<int> join(Unit newunit, String? password) async {
+    print("----------------");
+    print(newunit.unitcode);
+    print(newunit.unitname);
+    print(password);
+    print(newunit.picture);
+    print(newunit.email);
+    print("----------------");
+    
     Unit principal = await _UnitRepository.join(newunit, password);
-
+    
     if (principal.uid != null) {
       this.isLogin.value = true;
       this.principal.value = principal;
+      print("uid : ${principal.uid}");
+      print("isLogin : ${isLogin.value}");
+      print(this.principal.value);
       return 1;
     } else {
       return -1;

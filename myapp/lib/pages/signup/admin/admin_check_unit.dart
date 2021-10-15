@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/pages/signup/admin/add_detail.dart';
+import 'package:myapp/pages/signup/admin/admin_finish_signup.dart';
 
 void main() => runApp(AdminCheckUnit());
 const primaryColor = Color(0xFFACBDF4);
@@ -46,6 +49,7 @@ class MyCustomForm extends StatefulWidget {
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+  UnitController unit = Get.put(UnitController());
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -71,10 +75,8 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 InkWell(
                   child: InkWell(
-                    child: Image.asset(
-                        '${Get.arguments["picture"]}',
-                        width: 120,
-                        height: 120),
+                    child: Image.asset('${Get.arguments["picture"]}',
+                        width: 120, height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
@@ -112,13 +114,34 @@ class MyCustomFormState extends State<MyCustomForm> {
                               alignment: Alignment.center,
                               textStyle: const TextStyle(fontSize: 35),
                             ),
-                            onPressed: () {
-                              // It returns true if the form is valid, otherwise returns false
-                              if (_formKey.currentState!.validate()) {
-                                // If the form is valid, display a Snackbar.
-                                Scaffold.of(context).showSnackBar(
-                                    SnackBar(content: Text('완료.')));
-                                Get.to(AddDetail(), arguments:Get.arguments);
+                            onPressed: () async {
+                              print("debug1");
+                              //부대코드 중복 체크
+                              int emailCheck = await unit.checkCode(Get.arguments["email"].toString());
+                              print("debug12");
+                              if (emailCheck < 1) {
+                                Get.snackbar("회원가입 실패", "부대코드 중복");
+                                return;
+                              }
+                              print("debug13");
+
+                              //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
+                              Unit newunit = Unit(
+                                unitcode: Get.arguments["unitcode"].toString(),
+                                unitname: Get.arguments["unitname"].toString(),
+                                picture: Get.arguments["picture"].toString(),
+                                email: Get.arguments["email"].toString(),
+                              );
+
+                              print("debug14");
+                              int result = await unit.join(newunit, Get.arguments["password"].toString());
+                              print("debug15");
+                              if (result == 1) {
+                              print("debug16");
+                                Get.offAll(() => AdminFinishSignup(),arguments: Get.arguments);
+                              print("debug17");
+                              } else {
+                                Get.snackbar("회원가입 시도", "회원가입 실패");
                               }
                             },
                             child: const Text('   예   '),

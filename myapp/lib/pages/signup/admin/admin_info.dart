@@ -54,7 +54,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   final _unitname = TextEditingController();
   final _password = TextEditingController();
   final _email = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -84,12 +84,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(fontWeight: FontWeight.bold),
                     icon: const Icon(Icons.person),
-                    hintText: '부대번호를 입력해주세요.',
-                    labelText: '부대 번호',
+                    hintText: '부대코드를 입력해주세요.',
+                    labelText: '부대 코드',
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return '부대번호를 입력해주세요';
+                      return '부대코드를 입력해주세요';
                     }
                     return null;
                   },
@@ -111,53 +111,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  controller: _password,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.password),
-                    hintText: '비밀번호를 입력해주세요',
-                    labelText: '비밀번호',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '비밀번호를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  controller: _email,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.email),
-                    hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                    labelText: '(아이디)이메일 주소',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '이메일주소를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
                 const SizedBox(height: 30),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
@@ -185,21 +138,20 @@ class MyCustomFormState extends State<MyCustomForm> {
                           textStyle: const TextStyle(fontSize: 50),
                         ),
                         onPressed: () {
-                          // It returns true if the form is valid, otherwise returns false
-                          if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a Snackbar.
-                            Scaffold.of(context)
-                                .showSnackBar(SnackBar(content: Text('완료.')));
-                            
-                            print("Get.to(SelectArmy()");
-                            
-                            Get.to(SelectArmy(), arguments: Get.arguments + {
-                              "unitcode": _unitcode.text.trim(),
-                              "unitname": _unitname.text.trim(),
-                              "password": _password.text.trim(),
-                              "email": _email.text.trim(),
-                            });
-                          }
+                          // If the form is valid, display a Snackbar.
+                          Scaffold.of(context)
+                              .showSnackBar(SnackBar(content: Text('완료.')));
+
+                          print("Get.to(SelectArmy()");
+
+                          Get.to(SelectArmy(),
+                              arguments:
+                                  {
+                                    "email": Get.arguments["email"],
+                                    "password": Get.arguments["password"],
+                                    "unitcode": _unitcode.text.trim(),
+                                    "unitname": _unitname.text.trim(),
+                                  });
                         },
                         child: const Text('다음'),
                       ),

@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:myapp/pages/signup/signtype.dart';
 
+import 'binding/app_binding.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp();
@@ -15,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // 라우트 설계 필요없음. GetX 사용할 예정
-      home: SignType(),
+      initialBinding: AppBinding(),
+      home: LoginPage(),
     );
   }
 }

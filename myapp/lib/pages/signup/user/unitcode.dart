@@ -8,8 +8,6 @@ void main() => runApp(UnitCode());
 const primaryColor = Color(0xFFF7CBD4);
 
 class UnitCode extends StatelessWidget {
-
-  
   @override
   Widget build(BuildContext context) {
     //final appTitle = 'sign up page';
@@ -93,19 +91,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                     return null;
                   },
                 ),
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
                 const SizedBox(height: 60),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
@@ -138,12 +123,22 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                              
+
                             //임시 user 객체에 unitcode 저장
                             //user.temp.unitcode = _unitcode.text.trim();
-                            
+
                             //arguments로 password 보내기
-                            Get.to(UserCheckUnit(), arguments : Get.arguments + {"unitcode" : _unitcode.text.trim()});
+                            Get.to(
+                              UserCheckUnit(),
+                              arguments: {
+                                "email": Get.arguments["email"],
+                                "password": Get.arguments["password"],
+                                "username": Get.arguments["username"],
+                                "rank": Get.arguments["rank"],
+                                "number": Get.arguments["number"],
+                                "unitcode": _unitcode.text.trim()
+                              },
+                            );
                           }
                         },
                         child: const Text('다음'),

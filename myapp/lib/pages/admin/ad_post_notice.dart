@@ -6,10 +6,11 @@ import 'package:myapp/components/pc_info.dart';
 import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/scroll_menu_button.dart';
+import 'package:myapp/components/facility_scroll_menu.dart';
 import 'package:myapp/components/textarea.dart';
 import 'package:myapp/pages/admin/ad_notice_list.dart';
 import 'package:intl/intl.dart';
+import 'package:myapp/pages/admin/ad_notice_list_menu.dart';
 
 class ADPostNoticeScreen extends StatefulWidget {
   @override
@@ -62,7 +63,7 @@ class _ADPostNoticeScreenState extends State<ADPostNoticeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ScrollPhysicsMenuButton(
+                        FacilityScrollMenu(
                           theme: Theme.of(context),
                         ),
                     // dropdownButton 끝
@@ -218,7 +219,7 @@ class _ADPostNoticeScreenState extends State<ADPostNoticeScreen> {
                           text: "공지사항이 등록되었습니다.",
                           confirmBtnColor: Colors.indigo.shade200,
                           onConfirmBtnTap: () async {
-                            Get.to(ADNoticeListScreen());
+                            Get.to(ADNoticeListPage());
                           }
                         );
                       },

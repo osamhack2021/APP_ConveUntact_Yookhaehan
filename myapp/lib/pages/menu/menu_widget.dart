@@ -53,7 +53,7 @@ class MenuWidget extends StatelessWidget {
           sliderItem('홈 페이지', Icons.home, context),
           sliderItem('시설 예약하기', Icons.add_circle, context),
           sliderItem('나의 예약', Icons.notifications_active, context),
-          sliderItem('신고하기', Icons.question_answer_rounded, context),
+          sliderItem('신고/문의 하기', Icons.question_answer_rounded, context),
           sliderItem('앱 설정', Icons.settings, context),
           sliderItem('마이 페이지', Icons.person, context),
           sliderItem('로그아웃', Icons.logout, context),

@@ -1,7 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/line_chart_1.dart';
+import 'package:myapp/pages/admin/ad_declaration_list_menu.dart';
+import 'package:myapp/pages/admin/ad_facility_modify_menu.dart';
+import 'package:myapp/pages/admin/ad_notice_list_menu.dart';
+import 'package:myapp/pages/admin/ad_confirm_wait_list_menu.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
-import 'package:myapp/pages/admin/ad_notice_list.dart';
 import 'package:myapp/pages/admin/ad_declaration_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -67,14 +70,16 @@ class ADHomePageScreen extends StatelessWidget {
           leading: adHomePageCard[index].icon,
           title: Text("${adHomePageCard[index].name}", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
           //subtitle: Text(adHomePageCard[index].num),
-          trailing: Text("${adHomePageCard[index].num} 건 존재"),
+          trailing: Text("${adHomePageCard[index].num} 건 존재", style: TextStyle(color: Colors.grey),),
           onTap:(){
             if (index == 0) {
-
+              Get.to(ADConfirmWaitListPage());
             } else if (index == 1) {
-              Get.to(ADDeclarationListScreen());
+              Get.to(ADDeclarationListPage());
             } else if (index == 2) {
-              Get.to(ADNoticeListScreen());
+              Get.to(ADNoticeListPage());
+            } else if (index == 5) {
+              Get.to(ADFacilityModifyPage());
             }
           },
         ),
@@ -106,6 +111,21 @@ List<HomePageCard> adHomePageCard = [
   HomePageCard(
     icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/loudspeaker.png'),
     name: "공지 사항",
+    num: notice.length,
+  ),
+    HomePageCard(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/library.png'),
+    name: "연등 관리",
+    num: notice.length,
+  ),
+    HomePageCard(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/chart.png'),
+    name: "시설 예약 통계",
+    num: notice.length,
+  ),
+    HomePageCard(
+    icon: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/modify.png'),
+    name: "부대 시설 관리",
     num: notice.length,
   ),
 ];

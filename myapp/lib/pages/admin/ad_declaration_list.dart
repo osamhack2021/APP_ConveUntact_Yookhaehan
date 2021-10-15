@@ -66,7 +66,7 @@ class ADDeclarationListScreen extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 //letterSpacing: 0.5,
-                fontSize: 35,
+                fontSize: 30,
               )
             ),
             CircleAvatar(
@@ -112,16 +112,16 @@ class ADDeclarationListScreen extends StatelessWidget {
           subtitle: Text(declarationList[index].date),
           onTap:(){
             CoolAlert.show(
-                          context: context,
-                          type: CoolAlertType.confirm,
-                          title: "${declarationList[index].facility}",
-                          text: "${declarationList[index].detail}",
-                          confirmBtnText: "답변하기",
-                          confirmBtnColor: Colors.indigo.shade200,
-                          onConfirmBtnTap: () async {
-                            Get.to(ADReplyDeclarationScreen());
-                          }
-                        );
+              context: context,
+              type: CoolAlertType.confirm,
+              title: "${declarationList[index].facility}",
+              text: "${declarationList[index].detail}",
+              confirmBtnText: "답변하기",
+              confirmBtnColor: Colors.indigo.shade200,
+              onConfirmBtnTap: () async {
+                Get.to(ADReplyDeclarationScreen());
+              }
+            );
           },
         ),
       ),

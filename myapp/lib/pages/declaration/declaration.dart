@@ -6,7 +6,7 @@ import 'package:myapp/components/pc_info.dart';
 import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/scroll_menu_button.dart';
+import 'package:myapp/components/facility_scroll_menu.dart';
 import 'package:myapp/components/textarea.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 
@@ -45,7 +45,7 @@ class DeclarationScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ScrollPhysicsMenuButton(
+                        FacilityScrollMenu(
                           theme: Theme.of(context),
                         ),
                     // dropdownButton 끝

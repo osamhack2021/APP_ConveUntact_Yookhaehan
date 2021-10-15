@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
+  syncfusion_flutter_charts: ^19.3.45+1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ dev_dependencies:
   flutter_slider_drawer: ^2.0.0
   flutter_login: ^2.2.1
   validators: ^3.0.0
+  syncfusion_flutter_charts: ^19.3.45+1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

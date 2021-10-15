@@ -79,23 +79,6 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 SizedBox(height: 70),
                 TextFormField(
-                  controller: _unitcode,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.person),
-                    hintText: '부대코드를 입력해주세요.',
-                    labelText: '부대 코드',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '부대코드를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
                   controller: _unitname,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -149,7 +132,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   {
                                     "email": Get.arguments["email"],
                                     "password": Get.arguments["password"],
-                                    "unitcode": _unitcode.text.trim(),
                                     "unitname": _unitname.text.trim(),
                                   });
                         },

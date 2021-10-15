@@ -3,8 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/domain/unit/unit.dart';
-import 'package:myapp/pages/signup/admin/add_detail.dart';
 import 'package:myapp/pages/signup/admin/admin_finish_signup.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 
 void main() => runApp(AdminCheckUnit());
 const primaryColor = Color(0xFFACBDF4);
@@ -115,20 +116,26 @@ class MyCustomFormState extends State<MyCustomForm> {
                               textStyle: const TextStyle(fontSize: 35),
                             ),
                             onPressed: () async {
-                              print("debug1");
-                              //부대코드 중복 체크
-                              int emailCheck = await unit.checkCode(Get.arguments["email"].toString());
-                              print("debug12");
-                              if (emailCheck < 1) {
-                                Get.snackbar("회원가입 실패", "부대코드 중복");
-                                return;
-                              }
-                              print("debug13");
+                              // print("debug1");
+                              // //부대코드 중복 체크
+                              // int emailCheck = await unit.checkCode(Get.arguments["email"].toString());
+                              // print("debug12");
+                              // if (emailCheck < 1) {
+                              //   Get.snackbar("회원가입 실패", "부대코드 중복");
+                              //   return;
+                              // }
+                              // print("debug13");
+                              
+
+                              // UUID -> https://pub.dev/packages/uuid/example
+                              // 부대 코드 난수 생성
+                              var uuid = Uuid();
+                              var unitcode = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
                               //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
                               Unit newunit = Unit(
-                                unitcode: Get.arguments["unitcode"].toString(),
-                                unitname: Get.arguments["unitname"].toString(),
+                                unitcode: unitcode,
+                                unitname: Get.arguments["unitcode"].toString(),
                                 picture: Get.arguments["picture"].toString(),
                                 email: Get.arguments["email"].toString(),
                               );

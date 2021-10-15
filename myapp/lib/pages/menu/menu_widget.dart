@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/main.dart';
 import 'package:myapp/pages/declaration/declaration_menu.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
@@ -17,6 +18,10 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //To do 사용자 사진, 이름 뿌리기
+    UserController u = Get.put(UserController());
+
     return Container(
       color: Colors.pink.shade100,
       padding: const EdgeInsets.only(top: 30),
@@ -30,6 +35,7 @@ class MenuWidget extends StatelessWidget {
             radius: 65,
             backgroundColor: Colors.white,
             child: Image.asset(
+              //1. u.principal.value.picture,
               '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
               width: 100,
               height: 100
@@ -39,6 +45,7 @@ class MenuWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
+            //2. u.principal.value.username,
             '일병 홍길동',
             style: TextStyle(
                 color: Colors.white,

@@ -5,15 +5,22 @@ import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/components/page_swipe.dart';
+import 'package:get/get.dart';
+import 'package:myapp/controller/reservation_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MyReservationScreen extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  ReservationController r = Get.put(ReservationController());
+  UserController u = Get.put(UserController());
   
   @override
   Widget build(BuildContext context) {
+    //1. r.findByUid(u.principal.value.uid!);
     final pages = List.generate(
         my_reserv.length,
+        //2. r.reservations.value.length,
         (index) => Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
@@ -31,18 +38,19 @@ class MyReservationScreen extends StatelessWidget {
                       leading: CircleAvatar(
                         backgroundColor: Color(0x00000000),
                         child: my_reserv[index].image,
+                        //3. child: ${r.reservations[index].facility_picture},
                       ),
                       title: Text("${my_reserv[index].facility}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-                      //subtitle: Text(my_reserv[index].time),
+                      //3. title: Text("${r.reservations[index].facility_name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
                     Divider(),
                     ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Color(0x00000000),
-                        child: Text("좌석"),
+                        child: Text("사유"),
                       ),
                       title: Text("${my_reserv[index].seat}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                      //subtitle: Text(my_reserv[index].time),
+                      //3. title: Text("${r.reservations[index].reason}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
                     ListTile(
                       leading: CircleAvatar(
@@ -50,15 +58,15 @@ class MyReservationScreen extends StatelessWidget {
                         child: Text("이용 시간"),
                       ),
                       title: Text("${my_reserv[index].time}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                      //subtitle: Text(my_reserv[index].time),
+                      //3. title: Text("${r.reservations[index].start} ~ ${r.reservations[index].end}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
                     ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Color(0x00000000),
                         child: Text("승인 여부"),
                       ),
-                      title: Text("${my_reserv[index].isconfirm}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                      //subtitle: Text(my_reserv[index].time),
+                      title: Text("승인 완료", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      //4-> 없애는게 좋을듯
                     ),
                   ],
                 ),
@@ -104,19 +112,6 @@ class MyReservationScreen extends StatelessWidget {
       ],
     );
   }
-
-  //Container headerBottomBarWidget() {
-    //return Container(
-      //child: Row(
-        //mainAxisSize: MainAxisSize.min,
-        //mainAxisAlignment: MainAxisAlignment.end,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        //children: [//설정 아이콘
-          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
-        //],
-      //),
-    //);
-  //}
 
   Container headerWidget(BuildContext context) => Container(
     color: Colors.pink.shade100,

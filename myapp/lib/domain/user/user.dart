@@ -1,6 +1,3 @@
-import 'package:myapp/domain/manner/manner.dart';
-import 'package:myapp/domain/reservation/reservation.dart';
-import 'package:myapp/domain/unit/unit.dart';
 
 class User {
   final String? uid; // provider_firebaseUid

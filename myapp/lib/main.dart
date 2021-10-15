@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/home_page/home_page.dart';
 import 'package:myapp/pages/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:myapp/pages/my_page/mypage.dart';
 import 'package:myapp/pages/signup/signtype.dart';
 
 import 'binding/app_binding.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: AppBinding(),
-      home: LoginPage(),
+      home: LoginScreen(),
     );
   }
 }

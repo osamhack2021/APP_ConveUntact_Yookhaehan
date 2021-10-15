@@ -10,7 +10,7 @@ class DeclarationController extends GetxController {
 
   // 객체 생성(create) onInit 함수실행(initialize)
   // DeclarationController n = Get.put(DeclarationController());
-  DeclarationController(this.unitcode);
+  DeclarationController({this.unitcode});
 
   @override
   void onInit() {

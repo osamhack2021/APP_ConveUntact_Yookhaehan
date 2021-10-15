@@ -14,7 +14,8 @@ import 'package:myapp/pages/setting/setting_page.dart';
 class MenuWidget extends StatelessWidget {
   final Function(String)? onItemClick;
 
-  const MenuWidget({Key? key, this.onItemClick}) : super(key: key);
+  const MenuWidget({Key? key, this.onItemClick});
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +100,10 @@ class MenuWidget extends StatelessWidget {
           text: "로그아웃 하시겠습니까?",
           confirmBtnColor: Colors.pink.shade200,
           onConfirmBtnTap: () async {
+            //로그아웃
+            UserController u = Get.put(UserController());
+            await u.logout();
+            
             Get.to(LoginPage());
           }
         );

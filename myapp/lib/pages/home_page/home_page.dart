@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/line_chart_1.dart';
 import 'package:myapp/components/notice_info.dart';
-import 'package:myapp/controller/facility_controller.dart';
+import 'package:myapp/controller/notice_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'draggable_home.dart';
 import 'package:flutter/material.dart';
@@ -47,15 +47,16 @@ class HomePageScreen extends StatelessWidget {
 
   ListView listView() {
     //to do : 공지사항 리스트 뿌리기
-    UserController u = Get.put(UserController());
-    final String? unitcode = u.principal.value.unitcode;
-    FacilityController f = Get.put(FacilityController(unitcode));
+    // UserController user = Get.put(UserController());
+    // final String? unitcode = user.principal.value.unitcode;
+    // NoticeController n = Get.put(NoticeController(unitcode));
+    // n.findByUnitCode(unitcode!);
 
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
       itemCount: notice.length,
-      //itemCount: f.facilitys.length,
+      //itemCount: n.notices.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         color: Colors.white,
@@ -63,15 +64,18 @@ class HomePageScreen extends StatelessWidget {
           leading: CircleAvatar(
             backgroundColor: Color(0x00000000),
             child: notice[index].icon,
+            //child: Text(n.notices[index].facility_picture!),
           ),
           title: Text(
             "${notice[index].name} / ${notice[index].date}",
+            //"${n.notices[index].facility_name} / ${n.notices[index].created}",
             style: TextStyle(
               color: Colors.pink.shade100,
               fontWeight: FontWeight.bold,
             ),
           ),
           subtitle: Text(notice[index].intro),
+          //subtitle: Text(n.notices[index].contents!),
         ),
       ),
     );

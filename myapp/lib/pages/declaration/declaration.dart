@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/components/scroll_menu_button.dart';
 import 'package:myapp/components/textarea.dart';
 import 'package:myapp/controller/declaration_controller.dart';
+import 'package:myapp/controller/facility_controller.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/domain/declaration/declaration.dart';
@@ -22,9 +23,9 @@ late String selectedKey;
 class DeclarationScreen extends StatelessWidget {
   //text editing controller for text field
   final _content = TextEditingController();
-  UserController user = Get.put(UserController());
-  UnitController unit = Get.put(UnitController());
-  DeclarationController d = Get.put(DeclarationController());
+  // UserController user = Get.put(UserController());
+  // UnitController unit = Get.put(UnitController());
+  // DeclarationController d = Get.put(DeclarationController());
 
   @override
   Widget build(BuildContext context) {
@@ -263,6 +264,13 @@ class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
   }
   @override
   Widget build(BuildContext context) {
+    
+    // FacilityController f = Get.put(FacilityController());
+    // UserController user = Get.put(UserController());
+    // f.findByUnitCode(user.principal.value.unitcode!);
+    
+    // List<String> keys = f.facilitys.value.map((e) => e.name).toString() as List<String>;
+
     final Widget scrollChildButton = SizedBox(
       width: 300,
       height: 40,

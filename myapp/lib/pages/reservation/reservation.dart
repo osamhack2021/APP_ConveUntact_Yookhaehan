@@ -81,28 +81,28 @@ class ReservationScreen extends StatelessWidget {
   );
   ListView teamListView() {
 
-    UnitController unit = Get.put(UnitController());
-    FacilityController f = Get.put(FacilityController());
-    f.findByUnitCode(unit.principal.value.unitcode!);
+    // UnitController unit = Get.put(UnitController());
+    // FacilityController f = Get.put(FacilityController());
+    // f.findByUnitCode(unit.principal.value.unitcode!);
 
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
-      //itemCount: teamFacility.length,
-      itemCount: f.facilitys.length,
+      itemCount: teamFacility.length,
+      //itemCount: f.facilitys.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: Color(0x00000000),
-            //child: teamFacility[index].icon,
-            child: Image.asset('${f.facilitys[index].picture!}'),
+            child: teamFacility[index].icon,
+            //child: Image.asset('${f.facilitys[index].picture!}'),
           ),
-          //title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          //subtitle: Text(teamFacility[index].intro),
-          title: Text("${f.facilitys[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("${f.facilitys[index].detail}"),
+          title: Text("${teamFacility[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text(teamFacility[index].intro),
+          //title: Text("${f.facilitys[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          //subtitle: Text("${f.facilitys[index].detail}"),
           onTap: (){
             if(teamFacility[index].name == '풋살장'){
               _soccercontroller.soccerField.value =

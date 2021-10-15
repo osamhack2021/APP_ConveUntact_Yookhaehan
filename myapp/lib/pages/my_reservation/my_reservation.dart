@@ -12,8 +12,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MyReservationScreen extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
-  ReservationController r = Get.put(ReservationController());
-  UserController u = Get.put(UserController());
+  // ReservationController r = Get.put(ReservationController());
+  // UserController u = Get.put(UserController());
   
   @override
   Widget build(BuildContext context) {

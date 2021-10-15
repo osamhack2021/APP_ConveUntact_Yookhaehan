@@ -12,8 +12,8 @@ import 'package:myapp/pages/my_page/mypage_menu.dart';
 
 class MyPageScreen extends StatelessWidget {
   
-UserController u = Get.put(UserController());
-UnitController unit = Get.put(UnitController());
+// UserController u = Get.put(UserController());
+// UnitController unit = Get.put(UnitController());
   
   @override
   Widget build(BuildContext context) {

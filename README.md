@@ -157,9 +157,8 @@ $ yarn start or npm run start
 </thead>
 <tbody>
 	
-	Images/Yookhaehan_member/JiHo.jpg
 <tr>
-<td width="100" align="center"><img src="/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/Yookhaehan_member/SeungHuyn.jpg" width="80" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/SeungHuyn.jpg" width="90" height="100"></td>
 <td width="100" align="center">고승현</td>
 <td width="250">Front Developer<br>Fimga Designer</td>
 <td width="150" align="legt">	
@@ -172,7 +171,7 @@ $ yarn start or npm run start
 </tr>
 	
 <tr>
-<td width="100" align="center"><img src="/image/PROFILE1.png" width="100" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/Eunchong.jpg" width="90" height="100"></td>
 <td width="100" align="center">최은총</td>
 <td width="250">Back Developer<br></td>
 <td width="150" align="">	
@@ -185,7 +184,7 @@ $ yarn start or npm run start
 </tr>
 	
 <tr>
-<td width="100" align="center"><img src="/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/Yookhaehan_member/JiHo.jpg" width="80" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/JiHo.jpg" width="90" height="100"></td>
 <td width="100" align="center">최지호</td>
 <td width="250">Product Manager<br></td>
 <td width="150" align="">	
@@ -203,13 +202,9 @@ $ yarn start or npm run start
 </tr>
 </tbody>
 </table>
-<!-- - 최지호 (chlwlgh1011@naver.com), Github Id: zhoho
-- 고승현 (chris00825@naver.com), Github Id: chris0825
-- 최은총 (21900757@handong.edu), Github Id: dmsvk01 -->
 
 <h2 id="License"> 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
- * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
+ * [Apache License Version 2.0](https://github.com/osamhack2021/APP_ConveUntact_Yookhaehan/blob/087779542519392c87bed3a020da7c4289ca3104/LICENSE)
 
-This project is licensed under the terms of the MIT license.
 

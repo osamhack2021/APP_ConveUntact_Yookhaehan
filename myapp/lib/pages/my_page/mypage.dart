@@ -2,23 +2,25 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/components/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/my_page/mypage_menu.dart';
 
-class MyPageScreen extends StatefulWidget {
-  @override
-  MyInfoList createState() => MyInfoList();
-}
-class MyInfoList extends State<MyPageScreen> {
+
+class MyPageScreen extends StatelessWidget {
+  
+// UserController u = Get.put(UserController());
+// UnitController unit = Get.put(UnitController());
+  
   @override
   Widget build(BuildContext context) {
+    //0. unit.findByCode(u.principal.value.unitcode!);
     return DraggableHome(
       title: Text("마이 페이지"),
       headerWidget: headerWidget(context),
-      //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
           children: [
@@ -35,23 +37,8 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         listView(),
       ],
-      //fullyStretchable: true,
-      //expandedBody: Text("Expanded"),
     );
   }
-
-  //Container headerBottomBarWidget() {
-    //return Container(
-      //child: Row(
-        //mainAxisSize: MainAxisSize.min,
-        //mainAxisAlignment: MainAxisAlignment.end,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        //children: [//설정 아이콘
-          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
-        //],
-      //),
-    //);
-  //}
 
   Container headerWidget(BuildContext context) => Container(
     color: Colors.pink.shade100,
@@ -63,6 +50,7 @@ class MyInfoList extends State<MyPageScreen> {
           backgroundColor: Colors.white,
           child: Image.asset(
             '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
+            //1. u.principal.value.picture,
             width: 100,
             height: 100
           ),
@@ -71,6 +59,7 @@ class MyInfoList extends State<MyPageScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
+              //2. "${u.principal.value.rank} ${u.principal.value.username}",
               "일병 홍길동",
               style: TextStyle(
                 color: Colors.white,
@@ -80,7 +69,8 @@ class MyInfoList extends State<MyPageScreen> {
               ),
             ),
             Text(
-              "XX대대 X중대",
+              //3. "${unit.principal.value.unitname}",
+              "인방사",
               style: TextStyle(
                 color: Colors.white,
                 letterSpacing: 0.5,
@@ -94,79 +84,80 @@ class MyInfoList extends State<MyPageScreen> {
   );
 
   ListView listView() {
+    // user 정보 데이터 뿌리기 u.principal
     return ListView(
-      padding: EdgeInsets.only(top: 0),
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      children: <Widget>[
+      children: [
         ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].unit, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
+          title: Text("소속", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("소속", textAlign: TextAlign.right,),
+          //subtitle: Text(unit.principal.value.unitname, textAlign: TextAlign.right,),
         ),
         ListTile(
-          title: Text("중대", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].company, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
+          title: Text("계급", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("계급", textAlign: TextAlign.right,),
+          //subtitle: Text(u.principal.value.rank, textAlign: TextAlign.right,),
         ),
         ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].rank, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
+          title: Text("성명", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("성명", textAlign: TextAlign.right,),
+          //subtitle: Text(u.principal.value.username, textAlign: TextAlign.right,),
         ),
         ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].name, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
+          title: Text("군번", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("군번", textAlign: TextAlign.right,),
+          //subtitle: Text(u.principal.value.number, textAlign: TextAlign.right,),
         ),
         ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].id, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
-        ),
-        ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].email, textAlign: TextAlign.right,),
-          onTap: (){
-            //modInfo(context, 0);
-          }
-        ),
-        ListTile(
-          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    CoolAlert.show(
-                      context: context,
-                      type: CoolAlertType.custom,
-                      title: "비밀번호 변경",
-                      //text: "복귀 / 취소 처리되었습니다.",
-                      confirmBtnColor: Colors.indigo.shade200,
-                    );
-                  });
-                },
-                child: Text('비밀번호 변경'),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.indigo.shade200),
-                ),
-              ),
-            ]
-          ),
+          title: Text("이메일", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text("이메일", textAlign: TextAlign.right,),
+          //subtitle: Text(u.principal.value.email, textAlign: TextAlign.right,),
         ),
       ],
     );
   }
+  // void modInfo(BuildContext context, int index){
+  //   CoolAlert.show(
+  //     context: context,
+  //     type: CoolAlertType.confirm,
+  //     text: "${info[index].name}을(를)\n수정 하시겠습니까?",
+  //     confirmBtnColor: Colors.pink.shade200,
+  //     onConfirmBtnTap: () async {
+  //       var _message = '';
+  //       CoolAlert.show(
+  //         context: context,
+  //         type: CoolAlertType.custom,
+  //         barrierDismissible: true,
+  //         confirmBtnText: '저장하기',
+  //         widget: TextFormField(
+  //           decoration: InputDecoration(
+  //             hintText: '${info[index].name}을(를) 입력하세요.',
+  //             prefixIcon: Icon(
+  //               Icons.info,
+  //             ),
+  //           ),
+  //           textInputAction: TextInputAction.next,
+  //           keyboardType: TextInputType.phone,
+  //           onChanged: (value) => _message = value,
+  //         ),
+  //         onConfirmBtnTap: () async {
+  //           if (_message.length <= 0) {
+  //             await CoolAlert.show(
+  //               context: context,
+  //               type: CoolAlertType.error,
+  //               text: '아무것도 입력되지 않았습니다.',
+  //             );
+  //             return;
+  //           }
+  //           Navigator.of(context).pop();
+  //           CoolAlert.show(
+  //             context: context,
+  //             type: CoolAlertType.success,
+  //             text: "${info[index].name}이(가) '$_message' 로 변경되었습니다!",
+  //           );
+  //           //info[index].detail = _message;
+  //         },
+  //       );
+  //     },
+  //   );
+  // }
 }

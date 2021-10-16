@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/facility_info.dart';
-import 'package:myapp/pages/admin/facility_modify/ad_facility_modify_menu.dart';
+import 'package:myapp/pages/admin/facility_modify/computer/ad_1co_computer_modify.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:myapp/pages/admin/notice/ad_post_notice.dart';
 import 'package:flutter/material.dart';
@@ -306,7 +306,7 @@ class Selectdtail extends State<ADFacilityModifyScreen> {
                     text: "해당 시설의 세부 정보를 수정하시겠습니까?",
                     confirmBtnColor: Colors.indigo.shade200,
                     onConfirmBtnTap: () async {
-                      Get.to(ADPostNoticeScreen());
+                      Get.to(AD1COComputerModifyScreen());
                     }
                   );
                 }),

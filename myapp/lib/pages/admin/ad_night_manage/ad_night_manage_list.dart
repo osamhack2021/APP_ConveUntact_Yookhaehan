@@ -1,11 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:myapp/pages/admin/ad_night_manage/ad_night_manage_1co_menu.dart';
-import 'package:myapp/pages/admin/confirm_wait/ad_write_comment.dart';
+import 'package:myapp/pages/admin/ad_night_manage/company/ad_night_manage_1co_menu.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:cool_alert/cool_alert.dart';
-
 class ADNightManageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

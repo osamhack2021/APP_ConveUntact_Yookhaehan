@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart'
     hide User; // 이 프로젝트의 User 모델과 이름이 겹쳐서..
 import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/domain/unit/unit_provider.dart';
+
 // FireStore에서 응답되는 데이터를 예쁘게 가공!! => json => Dart 오브젝트
 class UnitRepository {
   //통신을 담당하는 provider 객체를 불러옴
@@ -42,31 +43,39 @@ class UnitRepository {
     return Unit();
   }
 
-
-
   //회원가입
   //parameter 수정
-  Future<Unit> join(String email, String password, String unitcode, 
-    String name, String picture) async {
-
+  Future<Unit> join(Unit newunit, String? password) async {
     UserCredential? unitCredential;
     //1. FirebaseAuth에 관리자추가
     try {
+      print("회원 auth 추가 시작");
+      print(newunit.email);
+      print(password);
       unitCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: newunit.email!,
+        password: password!,
       );
+      print("회원 auth 추가 완료");
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
     } catch (e) {
-      // Create 실패 시 익셉션 일어남
+      print(e);
     }
 
+    print("회원 auth 추가 완료2");
     if (unitCredential != null) {
+      print("auth 추가 후 unit 객체 만들기!!");
       Unit principal = Unit(
         uid: "${unitCredential.user!.uid}",
-        unitcode: unitcode,
-        name: name,
-        picture: picture,
+        unitcode: newunit.unitcode,
+        unitname: newunit.unitname,
+        picture: newunit.picture,
         email: unitCredential.user!.email,
         // manners: manners,
         // declarations: declarations,

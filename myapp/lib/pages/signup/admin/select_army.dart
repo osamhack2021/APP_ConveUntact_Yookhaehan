@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'add_unitinfo.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/pages/signup/admin/admin_check_unit.dart';
 
 void main() => runApp(SelectArmy());
 const primaryColor = Color(0xFFACBDF4);
@@ -35,6 +35,18 @@ class SelectArmy extends StatelessWidget {
 
 class buildCon extends StatelessWidget {
   late BuildContext ctx;
+
+  final UnitController unit = Get.put(UnitController());
+
+  String army =
+      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/army.png';
+  String navy =
+      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/navy.png';
+  String airforce =
+      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/airforce.png';
+  String marine =
+      '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/marine.png';
+
   @override
   Widget build(BuildContext context) {
     ctx = context;
@@ -59,19 +71,25 @@ class buildCon extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/army.png',
-                          width: 120,
-                          height: 120),
-                      onTap: () => Get.to((AddUnit())),
+                      child: Image.asset(army, width: 120, height: 120),
+                      onTap: () => Get.to(() => AdminCheckUnit(), arguments: {
+                        "picture": army,
+                        "email": Get.arguments["email"],
+                        "password": Get.arguments["password"],
+                        "unitcode": Get.arguments["unitcode"],
+                        "unitname": Get.arguments["unitname"],
+                      }),
                     ),
                     const Divider(),
                     InkWell(
-                      child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
-                          width: 120,
-                          height: 120),
-                      onTap: () => Get.to((AddUnit())),
+                      child: Image.asset(navy, width: 120, height: 120),
+                      onTap: () => Get.to(() => AdminCheckUnit(), arguments: {
+                        "picture": navy,
+                        "email": Get.arguments["email"],
+                        "password": Get.arguments["password"],
+                        "unitcode": Get.arguments["unitcode"],
+                        "unitname": Get.arguments["unitname"],
+                      }),
                     ),
                   ],
                 ),
@@ -80,19 +98,25 @@ class buildCon extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/airforce.png',
-                          width: 120,
-                          height: 120),
-                      onTap: () => Get.to((AddUnit())),
+                      child: Image.asset(airforce, width: 120, height: 120),
+                      onTap: () => Get.to(() => AdminCheckUnit(), arguments: {
+                        "picture": airforce,
+                        "email": Get.arguments["email"],
+                        "password": Get.arguments["password"],
+                        "unitcode": Get.arguments["unitcode"],
+                        "unitname": Get.arguments["unitname"],
+                      }),
                     ),
                     const Divider(),
                     InkWell(
-                      child: Image.asset(
-                          '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/marine.png',
-                          width: 120,
-                          height: 120),
-                      onTap: () => Get.to((AddUnit())),
+                      child: Image.asset(marine, width: 120, height: 120),
+                      onTap: () => Get.to(() => AdminCheckUnit(), arguments: {
+                        "picture": marine,
+                        "email": Get.arguments["email"],
+                        "password": Get.arguments["password"],
+                        "unitcode": Get.arguments["unitcode"],
+                        "unitname": Get.arguments["unitname"],
+                      }),
                     ),
                   ],
                 ),

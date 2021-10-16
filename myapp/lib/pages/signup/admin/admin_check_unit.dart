@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/pages/signup/admin/add_detail.dart';
+import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/domain/unit/unit.dart';
+import 'package:myapp/pages/signup/admin/admin_finish_signup.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 
-const Unitinfo = '해군사이버작전센터';
 void main() => runApp(AdminCheckUnit());
 const primaryColor = Color(0xFFACBDF4);
 
@@ -47,6 +50,7 @@ class MyCustomForm extends StatefulWidget {
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
+  UnitController unit = Get.put(UnitController());
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -72,32 +76,16 @@ class MyCustomFormState extends State<MyCustomForm> {
               children: <Widget>[
                 InkWell(
                   child: InkWell(
-                    child: Image.asset(
-                        '/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
-                        width: 120,
-                        height: 120),
+                    child: Image.asset('${Get.arguments["picture"]}',
+                        width: 120, height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
-                Text('${Unitinfo}',
+                Text('${Get.arguments["unitname"]}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: Colors.black)),
-
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
                 SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -127,13 +115,40 @@ class MyCustomFormState extends State<MyCustomForm> {
                               alignment: Alignment.center,
                               textStyle: const TextStyle(fontSize: 35),
                             ),
-                            onPressed: () {
-                              // It returns true if the form is valid, otherwise returns false
-                              if (_formKey.currentState!.validate()) {
-                                // If the form is valid, display a Snackbar.
-                                Scaffold.of(context).showSnackBar(
-                                    SnackBar(content: Text('완료.')));
-                                Get.to(AddDetail());
+                            onPressed: () async {
+                              // print("debug1");
+                              // //부대코드 중복 체크
+                              // int emailCheck = await unit.checkCode(Get.arguments["email"].toString());
+                              // print("debug12");
+                              // if (emailCheck < 1) {
+                              //   Get.snackbar("회원가입 실패", "부대코드 중복");
+                              //   return;
+                              // }
+                              // print("debug13");
+                              
+
+                              // UUID -> https://pub.dev/packages/uuid/example
+                              // 부대 코드 난수 생성
+                              var uuid = Uuid();
+                              var unitcode = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+
+                              //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
+                              Unit newunit = Unit(
+                                unitcode: unitcode,
+                                unitname: Get.arguments["unitcode"].toString(),
+                                picture: Get.arguments["picture"].toString(),
+                                email: Get.arguments["email"].toString(),
+                              );
+
+                              print("debug14");
+                              int result = await unit.join(newunit, Get.arguments["password"].toString());
+                              print("debug15");
+                              if (result == 1) {
+                              print("debug16");
+                                Get.offAll(() => AdminFinishSignup(),arguments: Get.arguments);
+                              print("debug17");
+                              } else {
+                                Get.snackbar("회원가입 시도", "회원가입 실패");
                               }
                             },
                             child: const Text('   예   '),

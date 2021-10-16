@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/pages/signup/user/user_finish_signup.dart';
 
@@ -55,11 +56,15 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   @override
   Widget build(BuildContext context) {
-    String? password = Get.arguments["Password"];
+    String? unitcode = Get.arguments["unitcode"];
+    unit.findByCode(unitcode!);
+    Unit u = unit.principal.value;
     print("--------------------------");
-    print("password : $password");
+    print(u.unitcode);
+    print(u.unitname);
+    print(u.email);
+    print(u.created);
     print("--------------------------");
-    unit.findByCode(password!);
 
     // Build a Form widget using the _formKey created above.
     return Column(
@@ -86,32 +91,18 @@ class MyCustomFormState extends State<MyCustomForm> {
                   child: InkWell(
                     child: Image.asset(
                         //'/workspaces/APP_ConveUntact_Yookhaehan/myapp_conveuntact/lib/images/navy.png',
-                        '${unit.principal.value.picture}',
+                        '${Get.arguments["picture"]}',
                         width: 120,
                         height: 120),
                   ),
                 ),
                 SizedBox(height: 40),
                 //Unitinfo 부대확인
-                Text('${unit.principal.value.name}',
+                Text('${unit.principal.value.unitname}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: Colors.black)),
-
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
 
                 SizedBox(height: 40),
                 Row(
@@ -170,11 +161,11 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   email: Get.arguments["email"],
                                   username: Get.arguments["username"],
                                   rank: Get.arguments["rank"],
-                                  //picture: Get.arguments["picture"],
+                                  picture: unit.principal.value.picture,
                                   number: Get.arguments["number"],
                                 );
 
-                                int result = await user.join(newuser, password);
+                                int result = await user.join(newuser, Get.arguments["password"].toString());
                                 if (result == 1) {
                                   Get.offAll(() => UserFinishSignup(), arguments : Get.arguments["username"]);
                                 } else {

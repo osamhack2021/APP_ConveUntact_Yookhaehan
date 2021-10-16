@@ -10,7 +10,7 @@ class ReservationController extends GetxController {
 
   // 객체 생성(create) onInit 함수실행(initialize)
   // ReservationController n = Get.put(ReservationController());
-  ReservationController(this.unitcode);
+  ReservationController({this.unitcode});
 
   @override
   void onInit() {

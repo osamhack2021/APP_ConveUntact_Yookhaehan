@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/main.dart';
 import 'package:myapp/pages/declaration/declaration_menu.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
@@ -13,10 +14,15 @@ import 'package:myapp/pages/setting/setting_page.dart';
 class MenuWidget extends StatelessWidget {
   final Function(String)? onItemClick;
 
-  const MenuWidget({Key? key, this.onItemClick}) : super(key: key);
+  const MenuWidget({Key? key, this.onItemClick});
+
 
   @override
   Widget build(BuildContext context) {
+
+    //To do 사용자 사진, 이름 뿌리기
+    UserController u = Get.put(UserController());
+
     return Container(
       color: Colors.pink.shade100,
       padding: const EdgeInsets.only(top: 30),
@@ -30,6 +36,7 @@ class MenuWidget extends StatelessWidget {
             radius: 65,
             backgroundColor: Colors.white,
             child: Image.asset(
+              //1. u.principal.value.picture,
               '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
               width: 100,
               height: 100
@@ -39,6 +46,7 @@ class MenuWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
+            //2. u.principal.value.username,
             '일병 홍길동',
             style: TextStyle(
                 color: Colors.white,
@@ -92,6 +100,10 @@ class MenuWidget extends StatelessWidget {
           text: "로그아웃 하시겠습니까?",
           confirmBtnColor: Colors.pink.shade200,
           onConfirmBtnTap: () async {
+            //로그아웃
+            UserController u = Get.put(UserController());
+            await u.logout();
+            
             Get.to(LoginPage());
           }
         );

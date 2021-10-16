@@ -97,24 +97,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
                 const SizedBox(height: 10),
-
-                TextFormField(
-                  controller: _password,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.password),
-                    hintText: '비밀번호를 입력해주세요',
-                    labelText: '비밀번호',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '비밀번호를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 10),
                 TextFormField(
                   controller: _username,
                   decoration: const InputDecoration(
@@ -148,36 +130,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  controller: _email,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                    icon: const Icon(Icons.email),
-                    hintText: '이메일 주소를 입력해 주세요  ex)osam2021@naver.com',
-                    labelText: '(아이디)이메일 주소',
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return '이메일주소를 입력해주세요';
-                    }
-                    return null;
-                  },
-                ),
-                // new Container(
-                //     padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                //     child: new RaisedButton(
-                //       child: const Text('다음'),
-                //       onPressed: () {
-                //         // It returns true if the form is valid, otherwise returns false
-                //         if (_formKey.currentState!.validate()) {
-                //           // If the form is valid, display a Snackbar.
-                //           Scaffold.of(context)
-                //               .showSnackBar(SnackBar(content: Text('완료.')));
-                //         }
-                //       },
-                //     )),
                 const SizedBox(height: 60),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
@@ -210,13 +162,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // If the form is valid, display a Snackbar.
                             Scaffold.of(context)
                                 .showSnackBar(SnackBar(content: Text('완료.')));
-                                
-                            Get.to(UnitCode(), arguments: {
-                              "password": _password.text.trim(),
+
+                            Get.to(() => UnitCode(), arguments: {
+                              "email": Get.arguments["email"],
+                              "password": Get.arguments["password"],
                               "number": _number.text.trim(),
                               "username": _username.text.trim(),
                               "rank": _rank.text.trim(),
-                              "email": _email.text.trim(),
                             });
                           }
                         },

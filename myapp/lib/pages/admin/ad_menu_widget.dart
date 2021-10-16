@@ -1,15 +1,14 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/admin/ad_my_page/ad_mypage_menu.dart';
 import 'package:myapp/pages/admin/ad_night_manage/ad_night_manage_list_menu.dart';
 import 'package:myapp/pages/admin/ad_rez_chart/ad_rez_chart_menu.dart';
-import 'package:myapp/pages/admin/confirm_wait/ad_confirm_wait_list_menu.dart';
-import 'package:myapp/pages/admin/declaration/ad_declaration_list_menu.dart';
+import 'package:myapp/pages/admin/ad_confirm_wait/ad_confirm_wait_list_menu.dart';
+import 'package:myapp/pages/admin/ad_declaration/ad_declaration_list_menu.dart';
 import 'package:myapp/pages/admin/facility_modify/ad_facility_modify_menu.dart';
-import 'package:myapp/pages/admin/notice/ad_notice_list_menu.dart';
-import 'package:myapp/pages/admin/homepage/ad_home_page_menu.dart';
-import 'package:myapp/pages/my_page/mypage_menu.dart';
-import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
+import 'package:myapp/pages/admin/ad_notice/ad_notice_list_menu.dart';
+import 'package:myapp/pages/admin/ad_homepage/ad_home_page_menu.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -95,7 +94,7 @@ class MenuWidget extends StatelessWidget {
       } else if(icons == Icons.settings){
         Get.to(SettingPage());
       } else if(icons == Icons.person){
-        Get.to(MyPage());
+        Get.to(ADMyPage());
       }else if(icons == Icons.logout){
         CoolAlert.show(
           context: context,

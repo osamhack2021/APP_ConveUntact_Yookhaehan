@@ -8,7 +8,11 @@ import 'package:draggable_home/draggable_home.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/my_page/mypage_menu.dart';
 
-class MyPageScreen extends StatelessWidget {
+class MyPageScreen extends StatefulWidget {
+  @override
+  MyInfoList createState() => MyInfoList();
+}
+class MyInfoList extends State<MyPageScreen> {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
@@ -90,66 +94,79 @@ class MyPageScreen extends StatelessWidget {
   );
 
   ListView listView() {
-    return ListView.builder(
+    return ListView(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
-      itemCount: info.length,
       shrinkWrap: true,
-      itemBuilder: (context, index) => Card(
-        //color: Colors.pink.shade100,
-        child: ListTile(
-          title: Text("${info[index].name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(info[index].detail, textAlign: TextAlign.right,),
+      children: <Widget>[
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].unit, textAlign: TextAlign.right,),
           onTap: (){
-            modInfo(context, index);
+            //modInfo(context, 0);
           }
         ),
-      ),
-    );
-  }
-  void modInfo(BuildContext context, int index){
-    CoolAlert.show(
-      context: context,
-      type: CoolAlertType.confirm,
-      text: "${info[index].name}을(를)\n수정 하시겠습니까?",
-      confirmBtnColor: Colors.pink.shade200,
-      onConfirmBtnTap: () async {
-        var _message = '';
-        CoolAlert.show(
-          context: context,
-          type: CoolAlertType.custom,
-          barrierDismissible: true,
-          confirmBtnText: '저장하기',
-          widget: TextFormField(
-            decoration: InputDecoration(
-              hintText: '${info[index].name}을(를) 입력하세요.',
-              prefixIcon: Icon(
-                Icons.info,
+        ListTile(
+          title: Text("중대", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].company, textAlign: TextAlign.right,),
+          onTap: (){
+            //modInfo(context, 0);
+          }
+        ),
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].rank, textAlign: TextAlign.right,),
+          onTap: (){
+            //modInfo(context, 0);
+          }
+        ),
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].name, textAlign: TextAlign.right,),
+          onTap: (){
+            //modInfo(context, 0);
+          }
+        ),
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].id, textAlign: TextAlign.right,),
+          onTap: (){
+            //modInfo(context, 0);
+          }
+        ),
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].email, textAlign: TextAlign.right,),
+          onTap: (){
+            //modInfo(context, 0);
+          }
+        ),
+        ListTile(
+          title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    CoolAlert.show(
+                      context: context,
+                      type: CoolAlertType.custom,
+                      title: "비밀번호 변경",
+                      //text: "복귀 / 취소 처리되었습니다.",
+                      confirmBtnColor: Colors.indigo.shade200,
+                    );
+                  });
+                },
+                child: Text('비밀번호 변경'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.indigo.shade200),
+                ),
               ),
-            ),
-            textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.phone,
-            onChanged: (value) => _message = value,
+            ]
           ),
-          onConfirmBtnTap: () async {
-            if (_message.length <= 0) {
-              await CoolAlert.show(
-                context: context,
-                type: CoolAlertType.error,
-                text: '아무것도 입력되지 않았습니다.',
-              );
-              return;
-            }
-            Navigator.of(context).pop();
-            CoolAlert.show(
-              context: context,
-              type: CoolAlertType.success,
-              text: "${info[index].name}이(가) '$_message' 로 변경되었습니다!",
-            );
-            //info[index].detail = _message;
-          },
-        );
-      },
+        ),
+      ],
     );
   }
 }

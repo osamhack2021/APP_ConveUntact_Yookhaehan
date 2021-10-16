@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:myapp/components/facility_info.dart';
 import 'package:myapp/pages/admin/facility_modify/computer/ad_1co_computer_modify.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
-import 'package:myapp/pages/admin/notice/ad_post_notice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cool_alert/cool_alert.dart';
@@ -35,7 +34,7 @@ class Selectdtail extends State<ADFacilityModifyScreen> {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      title: Text("부대 시설목록"),
+      title: Text("부대 시설관리"),
       //actions: [
         //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
       //],
@@ -195,7 +194,7 @@ class Selectdtail extends State<ADFacilityModifyScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "부대 시설목록",
+              "부대 시설관리",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -316,12 +315,12 @@ class Selectdtail extends State<ADFacilityModifyScreen> {
                   CoolAlert.show(
                     context: context,
                     type: CoolAlertType.success,
-                    title: "${teamFacilityList[index].name}",
+                    title: "${personalFacilityList[index].name}",
                     text: "해당 시설을 삭제했습니다.",
                     confirmBtnColor: Colors.indigo.shade200,
                   );
                   setState(() {
-                    teamFacilityList.removeAt(index);
+                    personalFacilityList.removeAt(index);
                   });
                 }),
             ]

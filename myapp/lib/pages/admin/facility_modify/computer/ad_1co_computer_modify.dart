@@ -1,8 +1,11 @@
 import 'package:flutter/widgets.dart';
+import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:myapp/components/pc_info.dart';
+import 'package:myapp/pages/admin/facility_modify/ad_facility_modify_menu.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:get/get.dart';
 
 class AD1COComputerModifyScreen extends StatefulWidget {
   @override
@@ -15,7 +18,7 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
 
   @override
   void initState() {
-    for (int i = 0; i < computer1COList.length; i++) {
+    for (int i = 0; i < computer_1co.length; i++) {
       computer1COList.add(
         computer_1co[i]
       );
@@ -50,13 +53,23 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
           icon: Icon(Icons.add_circle, color: Colors.indigo.shade200,),
           onPressed: (){
             setState(() {
-              computer1COList.add(
-                ComputerInfo(
-                  id: computer1COList.length,
-                  os: "Window",
-                  isuse: false,
-                ),
-              );
+              if (computer1COList.length == 0) {
+                computer1COList.add(
+                  ComputerInfo(
+                    id: 1,
+                    os: "Window",
+                    isuse: false,
+                  ),
+                );
+              } else {
+                computer1COList.add(
+                  ComputerInfo(
+                    id: computer1COList[computer1COList.length-1].id+1,
+                    os: "Window",
+                    isuse: false,
+                  ),
+                );
+              }
             });
           }
         ),
@@ -88,7 +101,7 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "부대 시설목록",
+              "부대 시설관리",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -104,6 +117,17 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
                 width: 100,
                 height: 100,
               ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustromElevatedButton(
+              text: "저장하기",
+              onPressed: () {
+                Get.to(ADFacilityModifyPage());
+              },
             ),
           ],
         ),
@@ -146,18 +170,33 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
             backgroundColor: Color(0x00000000),
             child: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
           ),
-          title: Text("${computer1COList[index].id+1}번 PC", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          title: Text("${computer1COList[index].id}번 PC", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
           subtitle: Text(computer1COList[index].os),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if(computer1COList[index].os == "LINUX") {
+                      computer1COList[index].os = "WINDOW";
+                    } else {
+                      computer1COList[index].os = "LINUX";
+                    }
+                  });
+                },
+                child: Text('운영체제 변경'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.indigo.shade200),
+                ),
+              ),
               IconButton(
                 icon: Icon(Icons.delete, color: Colors.pink.shade100),
                 onPressed: (){
                   CoolAlert.show(
                     context: context,
                     type: CoolAlertType.success,
-                    title: "${computer1COList[index].id+1}번 PC (${computer1COList[index].os})",
+                    title: "${computer1COList[index].id}번 PC (${computer1COList[index].os})",
                     text: "해당 좌석을 삭제했습니다.",
                     confirmBtnColor: Colors.indigo.shade200,
                   );

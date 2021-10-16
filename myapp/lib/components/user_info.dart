@@ -1,37 +1,37 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Information{
-  final String name;
-  final String detail;
+class User{
+  Image? profile;
+  String unit;
+  String company;
+  String rank;
+  String name;
+  String id;
+  String email;
+  String pw;
 
-  Information(
-    {required this.name, required this.detail});
+  User({
+    this.profile,
+    required this.unit,
+    required this.company,
+    required this.rank,
+    required this.name,
+    required this.id,
+    required this.email,
+    required this.pw,
+  });
 }
 
-List<Information> info = [
-  Information(
-    name: "소속",
-    detail: "X군단 X단 X대대"
-  ),
-  Information(
-    name: "중대",
-    detail: "X 중대"
-  ),
-  Information(
-    name: "계급",
-    detail: "일병"
-  ),
-  Information(
-    name: "성명",
-    detail: "홍길동"
-  ),
-  Information(
-    name: "군번",
-    detail: "20-11111111"
-  ),
-  Information(
-    name: "이메일",
-    detail: "user@gmail.com"
+List<User> userInfo = [
+  User(
+    profile: null,//Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png'),
+    unit: "X군단 X단 X대대",
+    company: "X 중대",
+    rank: "일병",
+    name: "홍길동",
+    id: "20-11111111",
+    email: "user@gmail.com",
+    pw: "1234"
   ),
 ];

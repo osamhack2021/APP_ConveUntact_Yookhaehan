@@ -125,28 +125,36 @@ class MyCustomFormState extends State<MyCustomForm> {
                               //   return;
                               // }
                               // print("debug13");
-                              
 
                               // UUID -> https://pub.dev/packages/uuid/example
                               // 부대 코드 난수 생성
                               var uuid = Uuid();
-                              var unitcode = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+                              var unitcode =
+                                  uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
+
+                              //unit code 자르기 시작
+                              String a = unitcode;
+                              String cut_unitcode = a.substring(0, 5);
+                              //unit code 자르기 끝
 
                               //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
                               Unit newunit = Unit(
                                 unitcode: unitcode,
-                                unitname: Get.arguments["unitcode"].toString(),
+                                unitname:
+                                Get.arguments["cut_unitcode"].toString(),
                                 picture: Get.arguments["picture"].toString(),
                                 email: Get.arguments["email"].toString(),
                               );
 
                               print("debug14");
-                              int result = await unit.join(newunit, Get.arguments["password"].toString());
+                              int result = await unit.join(newunit,
+                                  Get.arguments["password"].toString());
                               print("debug15");
                               if (result == 1) {
-                              print("debug16");
-                                Get.offAll(() => AdminFinishSignup(),arguments: unitcode);
-                              print("debug17");
+                                print("debug16");
+                                Get.offAll(() => AdminFinishSignup(),
+                                    arguments: Get.arguments);
+                                print("debug17");
                               } else {
                                 Get.snackbar("회원가입 시도", "회원가입 실패");
                               }

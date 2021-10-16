@@ -84,7 +84,7 @@ class Reserv1ComputerScreen extends StatelessWidget {
             backgroundColor: Color(0x00000000),
             child: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
           ),
-          title: Text("${computer_1co[index].name} / ${computer_1co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          title: Text("${computer_1co[index].id}번 PC / ${computer_1co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(computer_1co[index].isuse ? "사용 불가" : "사용 가능"),
           onTap: (){
             if(computer_1co[index].isuse){
@@ -106,7 +106,7 @@ class Reserv1ComputerScreen extends StatelessWidget {
                   CoolAlert.show(
                     context: context,
                     type: CoolAlertType.success,
-                    text: "${computer_1co[index].name}\n정상적으로 예약이 완료되었습니다.",
+                    text: "${computer_1co[index].id}번 PC\n정상적으로 예약이 완료되었습니다.",
                     confirmBtnColor: Colors.pink.shade200,
                     onConfirmBtnTap: () async {
                       Get.to(MyReservation());

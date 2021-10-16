@@ -1,4 +1,6 @@
 import 'package:flutter/widgets.dart';
+import 'package:myapp/controller/notice_controller.dart';
+import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:myapp/pages/admin/ad_post_notice.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +10,17 @@ import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:cool_alert/cool_alert.dart';
 
 class ADNoticeListScreen extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+
+  // UnitController unit = Get.put(UnitController());
+  // NoticeController n = Get.put(NoticeController(unitcode: unit.principal.value.unitcode!));
+
     return DraggableHome(
       title: Text("공지사항 목록"),
-      //actions: [
-        //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
-      //],
       headerWidget: headerWidget(context),
-      //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -26,29 +30,15 @@ class ADNoticeListScreen extends StatelessWidget {
             Text("공지사항 목록", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20)),
             Spacer(),
             Text("${notice.length}건의 내용 존재", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
+            //1. Text("${n.notices.length}건의 내용 존재", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10)),
             SizedBox(width: 6),
           ]
         ),
         Divider(),
         listView(),
       ],
-      //fullyStretchable: true,
-      //expandedBody: Text("Expanded"),
     );
   }
-
-  //Container headerBottomBarWidget() {
-    //return Container(
-      //child: Row(
-        //mainAxisSize: MainAxisSize.min,
-        //mainAxisAlignment: MainAxisAlignment.end,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        //children: [//설정 아이콘
-          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
-        //],
-      //),
-    //);
-  //}
 
   Container headerWidget(BuildContext context) => Container(
     color: Colors.indigo.shade200,
@@ -63,7 +53,6 @@ class ADNoticeListScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                //letterSpacing: 0.5,
                 fontSize: 40,
               )
             ),
@@ -89,26 +78,18 @@ class ADNoticeListScreen extends StatelessWidget {
             ),
           ],
         ),
-        //Row(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          //children: <Widget>[
-            //Padding(
-              //padding: const EdgeInsets.only(bottom: 12),
-                //child: ScrollPhysicsMenuButton(
-                  //theme: Theme.of(context),
-                //),
-            //),
-          //],
-        //),
       ],
     ),
   );
 
   ListView listView() {
+    //NoticeController n = Get.put(NoticeController());
+    
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
       itemCount: notice.length,
+      //itemCount: n.notices.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         color: Colors.white,
@@ -116,9 +97,12 @@ class ADNoticeListScreen extends StatelessWidget {
           leading: CircleAvatar(
             backgroundColor: Color(0x00000000),
             child: notice[index].icon,
+            //child: Text("${n.notices[index].facility_picture}"),
           ),
           title: Text("${notice[index].name} / ${notice[index].date}", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          //title: Text("${n.notices[index].facility_name} (문의자: ${n.notices[index].user!.rank} ${n.notices[index].user!.username})", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
           subtitle: Text(notice[index].intro),
+          //subtitle: Text(n.notices[index].created!),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[

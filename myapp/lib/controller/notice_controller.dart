@@ -10,7 +10,7 @@ class NoticeController extends GetxController {
 
   // 객체 생성(create) onInit 함수실행(initialize)
   // NoticeController n = Get.put(NoticeController());
-  NoticeController(this.unitcode);
+  NoticeController({this.unitcode});
 
   @override
   void onInit() {

@@ -145,7 +145,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               print("debug15");
                               if (result == 1) {
                               print("debug16");
-                                Get.offAll(() => AdminFinishSignup(),arguments: Get.arguments);
+                                Get.offAll(() => AdminFinishSignup(),arguments: unitcode);
                               print("debug17");
                               } else {
                                 Get.snackbar("회원가입 시도", "회원가입 실패");

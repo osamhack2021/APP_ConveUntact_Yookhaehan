@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/domain/user/user.dart';
-import 'package:myapp/pages/admin/ad_home_page.dart';
-import 'package:myapp/pages/admin/ad_home_page_menu.dart';
+import 'package:myapp/pages/admin/ad_homepage/ad_home_page_menu.dart';
 import 'package:myapp/pages/home_page/constants.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/signup/signtype.dart';
@@ -79,7 +78,7 @@ class LoginScreen extends StatelessWidget {
       if (user.principal.value.uid != null) {
         Get.to(() => HomePage());
       } else if (unit.principal.value.uid != null) {
-        Get.to(() => ADHomePageScreen());
+        Get.to(() => ADHomePage());
       } else {
         Get.snackbar("로그인 시도", "로그인 실패");
       }

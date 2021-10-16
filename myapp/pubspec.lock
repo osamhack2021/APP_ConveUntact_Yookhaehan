@@ -21,7 +21,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.5"
+    version: "3.1.6"
   async:
     dependency: transitive
     description:
@@ -203,7 +203,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.40.0"
+    version: "0.40.2"
   flare_flutter:
     dependency: transitive
     description:
@@ -217,7 +217,7 @@ packages:
       name: fluent_ui
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.3.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -400,7 +400,7 @@ packages:
       name: path_drawing
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.1"
+    version: "0.5.1+1"
   path_parsing:
     dependency: transitive
     description:
@@ -491,7 +491,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.0.1+1"
   recase:
     dependency: transitive
     description:
@@ -546,6 +546,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  syncfusion_flutter_charts:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_charts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.3.45+1"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.3.45"
   term_glyph:
     dependency: transitive
     description:

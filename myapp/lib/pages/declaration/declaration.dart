@@ -6,26 +6,14 @@ import 'package:myapp/components/pc_info.dart';
 import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/scroll_menu_button.dart';
+import 'package:myapp/components/facility_scroll_menu.dart';
 import 'package:myapp/components/textarea.dart';
-import 'package:myapp/controller/declaration_controller.dart';
-import 'package:myapp/controller/facility_controller.dart';
-import 'package:myapp/controller/unit_controller.dart';
-import 'package:myapp/controller/user_controller.dart';
-import 'package:myapp/domain/declaration/declaration.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
-
-import 'package:flutter/material.dart';
 import 'package:menu_button/menu_button.dart';
-
-late String selectedKey;
 
 class DeclarationScreen extends StatelessWidget {
   //text editing controller for text field
   final _content = TextEditingController();
-  // UserController user = Get.put(UserController());
-  // UnitController unit = Get.put(UnitController());
-  // DeclarationController d = Get.put(DeclarationController());
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +44,9 @@ class DeclarationScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ScrollPhysicsMenuButton(),
+                        FacilityScrollMenu(
+                          theme: Theme.of(context),
+                        ),
                     // dropdownButton 끝
                       ],
                     ),
@@ -189,7 +179,7 @@ class DeclarationScreen extends StatelessWidget {
             backgroundColor: Colors.pink.shade100,
             child: notice[index].icon, foregroundColor: Colors.white,
           ),
-          title: Text("${computer_1co[index].name} / ${computer_1co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          title: Text("${computer_1co[index].id}번 PC / ${computer_1co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(computer_1co[index].isuse ? "사용 불가" : "사용 가능",),
         ),
       ),
@@ -208,7 +198,7 @@ class DeclarationScreen extends StatelessWidget {
             backgroundColor: Colors.pink.shade100,
             child: notice[index].icon, foregroundColor: Colors.white,
           ),
-          title: Text("${computer_2co[index].name} / ${computer_2co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          title: Text("${computer_2co[index].id}번 PC / ${computer_2co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(computer_2co[index].isuse ? "사용 불가" : "사용 가능",),
         ),
       ),
@@ -227,117 +217,10 @@ class DeclarationScreen extends StatelessWidget {
             backgroundColor: Colors.pink.shade100,
             child: notice[index].icon, foregroundColor: Colors.white,
           ),
-          title: Text("${computer_2co[index].name} / ${computer_2co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          title: Text("${computer_2co[index].id}번 PC / ${computer_2co[index].os}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           subtitle: Text(computer_2co[index].isuse ? "사용 불가" : "사용 가능",),
         ),
       ),
-    );
-  }
-}
-
-class ScrollPhysicsMenuButton extends StatefulWidget {
-  
-  @override
-  _ScrollPhysicsMenuButtonState createState() =>
-      _ScrollPhysicsMenuButtonState();
-}
-class _ScrollPhysicsMenuButtonState extends State<ScrollPhysicsMenuButton> {
-  List<String> keys = <String>[
-    '풋살장',
-    '농구장',
-    '족구장',
-    '연병장',
-    '탁구장',
-    '다목적실',
-    '독서실',
-    '1CO 사이버지식정보방',
-    '2CO 사이버지식정보방',
-    '3CO 사이버지식정보방',
-    '1CO 노래방',
-    '2CO 노래방',
-    '3CO 노래방',
-  ];
-  @override
-  void initState() {
-    selectedKey = keys[0];
-    super.initState();
-  }
-  @override
-  Widget build(BuildContext context) {
-    
-    // FacilityController f = Get.put(FacilityController());
-    // UserController user = Get.put(UserController());
-    // f.findByUnitCode(user.principal.value.unitcode!);
-    
-    // List<String> keys = f.facilitys.value.map((e) => e.name).toString() as List<String>;
-
-    final Widget scrollChildButton = SizedBox(
-      width: 300,
-      height: 40,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 11),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              child: Text(
-                selectedKey,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            const SizedBox(
-              width: 12,
-              height: 17,
-              child: FittedBox(
-                fit: BoxFit.fill,
-                child: Icon(
-                  Icons.arrow_drop_down,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        MenuButton<String>(
-          menuButtonBackgroundColor: Color(0x3dffffff),
-          child: scrollChildButton,
-          items: keys,
-          topDivider: true,
-          scrollPhysics: const AlwaysScrollableScrollPhysics(),
-          itemBuilder: (String value) => Container(
-            height: 40,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 16),
-            child: Text(value),
-          ),
-          toggledChild: Container(
-            child: scrollChildButton,
-          ),
-          divider: Container(
-            height: 1,
-            color: Colors.grey,
-          ),
-          onItemSelected: (String value) {
-            setState(() {
-              selectedKey = value;
-            });
-          },
-          decoration: BoxDecoration(
-            //border: Border.all(color: Colors.grey[300]!),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
-            )
-          ),
-          onMenuButtonToggle: (bool isToggle) {
-            print(isToggle);
-          },
-        ),
-      ],
     );
   }
 }

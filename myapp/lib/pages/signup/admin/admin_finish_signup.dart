@@ -45,7 +45,7 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 70,
                   color: Colors.white)),
           const SizedBox(height: 20),
-          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${Get.arguments["unitcode"]} 입니다.',
+          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${Get.arguments} 입니다.',
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

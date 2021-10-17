@@ -1,11 +1,13 @@
 import 'package:cool_alert/cool_alert.dart';   
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/components/company_info.dart';
 import 'package:myapp/components/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:myapp/pages/admin/ad_my_page/ad_mypage_menu.dart';
 import 'package:get/get.dart';
+import 'package:myapp/pages/signup/admin/add_detail.dart';
 
 class ADMyPageScreen extends StatefulWidget {
   @override
@@ -60,17 +62,17 @@ class ADMyInfoList extends State<ADMyPageScreen> {
         CircleAvatar(
           radius: 70,
           backgroundColor: Colors.white,
-          child: userInfo[0].profile == null ? Image.asset(
+          child: myInfo[0].profile == null ? Image.asset(
             '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/images/army.png',
             width: 100,
             height: 100
-          ) : userInfo[0].profile,
+          ) : myInfo[0].profile,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "${userInfo[0].rank} ${userInfo[0].name}",
+              "관리자",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -79,7 +81,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
               ),
             ),
             Text(
-              "${userInfo[0].unit} ${userInfo[0].company}",
+              "${myInfo[0].unit} ${myInfo[0].company}",
               style: TextStyle(
                 color: Colors.white,
                 letterSpacing: 0.5,
@@ -102,14 +104,14 @@ class ADMyInfoList extends State<ADMyPageScreen> {
       children: <Widget>[
         ListTile(
           title: Text("소속", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].unit, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].unit, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text("변경할 소속 입력"),
+                  title: Text("변경할 소속명 입력"),
                   content: TextField(
                     onChanged: (String value) {
                       input = value;
@@ -119,7 +121,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].unit = input;
+                          myInfo[0].unit = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -139,122 +141,29 @@ class ADMyInfoList extends State<ADMyPageScreen> {
           }
         ),
         ListTile(
-          title: Text("중대", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].company, textAlign: TextAlign.right,),
-          onTap: (){
-            input = "";
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("변경할 중대 입력"),
-                  content: TextField(
-                    onChanged: (String value) {
-                      input = value;
-                    },
-                  ),
-                  actions: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          userInfo[0].company = input;
-                        });
-                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                      },
-                      child: Text("변경하기")
-                    ),
-                    //RaisedButton(
-                      //onPressed: () {
-                        //print(teamFacilityList);
-                        //Get.to(ADFacilityModifyPage());
-                      //},
-                      //child: Text('저장하기')
-                    //),
-                  ],
-                );
-              }
-            );
-          }
-        ),
-        ListTile(
-          title: Text("계급", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].rank, textAlign: TextAlign.right,),
-          onTap: (){
-            input = "";
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("변경할 계급 입력"),
-                  content: TextField(
-                    onChanged: (String value) {
-                      input = value;
-                    },
-                  ),
-                  actions: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          userInfo[0].rank = input;
-                        });
-                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                      },
-                      child: Text("변경하기")
-                    ),
-                    //RaisedButton(
-                      //onPressed: () {
-                        //print(teamFacilityList);
-                        //Get.to(ADFacilityModifyPage());
-                      //},
-                      //child: Text('저장하기')
-                    //),
-                  ],
-                );
-              }
-            );
-          }
+          title: Text("예하부대", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: (){
+                  Get.to(() => AddDetail());
+                },
+                child: Text('예하부대 변경'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.indigo.shade200),
+                ),
+              ),
+            ]
+          ),
         ),
         ListTile(
           title: Text("이름", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].name, textAlign: TextAlign.right,),
-          onTap: (){
-            input = "";
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text("변경할 이름 입력"),
-                  content: TextField(
-                    onChanged: (String value) {
-                      input = value;
-                    },
-                  ),
-                  actions: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          userInfo[0].name = input;
-                        });
-                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                      },
-                      child: Text("변경하기")
-                    ),
-                    //RaisedButton(
-                      //onPressed: () {
-                        //print(teamFacilityList);
-                        //Get.to(ADFacilityModifyPage());
-                      //},
-                      //child: Text('저장하기')
-                    //),
-                  ],
-                );
-              }
-            );
-          }
+          subtitle: Text("관리자", textAlign: TextAlign.right,),
         ),
         ListTile(
-          title: Text("군번", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].id, textAlign: TextAlign.right,),
+          title: Text("부대 코드번호", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
+          subtitle: Text(myInfo[0].id, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -271,7 +180,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].id = input;
+                          myInfo[0].id = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -292,7 +201,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
         ),
         ListTile(
           title: Text("이메일", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].email, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].email, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -309,7 +218,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].email = input;
+                          myInfo[0].email = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -350,7 +259,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                           FlatButton(
                             onPressed: () {
                               setState(() {
-                                userInfo[0].pw = input;
+                                myInfo[0].pw = input;
                               });
                               Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                             },

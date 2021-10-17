@@ -1,7 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:myapp/components/confirm_state_scroll_menu.dart';
+import 'package:myapp/components/scroll_menu/confirm_state_scroll_menu.dart';
 import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:myapp/components/pc_info.dart';
 import 'package:myapp/components/notice_info.dart';

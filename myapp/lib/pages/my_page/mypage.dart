@@ -4,6 +4,10 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
+import 'package:myapp/components/company_info.dart';
+import 'package:myapp/components/rank_info.dart';
+import 'package:myapp/components/scroll_menu/company_scroll_menu.dart';
+import 'package:myapp/components/scroll_menu/facility_scroll_menu.dart';
 import 'package:myapp/components/user_info.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/pages/signup/user/unitcode.dart';
@@ -62,17 +66,17 @@ class MyInfoList extends State<MyPageScreen> {
         CircleAvatar(
           radius: 70,
           backgroundColor: Colors.white,
-          child: userInfo[0].profile == null ? Image.asset(
+          child: myInfo[0].profile == null ? Image.asset(
             '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
             width: 100,
             height: 100
-          ) : userInfo[0].profile,
+          ) : myInfo[0].profile,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "${userInfo[0].rank} ${userInfo[0].name}",
+              "${myInfo[0].rank} ${myInfo[0].name}",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -81,7 +85,7 @@ class MyInfoList extends State<MyPageScreen> {
               ),
             ),
             Text(
-              "${userInfo[0].unit} ${userInfo[0].company}",
+              "${myInfo[0].unit} ${myInfo[0].company}",
               style: TextStyle(
                 color: Colors.white,
                 letterSpacing: 0.5,
@@ -104,9 +108,8 @@ class MyInfoList extends State<MyPageScreen> {
       children: <Widget>[
         ListTile(
           title: Text("소속", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].unit, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].unit, textAlign: TextAlign.right,),
           onTap: (){
-            input = "";
             CoolAlert.show(
               context: context,
               type: CoolAlertType.confirm,
@@ -114,9 +117,8 @@ class MyInfoList extends State<MyPageScreen> {
               confirmBtnColor: Colors.pink.shade200,
               onConfirmBtnTap: () async {
                 //로그아웃
-                UserController u = Get.put(UserController());
-                await u.logout();
-                
+                //UserController u = Get.put(UserController());
+                //await u.logout();
                 Get.to(() => UnitCode());
               }
             );
@@ -124,37 +126,34 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         ListTile(
           title: Text("중대", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].company, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].company, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text("변경할 중대 입력"),
-                  content: TextField(
-                    onChanged: (String value) {
-                      input = value;
+                  title: Text("변경할 중대 선택"),
+                  content: DropdownButton(
+                    items: companys.map((value) {
+                      return DropdownMenuItem(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        myInfo[0].company = value!;
+                      });
+                      Navigator.of(context).pop();
                     },
                   ),
-                  actions: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          userInfo[0].company = input;
-                        });
-                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                      },
-                      child: Text("변경하기")
-                    ),
-                    //RaisedButton(
-                      //onPressed: () {
-                        //print(teamFacilityList);
-                        //Get.to(ADFacilityModifyPage());
-                      //},
-                      //child: Text('저장하기')
-                    //),
-                  ],
+                  //CompanyScrollMenu(theme: Theme.of(context), ),
+                  //TextField(
+                    //onChanged: (String value) {
+                      //input = value;
+                    //},
+                  //),
                 );
               }
             );
@@ -162,7 +161,7 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         ListTile(
           title: Text("계급", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].rank, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].rank, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -170,29 +169,20 @@ class MyInfoList extends State<MyPageScreen> {
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: Text("변경할 계급 입력"),
-                  content: TextField(
-                    onChanged: (String value) {
-                      input = value;
+                  content: DropdownButton(
+                    items: ranks.map((value) {
+                      return DropdownMenuItem(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        myInfo[0].rank = value!;
+                      });
+                      Navigator.of(context).pop();
                     },
                   ),
-                  actions: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          userInfo[0].rank = input;
-                        });
-                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
-                      },
-                      child: Text("변경하기")
-                    ),
-                    //RaisedButton(
-                      //onPressed: () {
-                        //print(teamFacilityList);
-                        //Get.to(ADFacilityModifyPage());
-                      //},
-                      //child: Text('저장하기')
-                    //),
-                  ],
                 );
               }
             );
@@ -200,7 +190,7 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         ListTile(
           title: Text("이름", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].name, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].name, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -217,7 +207,7 @@ class MyInfoList extends State<MyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].name = input;
+                          myInfo[0].name = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -238,7 +228,7 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         ListTile(
           title: Text("군번", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].id, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].id, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -255,7 +245,7 @@ class MyInfoList extends State<MyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].id = input;
+                          myInfo[0].id = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -276,7 +266,7 @@ class MyInfoList extends State<MyPageScreen> {
         ),
         ListTile(
           title: Text("이메일", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text(userInfo[0].email, textAlign: TextAlign.right,),
+          subtitle: Text(myInfo[0].email, textAlign: TextAlign.right,),
           onTap: (){
             input = "";
             showDialog(
@@ -293,7 +283,7 @@ class MyInfoList extends State<MyPageScreen> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          userInfo[0].email = input;
+                          myInfo[0].email = input;
                         });
                         Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                       },
@@ -334,7 +324,7 @@ class MyInfoList extends State<MyPageScreen> {
                           FlatButton(
                             onPressed: () {
                               setState(() {
-                                userInfo[0].pw = input;
+                                myInfo[0].pw = input;
                               });
                               Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                             },
@@ -363,4 +353,4 @@ class MyInfoList extends State<MyPageScreen> {
       ],
     );
   }
-} 
+}

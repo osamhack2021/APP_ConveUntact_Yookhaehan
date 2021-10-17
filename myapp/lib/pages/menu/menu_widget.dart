@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/components/user_info.dart';
 import 'package:myapp/controller/user_controller.dart';
-import 'package:myapp/main.dart';
 import 'package:myapp/pages/declaration/declaration_menu.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/login/login_screen.dart';
@@ -48,7 +47,7 @@ class MenuWidget extends StatelessWidget {
           ),
           Text(
             //2. u.principal.value.username,
-            '${userInfo[0].rank} ${userInfo[0].name}',
+            '${myInfo[0].rank} ${myInfo[0].name}',
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -86,9 +85,9 @@ class MenuWidget extends StatelessWidget {
       if(icons == Icons.home){
         Get.to(HomePage());
       } else if(icons == Icons.add_circle){
-        Get.to(Reservation());
+        Get.to(ReservationPage());
       } else if(icons == Icons.book){
-        Get.to(Reservation());
+        Get.to(ReservationPage());
       } else if(icons == Icons.notifications_active){
         Get.to(MyReservation());
       } else if(icons == Icons.question_answer_rounded){

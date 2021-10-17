@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/company_info.dart';
 import 'package:myapp/controller/unit_controller.dart';
 import 'package:myapp/domain/unit/unit.dart';
 import 'package:myapp/pages/login/login_screen.dart';
@@ -43,16 +44,12 @@ class Add_detail_Unit extends StatefulWidget {
 }
 
 class Selectdtail extends State<Add_detail_Unit> {
-  List todos = [];
+  //List todos = [];
   String input = "";
 
   @override
   void initState() {
     super.initState();
-    todos.add("1중대");
-    todos.add("2중대");
-    todos.add("3중대");
-    todos.add("4중대");
   }
 
   UnitController unit = Get.put(UnitController());
@@ -76,7 +73,7 @@ class Selectdtail extends State<Add_detail_Unit> {
                   FlatButton(
                     onPressed: () {
                       setState(() {
-                        todos.add(input);
+                        companys.add(input);
                       });
                       Navigator.of(context).pop(); // input 입력 후 창 닫히도록
                     },
@@ -85,7 +82,7 @@ class Selectdtail extends State<Add_detail_Unit> {
                   // ignore: deprecated_member_use
                   RaisedButton(
                     onPressed: () async {
-                      print(todos);
+                      print(companys);
 
                       Scaffold.of(context)
                           .showSnackBar(SnackBar(content: Text('완료.')));
@@ -139,23 +136,23 @@ class Selectdtail extends State<Add_detail_Unit> {
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: ListView.builder(
-            itemCount: todos.length,
+            itemCount: companys.length,
             itemBuilder: (BuildContext context, int index) {
               return Dismissible(
                   // 삭제 버튼 및 기능 추가
-                  key: Key(todos[index]),
+                  key: Key(companys[index]),
                   child: Card(
                       elevation: 4,
                       margin: EdgeInsets.all(8),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       child: ListTile(
-                        title: Text(todos[index]),
+                        title: Text(companys[index]),
                         trailing: IconButton(
                             icon: Icon(Icons.delete, color: Colors.red),
                             onPressed: () {
                               setState(() {
-                                todos.removeAt(index);
+                                companys.removeAt(index);
                               });
                             }),
                       )));

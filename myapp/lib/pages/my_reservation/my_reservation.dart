@@ -1,16 +1,20 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:myapp/components/my_reservation.dart';
-import 'package:myapp/components/notice_info.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/components/page_swipe.dart';
-import 'package:get/get.dart';
-import 'package:myapp/controller/reservation_controller.dart';
-import 'package:myapp/controller/user_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:cool_alert/cool_alert.dart';
+import 'package:intl/intl.dart';
+import 'package:myapp/pages/reservation/reservation_menu.dart';
+import 'package:get/get.dart';
 
-class MyReservationScreen extends StatelessWidget {
+class MyReservationScreen extends StatefulWidget {
+  @override
+  MyReservationList createState() => MyReservationList();
+}
+class MyReservationList extends State<MyReservationScreen> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   // ReservationController r = Get.put(ReservationController());
   // UserController u = Get.put(UserController());
@@ -37,36 +41,70 @@ class MyReservationScreen extends StatelessWidget {
                     ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Color(0x00000000),
-                        child: my_reserv[index].image,
+                        child: my_reserv[index].facility.icon,
                         //3. child: ${r.reservations[index].facility_picture},
                       ),
-                      title: Text("${my_reserv[index].facility}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+                      title: Text("${my_reserv[index].facility.name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                       //3. title: Text("${r.reservations[index].facility_name}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
                     Divider(),
                     ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0x00000000),
-                        child: Text("사유"),
+                      leading: Text(
+                        "예약자\n대표",
+                        style: TextStyle(
+                          color: Colors.pink.shade100,
+                          fontWeight: FontWeight.bold
+                        ),
+                        textAlign: TextAlign.left
                       ),
-                      title: Text("${my_reserv[index].seat}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      title: Text(
+                        "${my_reserv[index].user.rank} ${my_reserv[index].user.name}",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        ),
+                        textAlign: TextAlign.right
+                      ),
                       //3. title: Text("${r.reservations[index].reason}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
                     ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0x00000000),
-                        child: Text("이용 시간"),
+                      leading: Text(
+                        "이용\n시간",
+                        style: TextStyle(
+                          color: Colors.pink.shade100,
+                          fontWeight: FontWeight.bold
+                        ),
+                        textAlign: TextAlign.left
                       ),
-                      title: Text("${my_reserv[index].time}", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                      title: Text(
+                        "${new DateFormat.yMMMd().format(my_reserv[index].start)}\n${new DateFormat.Hm().format(my_reserv[index].start)} ~ ${new DateFormat.Hm().format(my_reserv[index].end)}",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        ),
+                        textAlign: TextAlign.right
+                      ),
                       //3. title: Text("${r.reservations[index].start} ~ ${r.reservations[index].end}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
                     ),
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0x00000000),
-                        child: Text("승인 여부"),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          CoolAlert.show(
+                            context: context,
+                            type: CoolAlertType.success,
+                            title: "${my_reserv[index].facility}",
+                            text: "예약이 취소되었습니다.",
+                            confirmBtnColor: Colors.indigo.shade200,
+                          );
+                          my_reserv.removeAt(index);
+                        });
+                      },
+                      child: Text('예약 취소'),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.pink.shade100),
                       ),
-                      title: Text("승인 완료", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                      //4-> 없애는게 좋을듯
                     ),
                   ],
                 ),
@@ -90,9 +128,9 @@ class MyReservationScreen extends StatelessWidget {
                   height: 350,
                   child: PageView.builder(
                     controller: controller,
-                    // itemCount: pages.length,
+                    itemCount: my_reserv.length,
                     itemBuilder: (_, index) {
-                      return pages[index % pages.length];
+                      return pages[index % my_reserv.length];
                     },
                   ),
                 ),
@@ -115,11 +153,11 @@ class MyReservationScreen extends StatelessWidget {
 
   Container headerWidget(BuildContext context) => Container(
     color: Colors.pink.shade100,
-    child: Row(
+    child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
               "나의 예약",
@@ -129,18 +167,29 @@ class MyReservationScreen extends StatelessWidget {
                 fontSize: 30,
               ),
             ),
+            CircleAvatar(
+              radius: 50,
+              backgroundColor: Color(0x00000000),
+              child: Image.asset(
+                '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/reservation_check.png',
+                width: 80,
+                height: 80
+              ),
+            ),
           ],
         ),
-        CircleAvatar(
-          radius: 50,
-          backgroundColor: Color(0x00000000),
-          child: Image.asset(
-            '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/reservation_check.png',
-            width: 100,
-            height: 100
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustromElevatedButton(
+              text: "예약 하기",
+              onPressed: () {
+                Get.to(ReservationPage());
+              },
+            ),
+          ],
         ),
-      ],
+      ]
     ),
-    );
+  );
 }

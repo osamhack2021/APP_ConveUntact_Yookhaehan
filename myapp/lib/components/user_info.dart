@@ -22,7 +22,7 @@ class User{
   });
 }
 
-List<User> userInfo = [
+List<User> myInfo = [
   User(
     profile: null,//Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png'),
     unit: "X군단 X단 X대대",

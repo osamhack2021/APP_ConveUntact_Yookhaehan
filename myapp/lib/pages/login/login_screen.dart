@@ -76,10 +76,22 @@ class LoginScreen extends StatelessWidget {
     return Future.delayed(loginTime).then((_) async {
       await user.findByEmail(data.name.trim());
       await unit.findByEmail(data.name.trim());
-      if (user.principal.value.uid != null) {
-        Get.to(() => HomePage());
-      } else if (unit.principal.value.uid != null) {
-        Get.to(() => ADHomePageScreen());
+      // if (user.principal.value.uid != null) {
+      //   Get.to(() => HomePage());
+      // } else 
+      if (unit.principal.value.uid != null) {
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        print("로그인 성공");
+        Get.off(() => ADHomePageScreen());
       } else {
         Get.snackbar("로그인 시도", "로그인 실패");
       }

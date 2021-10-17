@@ -139,9 +139,9 @@ class MyCustomFormState extends State<MyCustomForm> {
 
                               //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
                               Unit newunit = Unit(
-                                unitcode: unitcode,
+                                unitcode: cut_unitcode,
                                 unitname:
-                                Get.arguments["cut_unitcode"].toString(),
+                                    Get.arguments["unitname"].toString(),
                                 picture: Get.arguments["picture"].toString(),
                                 email: Get.arguments["email"].toString(),
                               );
@@ -153,7 +153,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               if (result == 1) {
                                 print("debug16");
                                 Get.offAll(() => AdminFinishSignup(),
-                                    arguments: Get.arguments);
+                                    arguments: cut_unitcode);
                                 print("debug17");
                               } else {
                                 Get.snackbar("회원가입 시도", "회원가입 실패");

@@ -1,4 +1,5 @@
 import 'package:get/instance_manager.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/service/firebase_service.dart';
 
 class AppBinding extends Bindings {
@@ -6,5 +7,6 @@ class AppBinding extends Bindings {
   void dependencies() async {
     // 의존성 주입 하는곳
     await Get.putAsync(() => FirebaseService().init());
+    Get.put(() => UserController());
   }
 }

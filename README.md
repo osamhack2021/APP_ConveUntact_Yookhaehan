@@ -121,17 +121,9 @@
  </tr>
  </tbody></table>
 
+## Flutter / Dart Packages
+---
 
-<!-- ### Server(back-end)
- -  nodejs, php, java 등 서버 언어 버전 
- - express, laravel, sptring boot 등 사용한 프레임워크 
- - DB 등 사용한 다른 프로그램 
- 
-### Front-end
- -  react.js, vue.js 등 사용한 front-end 프레임워크 
- -  UI framework
- - 기타 사용한 라이브러리
- -->
  
 <h2 id="Install"> 설치 안내 (Installation Process)</h2>
 
@@ -158,7 +150,7 @@ $ yarn start or npm run start
 <tbody>
 	
 <tr>
-<td width="100" align="center"><img src="Images/Yookhaehan_member/SeungHuyn.jpg" width="90" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/SeungHuyn.jpg" width="100" height="100"></td>
 <td width="100" align="center">고승현</td>
 <td width="250">Front Developer<br>Fimga Designer</td>
 <td width="150" align="legt">	
@@ -171,7 +163,7 @@ $ yarn start or npm run start
 </tr>
 	
 <tr>
-<td width="100" align="center"><img src="Images/Yookhaehan_member/Eunchong.jpg" width="90" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/Eunchong.jpg" width="100" height="100"></td>
 <td width="100" align="center">최은총</td>
 <td width="250">Back Developer<br></td>
 <td width="150" align="">	
@@ -184,7 +176,7 @@ $ yarn start or npm run start
 </tr>
 	
 <tr>
-<td width="100" align="center"><img src="Images/Yookhaehan_member/JiHo.jpg" width="90" height="100"></td>
+<td width="100" align="center"><img src="Images/Yookhaehan_member/JiHo.jpg" width="100" height="100"></td>
 <td width="100" align="center">최지호</td>
 <td width="250">Product Manager<br></td>
 <td width="150" align="">	

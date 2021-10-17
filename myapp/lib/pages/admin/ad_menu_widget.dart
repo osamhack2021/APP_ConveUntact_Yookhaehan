@@ -40,11 +40,11 @@ class MenuWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
-            '${userInfo[0].unit}',
+            '${myInfo[0].unit}\n관리자',
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 30,
+                fontSize: 20,
                 fontFamily: 'BalsamiqSans'),
           ),
           SizedBox(

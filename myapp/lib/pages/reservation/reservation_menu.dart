@@ -3,12 +3,12 @@ import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:myapp/pages/menu/menu_widget.dart';
 import 'package:myapp/pages/reservation/reservation.dart';
 
-class Reservation extends StatefulWidget {
+class ReservationPage extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<Reservation> {
+class _MyAppState extends State<ReservationPage> {
   GlobalKey<SliderMenuContainerState> _key =
       new GlobalKey<SliderMenuContainerState>();
   late String title;

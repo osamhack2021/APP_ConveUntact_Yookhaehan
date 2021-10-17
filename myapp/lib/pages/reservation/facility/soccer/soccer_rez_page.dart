@@ -6,7 +6,10 @@ import 'package:myapp/components/facility_info.dart';
 import 'package:myapp/components/facility_rez.dart';
 import 'package:myapp/components/controller/soccer_controller.dart';
 import 'package:myapp/components/field_rez_header.dart';
+import 'package:myapp/components/my_reservation.dart';
+import 'package:myapp/components/user_info.dart';
 import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
+import 'package:intl/intl.dart';
 
 class SoccerRezPage extends StatelessWidget {
   SoccerRezPage(this.date);
@@ -147,14 +150,25 @@ class SoccerRezPage extends StatelessWidget {
                 CoolAlert.show(
                   context: context,
                   type: CoolAlertType.confirm,
-                  text: "풋살장\n$s ~ $e\n예약하시겠습니까?",
-                  confirmBtnColor: Colors.pink.shade200,
+                  title: "풋살장",
+                  text: "${new DateFormat.yMMMd().format(s)}  ${new DateFormat.Hm().format(s)} ~ ${new DateFormat.Hm().format(e)}\n예약하시겠습니까?",
+                  confirmBtnColor: Colors.pink.shade100,
                   onConfirmBtnTap: () async {
+                    my_reserv.add(
+                      Reservation(
+                        facility: teamFacility[0],
+                        user: myInfo[0],
+                        start: s,
+                        end: e,
+                      ),
+                    );
                     CoolAlert.show(
                       context: context,
                       type: CoolAlertType.success,
-                      text: "풋살장\n$s ~ $e\n예약이 성공적으로 완료되었습니다.",
-                      confirmBtnColor: Colors.pink.shade200,
+                      title: "풋살장",
+                      text: "${new DateFormat.yMMMd().format(s)}  ${new DateFormat.Hm().format(s)} ~ ${new DateFormat.Hm().format(e)}\n예약이 성공적으로 완료되었습니다.",
+                      confirmBtnText: "나의 예약 확인",
+                      confirmBtnColor: Colors.pink.shade100,
                       onConfirmBtnTap: () async {
                         Get.to(MyReservation());
                       }

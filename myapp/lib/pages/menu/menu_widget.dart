@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/user_info.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/main.dart';
 import 'package:myapp/pages/declaration/declaration_menu.dart';
@@ -47,7 +48,7 @@ class MenuWidget extends StatelessWidget {
           ),
           Text(
             //2. u.principal.value.username,
-            '일병 홍길동',
+            '${userInfo[0].rank} ${userInfo[0].name}',
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -60,6 +61,7 @@ class MenuWidget extends StatelessWidget {
           Divider(),
           sliderItem('홈 페이지', Icons.home, context),
           sliderItem('시설 예약하기', Icons.add_circle, context),
+          sliderItem('연등 신청하기', Icons.book, context),
           sliderItem('나의 예약', Icons.notifications_active, context),
           sliderItem('신고하기', Icons.question_answer_rounded, context),
           sliderItem('앱 설정', Icons.settings, context),
@@ -84,6 +86,8 @@ class MenuWidget extends StatelessWidget {
       if(icons == Icons.home){
         Get.to(HomePage());
       } else if(icons == Icons.add_circle){
+        Get.to(Reservation());
+      } else if(icons == Icons.book){
         Get.to(Reservation());
       } else if(icons == Icons.notifications_active){
         Get.to(MyReservation());

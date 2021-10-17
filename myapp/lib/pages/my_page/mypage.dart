@@ -4,23 +4,22 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
-import 'package:myapp/controller/unit_controller.dart';
+import 'package:myapp/components/user_info.dart';
 import 'package:myapp/controller/user_controller.dart';
-import 'package:myapp/pages/home_page/homepage_menu.dart';
-import 'package:myapp/pages/my_page/mypage_menu.dart';
+import 'package:myapp/pages/signup/user/unitcode.dart';
 
 
-class MyPageScreen extends StatelessWidget {
-  
-// UserController u = Get.put(UserController());
-// UnitController unit = Get.put(UnitController());
-  
+class MyPageScreen extends StatefulWidget {
+  @override
+  MyInfoList createState() => MyInfoList();
+}
+class MyInfoList extends State<MyPageScreen> {
   @override
   Widget build(BuildContext context) {
-    //0. unit.findByCode(u.principal.value.unitcode!);
     return DraggableHome(
       title: Text("마이 페이지"),
       headerWidget: headerWidget(context),
+      //headerBottomBar: headerBottomBarWidget(),
       body: [
         Row(
           children: [
@@ -37,8 +36,23 @@ class MyPageScreen extends StatelessWidget {
         ),
         listView(),
       ],
+      //fullyStretchable: true,
+      //expandedBody: Text("Expanded"),
     );
   }
+
+  //Container headerBottomBarWidget() {
+    //return Container(
+      //child: Row(
+        //mainAxisSize: MainAxisSize.min,
+        //mainAxisAlignment: MainAxisAlignment.end,
+        //crossAxisAlignment: CrossAxisAlignment.center,
+        //children: [//설정 아이콘
+          //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white),),
+        //],
+      //),
+    //);
+  //}
 
   Container headerWidget(BuildContext context) => Container(
     color: Colors.pink.shade100,
@@ -48,19 +62,17 @@ class MyPageScreen extends StatelessWidget {
         CircleAvatar(
           radius: 70,
           backgroundColor: Colors.white,
-          child: Image.asset(
+          child: userInfo[0].profile == null ? Image.asset(
             '/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/soldier.png',
-            //1. u.principal.value.picture,
             width: 100,
             height: 100
-          ),
+          ) : userInfo[0].profile,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              //2. "${u.principal.value.rank} ${u.principal.value.username}",
-              "일병 홍길동",
+              "${userInfo[0].rank} ${userInfo[0].name}",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -69,8 +81,7 @@ class MyPageScreen extends StatelessWidget {
               ),
             ),
             Text(
-              //3. "${unit.principal.value.unitname}",
-              "인방사",
+              "${userInfo[0].unit} ${userInfo[0].company}",
               style: TextStyle(
                 color: Colors.white,
                 letterSpacing: 0.5,
@@ -83,81 +94,273 @@ class MyPageScreen extends StatelessWidget {
     ),
   );
 
+
   ListView listView() {
-    // user 정보 데이터 뿌리기 u.principal
+    String input ="";
     return ListView(
-      children: [
+      padding: EdgeInsets.only(top: 0),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      children: <Widget>[
         ListTile(
           title: Text("소속", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("소속", textAlign: TextAlign.right,),
-          //subtitle: Text(unit.principal.value.unitname, textAlign: TextAlign.right,),
+          subtitle: Text(userInfo[0].unit, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            CoolAlert.show(
+              context: context,
+              type: CoolAlertType.confirm,
+              text: "소속을 변경 하시겠습니까?",
+              confirmBtnColor: Colors.pink.shade200,
+              onConfirmBtnTap: () async {
+                //로그아웃
+                UserController u = Get.put(UserController());
+                await u.logout();
+                
+                Get.to(() => UnitCode());
+              }
+            );
+          }
+        ),
+        ListTile(
+          title: Text("중대", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].company, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("변경할 중대 입력"),
+                  content: TextField(
+                    onChanged: (String value) {
+                      input = value;
+                    },
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          userInfo[0].company = input;
+                        });
+                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                      },
+                      child: Text("변경하기")
+                    ),
+                    //RaisedButton(
+                      //onPressed: () {
+                        //print(teamFacilityList);
+                        //Get.to(ADFacilityModifyPage());
+                      //},
+                      //child: Text('저장하기')
+                    //),
+                  ],
+                );
+              }
+            );
+          }
         ),
         ListTile(
           title: Text("계급", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("계급", textAlign: TextAlign.right,),
-          //subtitle: Text(u.principal.value.rank, textAlign: TextAlign.right,),
+          subtitle: Text(userInfo[0].rank, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("변경할 계급 입력"),
+                  content: TextField(
+                    onChanged: (String value) {
+                      input = value;
+                    },
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          userInfo[0].rank = input;
+                        });
+                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                      },
+                      child: Text("변경하기")
+                    ),
+                    //RaisedButton(
+                      //onPressed: () {
+                        //print(teamFacilityList);
+                        //Get.to(ADFacilityModifyPage());
+                      //},
+                      //child: Text('저장하기')
+                    //),
+                  ],
+                );
+              }
+            );
+          }
         ),
         ListTile(
-          title: Text("성명", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("성명", textAlign: TextAlign.right,),
-          //subtitle: Text(u.principal.value.username, textAlign: TextAlign.right,),
+          title: Text("이름", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          subtitle: Text(userInfo[0].name, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("변경할 이름 입력"),
+                  content: TextField(
+                    onChanged: (String value) {
+                      input = value;
+                    },
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          userInfo[0].name = input;
+                        });
+                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                      },
+                      child: Text("변경하기")
+                    ),
+                    //RaisedButton(
+                      //onPressed: () {
+                        //print(teamFacilityList);
+                        //Get.to(ADFacilityModifyPage());
+                      //},
+                      //child: Text('저장하기')
+                    //),
+                  ],
+                );
+              }
+            );
+          }
         ),
         ListTile(
           title: Text("군번", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("군번", textAlign: TextAlign.right,),
-          //subtitle: Text(u.principal.value.number, textAlign: TextAlign.right,),
+          subtitle: Text(userInfo[0].id, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("변경할 군번 입력"),
+                  content: TextField(
+                    onChanged: (String value) {
+                      input = value;
+                    },
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          userInfo[0].id = input;
+                        });
+                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                      },
+                      child: Text("변경하기")
+                    ),
+                    //RaisedButton(
+                      //onPressed: () {
+                        //print(teamFacilityList);
+                        //Get.to(ADFacilityModifyPage());
+                      //},
+                      //child: Text('저장하기')
+                    //),
+                  ],
+                );
+              }
+            );
+          }
         ),
         ListTile(
           title: Text("이메일", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
-          subtitle: Text("이메일", textAlign: TextAlign.right,),
-          //subtitle: Text(u.principal.value.email, textAlign: TextAlign.right,),
+          subtitle: Text(userInfo[0].email, textAlign: TextAlign.right,),
+          onTap: (){
+            input = "";
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("변경할 이메일 입력"),
+                  content: TextField(
+                    onChanged: (String value) {
+                      input = value;
+                    },
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          userInfo[0].email = input;
+                        });
+                        Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                      },
+                      child: Text("변경하기")
+                    ),
+                    //RaisedButton(
+                      //onPressed: () {
+                        //print(teamFacilityList);
+                        //Get.to(ADFacilityModifyPage());
+                      //},
+                      //child: Text('저장하기')
+                    //),
+                  ],
+                );
+              }
+            );
+          }
+        ),
+        ListTile(
+          title: Text("비밀번호", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: (){
+                  input = "";
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("변경할 비밀번호 입력"),
+                        content: TextField(
+                          onChanged: (String value) {
+                            input = value;
+                          },
+                        ),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              setState(() {
+                                userInfo[0].pw = input;
+                              });
+                              Navigator.of(context).pop(); // input 입력 후 창 닫히도록
+                            },
+                            child: Text("변경하기")
+                          ),
+                          //RaisedButton(
+                            //onPressed: () {
+                              //print(teamFacilityList);
+                              //Get.to(ADFacilityModifyPage());
+                            //},
+                            //child: Text('저장하기')
+                          //),
+                        ],
+                      );
+                    }
+                  );
+                },
+                child: Text('비밀번호 변경'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.pink.shade100),
+                ),
+              ),
+            ]
+          ),
         ),
       ],
     );
   }
-  // void modInfo(BuildContext context, int index){
-  //   CoolAlert.show(
-  //     context: context,
-  //     type: CoolAlertType.confirm,
-  //     text: "${info[index].name}을(를)\n수정 하시겠습니까?",
-  //     confirmBtnColor: Colors.pink.shade200,
-  //     onConfirmBtnTap: () async {
-  //       var _message = '';
-  //       CoolAlert.show(
-  //         context: context,
-  //         type: CoolAlertType.custom,
-  //         barrierDismissible: true,
-  //         confirmBtnText: '저장하기',
-  //         widget: TextFormField(
-  //           decoration: InputDecoration(
-  //             hintText: '${info[index].name}을(를) 입력하세요.',
-  //             prefixIcon: Icon(
-  //               Icons.info,
-  //             ),
-  //           ),
-  //           textInputAction: TextInputAction.next,
-  //           keyboardType: TextInputType.phone,
-  //           onChanged: (value) => _message = value,
-  //         ),
-  //         onConfirmBtnTap: () async {
-  //           if (_message.length <= 0) {
-  //             await CoolAlert.show(
-  //               context: context,
-  //               type: CoolAlertType.error,
-  //               text: '아무것도 입력되지 않았습니다.',
-  //             );
-  //             return;
-  //           }
-  //           Navigator.of(context).pop();
-  //           CoolAlert.show(
-  //             context: context,
-  //             type: CoolAlertType.success,
-  //             text: "${info[index].name}이(가) '$_message' 로 변경되었습니다!",
-  //           );
-  //           //info[index].detail = _message;
-  //         },
-  //       );
-  //     },
-  //   );
-  // }
-}
+} 

@@ -1,6 +1,7 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/user_info.dart';
 import 'package:myapp/pages/admin/ad_my_page/ad_mypage_menu.dart';
 import 'package:myapp/pages/admin/ad_night_manage/ad_night_manage_list_menu.dart';
 import 'package:myapp/pages/admin/ad_rez_chart/ad_rez_chart_menu.dart';
@@ -9,6 +10,7 @@ import 'package:myapp/pages/admin/ad_declaration/ad_declaration_list_menu.dart';
 import 'package:myapp/pages/admin/ad_facility_modify/ad_facility_modify_menu.dart';
 import 'package:myapp/pages/admin/ad_notice/ad_notice_list_menu.dart';
 import 'package:myapp/pages/admin/ad_homepage/ad_home_page_menu.dart';
+import 'package:myapp/pages/login/login_screen.dart';
 import 'package:myapp/pages/setting/setting_page.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -38,7 +40,7 @@ class MenuWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
-            'XXX 대대',
+            '${userInfo[0].unit}',
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -99,7 +101,7 @@ class MenuWidget extends StatelessWidget {
           text: "로그아웃 하시겠습니까?",
           confirmBtnColor: Colors.indigo.shade200,
           onConfirmBtnTap: () async {
-            Get.to(ADHomePage());
+            Get.to(LoginPage());
           }
         );
       }

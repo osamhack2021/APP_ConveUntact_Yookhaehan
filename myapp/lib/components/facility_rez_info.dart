@@ -42,3 +42,17 @@ class TabletennisField {
 
   TabletennisField({this.id, this.name, this.rezs});
 }
+class ComputerField {
+  int? id;
+  String? name;
+  List<ComputerRez>? rezs;
+
+  ComputerField({this.id, this.name, this.rezs});
+}
+class KaraokeField {
+  int? id;
+  String? name;
+  List<KaraokeRez>? rezs;
+
+  KaraokeField({this.id, this.name, this.rezs});
+}

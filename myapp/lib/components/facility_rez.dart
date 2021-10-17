@@ -54,3 +54,21 @@ class TabletennisRez {
 
   TabletennisRez({this.id, this.icon, this.fieldId, this.stTime, this.endTime});
 }
+class ComputerRez {
+  int? id;
+  Image? icon;
+  int? fieldId;
+  DateTime? stTime;
+  DateTime? endTime;
+
+  ComputerRez({this.id, this.icon, this.fieldId, this.stTime, this.endTime});
+}
+class KaraokeRez {
+  int? id;
+  Image? icon;
+  int? fieldId;
+  DateTime? stTime;
+  DateTime? endTime;
+
+  KaraokeRez({this.id, this.icon, this.fieldId, this.stTime, this.endTime});
+}

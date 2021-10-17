@@ -14,7 +14,11 @@
 <a href=''>
 <img src='https://img.shields.io/badge/Figma-skyblue?style=for-the-badge'>
 </a>
-  
+
+<a href=''>
+<img src='https://img.shields.io/badge/Git_book-gray?style=for-the-badge'>
+</a>
+
 <a href=''>
 <img src='https://img.shields.io/badge/Video-pink?style=for-the-badge'>
 </a>
@@ -45,7 +49,7 @@
   </ol>
 </details>
 
-
+--- 
 <h2 id="Introduce">프로젝트 소개</h2>
 
 ### 개요
@@ -54,6 +58,7 @@
 ### 기대효과
 기존 방식의 시설예약 및 일지 작성 문제 등을 해결할 수 있다. 해당 앱이 활성화 될 경우 장병들의 시설 이용 현황 파악에 용이하여 부대 시설 운용에도 도움이 될 것으로 기대된다. 또한 Covid-19로 인해 비대면 서비스가 활성화되는 가운데 감염에 대한 위험부담도 낮출 수 있으며,  부대 내 병들의 휴대폰 사용이 활성화됨에 따라 시설들을 앱의 예약기능을 이용해 편의성을 높일 수 있다.
 
+---
 
 ### UI/UX Design 
 <table>
@@ -75,13 +80,17 @@
     </tr>
 </table>
 
+
 <h2 id="Function">기능 설명</h2>
 ###
 
+--- 
 <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 
 * ECMAScript 6 지원 브라우저 사용
 * 권장: Google Chrome 버젼 77 이상
+
+---
 
 
 <h2 id="Stack">기술 스택 (Technique Used)</h2>
@@ -121,6 +130,8 @@
  </tr>
  </tbody></table>
 
+---
+
 ## Flutter / Dart Packages
 ---
 
@@ -132,9 +143,13 @@ $ git clone git주소
 $ yarn or npm install
 $ yarn start or npm run start
 ```
+---
 
 <h2 id="Usage"> 프로젝트 사용법 (Getting Started)</h2>
  ###
+
+---
+
 <h2 id="Team"> 팀 정보 (Team Information)</h2>
 
 <table width="900">
@@ -194,6 +209,8 @@ $ yarn start or npm run start
 </tr>
 </tbody>
 </table>
+
+---
 
 <h2 id="License"> 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 

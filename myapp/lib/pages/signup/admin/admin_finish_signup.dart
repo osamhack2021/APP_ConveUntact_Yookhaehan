@@ -22,16 +22,16 @@ class AdminFinishSignup extends StatelessWidget {
     );
   }
 }
-                              var uuid = Uuid();
-                              var unitcode =
-                                  uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
-                              //unit code 자르기 시작
-                              String a = unitcode;
-                              String cut_unitcode = a.substring(0, 5);
-                              //unit code 자르기 끝
+var uuid = Uuid();
+var unitcode = uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
-                              //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
+//unit code 자르기 시작
+String a = unitcode;
+String cut_unitcode = a.substring(0, 5);
+//unit code 자르기 끝
+
+//get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
 /// This is the stateless widget that the main application instantiates.
 class MyStatelessWidget extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
@@ -54,8 +54,7 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 70,
                   color: Colors.white)),
           const SizedBox(height: 20),
-          Text(
-              '회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${cut_unitcode} 입니다.',
+          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${cut_unitcode} 입니다.',
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

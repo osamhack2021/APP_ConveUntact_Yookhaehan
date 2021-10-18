@@ -102,8 +102,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: Constants.appName,
-      logo: 'LOGO',
-      logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
       navigateBackAfterRecovery: true,
       // hideProvidersTitle: false,
@@ -137,7 +135,12 @@ class LoginScreen extends StatelessWidget {
         print('Login info');
         print('email: ${loginData.name}');
         print('Password: ${loginData.password}');
-        return _loginUser(loginData);
+        if (loginData.name == 'admin@gmail.com') {
+          Get.to(ADHomePage());
+        } else {
+          Get.to(HomePage());
+          return _loginUser(loginData);
+        }
       },
       onSignup: (loginData) {
         Get.to(() => SignType(), arguments: {

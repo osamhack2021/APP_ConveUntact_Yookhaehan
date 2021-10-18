@@ -1,8 +1,10 @@
 # APP_ConveUntact_Yookhaehan 
 컨비언택트_육해한녀석들 ♬
 
-  
+
 <div align='center'>
+
+<img src="Images/mainimage.png">
 
 ---  
   
@@ -37,9 +39,9 @@
   <ol>
     <li><a href="#Introduce"><span style="color:grey"> 프로젝트 소개 </span></a></li>
     <li><a href="#Function"><span style="color:grey">기능 설명</a></li>
-      <ul>
+      <!-- <ul>
         <li><a href="#"></a></li>
-      </ul>
+      </ul> -->
     <!-- <li><a href="#Prerequisites"><span style="color:grey">컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li> -->
     <li><a href="#Stack"><span style="color:grey"> 기술 스택 (Techniques Used)</a></li>
     <li><a href="#Install"><span style="color:grey">설치 안내 (Installation Process)</a></li>
@@ -172,7 +174,11 @@
 ---
 
 <h2 id="Function"align='center'>기능 설명</h2>
-###
+
+<img src="Images/func1.png">
+<img src="Images/func2.png">
+<img src="Images/func3.png">
+<img src="Images/func4.png">
 
 --- 
 <!-- <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
@@ -224,22 +230,13 @@
 
 ## Flutter / Dart Packages
 
-- flutter_svg: ^0.22.0
 - syncfusion_flutter_charts: ^19.3.45+1  
-- cupertino_icons: ^1.0.2
-- flutter_animated_button: ^2.0.0
 - firebase_core: ^1.6.0
 - firebase_auth: ^3.1.1
 - cloud_firestore: ^2.5.3
 - awesome_dropdown: ^0.0.4
-- multi_select_flutter: ^4.0.0
-- google_fonts: ^2.1.0
 - draggable_home: ^1.0.2
 - menu_button: ^1.4.2+1
-- fluent_ui: ^3.2.0
-- flutter_combo_box: ^0.0.2+5
-- card_swiper: ^1.0.4
-- flutter_swiper: ^1.1.6
 - smooth_page_indicator: ^1.0.0+2
 - flutter_lints: ^1.0.0
 - get: ^4.3.8
@@ -268,7 +265,10 @@ $ flutter run -d web-server --web-hostname=0.0.0.0
 
 <h2 id="Team"align='center'> 팀 정보 (Team Information)</h2>
 
-<table width="900">
+<img src="Images/Team.png">
+
+
+<!-- <table width="900">
 <thead>
 <tr>
 <th width="100" align="center">Profile</th>
@@ -324,7 +324,7 @@ $ flutter run -d web-server --web-hostname=0.0.0.0
 	
 </tr>
 </tbody>
-</table>
+</table> -->
 
 ---
 

@@ -1,4 +1,3 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/custom_elevated_button.dart';
 import 'package:myapp/components/my_reservation.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:awesome_dropdown/awesome_dropdown.dart';
-import 'package:get/get.dart';
 
 const primaryColor = Color(0xFFACBDF4);
 void main() {

@@ -6,6 +6,7 @@ import 'package:myapp/pages/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:myapp/pages/signup/admin/add_detail.dart';
+import 'package:myapp/pages/signup/admin/add_detail2.dart';
 import 'package:myapp/pages/signup/signtype.dart';
 
 import 'binding/app_binding.dart';

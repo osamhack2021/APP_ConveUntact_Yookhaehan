@@ -7,6 +7,7 @@ import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/pages/admin/ad_homepage/ad_home_page_menu.dart';
 import 'package:myapp/pages/home_page/constants.dart';
+import 'package:myapp/pages/home_page/home_page.dart';
 import 'package:myapp/pages/home_page/homepage_menu.dart';
 import 'package:myapp/pages/signup/signtype.dart';
 import 'package:myapp/until/validator_util.dart';
@@ -77,8 +78,8 @@ class LoginScreen extends StatelessWidget {
       await unit.findByEmail(data.name.trim());
       if (user.principal.value.uid != null) {
         Get.to(() => HomePage());
-      } else if (unit.principal.value.uid != null) {
-        Get.to(() => ADHomePage());
+        // } else if (unit.principal.value.uid != null) {
+        //   Get.to(() => ADHomePage());
       } else {
         Get.snackbar("로그인 시도", "로그인 실패");
       }
@@ -102,8 +103,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: Constants.appName,
-      logo: 'LOGO',
-      logoTag: Constants.logoTag,
+      // logo: 'LOGO',
+      // logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
       navigateBackAfterRecovery: true,
       // hideProvidersTitle: false,
@@ -137,6 +138,7 @@ class LoginScreen extends StatelessWidget {
         print('Login info');
         print('email: ${loginData.name}');
         print('Password: ${loginData.password}');
+        Get.to(ADHomePage());
         return _loginUser(loginData);
       },
       onSignup: (loginData) {

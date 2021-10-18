@@ -139,9 +139,10 @@ class MyCustomFormState extends State<MyCustomForm> {
 
                               //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
                               Unit newunit = Unit(
-                                unitcode: unitcode,
+                                unitcode:
+                                    Get.arguments["cut_unitcode"].toString(),
                                 unitname:
-                                Get.arguments["cut_unitcode"].toString(),
+                                    Get.arguments["cut_unitcode"].toString(),
                                 picture: Get.arguments["picture"].toString(),
                                 email: Get.arguments["email"].toString(),
                               );

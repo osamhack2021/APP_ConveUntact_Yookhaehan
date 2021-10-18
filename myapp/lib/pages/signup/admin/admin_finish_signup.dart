@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/pages/login/login_screen.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 
 const primaryColor = Color(0xFFACBDF4);
 
-
 /// This is the main application widget.
 class AdminFinishSignup extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +22,16 @@ class AdminFinishSignup extends StatelessWidget {
     );
   }
 }
+                              var uuid = Uuid();
+                              var unitcode =
+                                  uuid.v4(options: {'rng': UuidUtil.cryptoRNG});
 
+                              //unit code 자르기 시작
+                              String a = unitcode;
+                              String cut_unitcode = a.substring(0, 5);
+                              //unit code 자르기 끝
+
+                              //get arguments로 받은 값들로 unit 객체 생성 후 join 함수 날리기
 /// This is the stateless widget that the main application instantiates.
 class MyStatelessWidget extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
@@ -45,7 +54,8 @@ class MyStatelessWidget extends StatelessWidget {
                   fontSize: 70,
                   color: Colors.white)),
           const SizedBox(height: 20),
-          Text('회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${Get.arguments} 입니다.',
+          Text(
+              '회원가입이 성공적으로 완료되었습니다. \n부대코드는 ${cut_unitcode} 입니다.',
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

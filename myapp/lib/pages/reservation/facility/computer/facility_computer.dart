@@ -1,19 +1,13 @@
-   
-import 'dart:html';
-
-import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:get/get.dart';
+import 'package:myapp/components/company_info.dart';
 import 'package:myapp/components/controller/computer_1co_controller.dart';
 import 'package:myapp/components/controller/computer_2co_controller.dart';
 import 'package:myapp/components/controller/computer_3co_controller.dart';
-import 'package:myapp/components/custom_elevated_button.dart';
-import 'package:myapp/components/pc_info.dart';
-import 'package:myapp/pages/my_reservation/my_reservation_menu.dart';
 import 'package:myapp/pages/reservation/facility/computer/computer_1co_rez_page.dart';
 import 'package:myapp/pages/reservation/facility/computer/computer_2co_rez_page.dart';
 import 'package:myapp/pages/reservation/facility/computer/computer_3co_rez_page.dart';
@@ -85,7 +79,7 @@ class RezComputerScreen extends StatelessWidget {
     return ListView.builder(
       padding: EdgeInsets.only(top: 0),
       physics: NeverScrollableScrollPhysics(),
-      itemCount: 3,
+      itemCount: companys.length,
       shrinkWrap: true,
       itemBuilder: (context, index) => Card(
         color: Colors.white,
@@ -94,21 +88,21 @@ class RezComputerScreen extends StatelessWidget {
             //backgroundColor: Color(0x00000000),
             //child: Image.asset('/workspaces/APP_ConveUntact_Yookhaehan/myapp/lib/icons/computer.png'),
           //),
-          title: Text("${index+1}중대", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
+          title: Text("${companys[index]}", style: TextStyle(color: Colors.pink.shade100, fontWeight: FontWeight.bold)),
           onTap: () {
-            if(index == 0) {
+            if(companys[index] == "1 중대") {
               _computer1COController.computer1COField.value =
                 _computer1COController.computer1COFieldList[0];
               _computer1COController.stAbsTime.value = null;
               _computer1COController.endAbsTime.value = null;
               Get.to(Computer1CORezPage(DateTime.now()));
-            } else if(index == 1) {
+            } else if(companys[index] == "2 중대") {
               _computer2COController.computer2COField.value =
                 _computer2COController.computer2COFieldList[0];
               _computer2COController.stAbsTime.value = null;
               _computer2COController.endAbsTime.value = null;
               Get.to(Computer2CORezPage(DateTime.now()));
-            } else if(index == 2) {
+            } else if(companys[index] == "3 중대") {
               _computer3COController.computer3COField.value =
                 _computer3COController.computer3COFieldList[0];
               _computer3COController.stAbsTime.value = null;

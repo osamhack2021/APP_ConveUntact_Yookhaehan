@@ -27,7 +27,7 @@ class Selectdtail extends State<AD1COComputerModifyScreen> {
   @override
   Widget build(BuildContext context) {
     return DraggableHome(
-      title: Text("1CO 사이버지식정보방 컴퓨터 목록"),
+      title: Text("1CO 사이버 지식 정보방 컴퓨터 목록"),
       //actions: [
         //IconButton(onPressed: () {}, icon: Icon(Icons.person, color: Colors.white,)),
       //],

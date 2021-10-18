@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:myapp/components/facility_info.dart';
-import 'package:myapp/pages/admin/ad_facility_modify/computer/ad_1co_computer_modify.dart';
+import 'package:myapp/pages/admin/ad_facility_modify/computer/ad_company_computer_modify.dart';
+import 'package:myapp/pages/admin/ad_facility_modify/karaoke/ad_company_karaoke_modify.dart';
 import 'package:myapp/pages/home_page/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -284,24 +285,17 @@ class Selectdtail extends State<ADFacilityModifyScreen> {
             child: personalFacilityList[index].icon,
           ),
           title: Text("${personalFacilityList[index].name}", style: TextStyle(color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
-          subtitle: Text(personalFacilityList[index].intro),
+          subtitle: Text("${personalFacilityList[index].company.length}개 중대 이용 가능"),
+          onTap: () {
+            if(personalFacility[index].name == "사이버 지식 정보방") {
+              Get.to(ADCompanyComputerModifyScreen());
+            } else if (personalFacility[index].name == "노래방") {
+              Get.to(ADCompanyKaraokeModifyScreen());
+            }
+          },
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.create, color: Colors.indigo.shade200,),
-                onPressed: (){
-                  CoolAlert.show(
-                    context: context,
-                    type: CoolAlertType.confirm,
-                    title: "${personalFacilityList[index].name}",
-                    text: "해당 시설의 세부 정보를 수정하시겠습니까?",
-                    confirmBtnColor: Colors.indigo.shade200,
-                    onConfirmBtnTap: () async {
-                      Get.to(AD1COComputerModifyScreen());
-                    }
-                  );
-                }),
               IconButton(
                 icon: Icon(Icons.delete, color: Colors.pink.shade100),
                 onPressed: (){

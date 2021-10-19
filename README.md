@@ -9,11 +9,11 @@
 ---  
   
   
-<a href=''>
+<a href='https://protective-anise-755.notion.site/_-16394fe5982341afaf9557b48b8bda50'>
 <img src='https://img.shields.io/badge/Notion-green?style=for-the-badge'>
 </a>
   
-<a href=''>
+<a href='https://www.figma.com/community/file/1031397347310617238/OSAM-APP-UI_ConveUntact'>
 <img src='https://img.shields.io/badge/Figma-skyblue?style=for-the-badge'>
 </a>
 
@@ -21,11 +21,11 @@
 <img src='https://img.shields.io/badge/Git_book-gray?style=for-the-badge'>
 </a>
 
-<a href=''>
+<a href='https://youtu.be/qV5ra9PdmNU'>
 <img src='https://img.shields.io/badge/Video-pink?style=for-the-badge'>
 </a>
 
-<a href=''>
+<a href='Images/ppt/ConveUntact ppt.pdf'>
 <img src='https://img.shields.io/badge/PPT-red?style=for-the-badge'>
 </a>
 

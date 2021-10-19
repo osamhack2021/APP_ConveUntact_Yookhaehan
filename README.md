@@ -32,7 +32,13 @@
 </div>
 
 
-
+## 💼 Repository (Backend)
+ * [APP(Android)/lib/binding](APP(Android)/lib/binding)
+ * [APP(Android)/lib/controller](APP(Android)/lib/controller)
+ * [APP(Android)/lib/domain](APP(Android)/lib/domain)
+ * [APP(Android)/lib/service](APP(Android)/lib/service)
+ 
+ <p></p>
 
 
 <details open="open">
@@ -55,6 +61,7 @@
 <h2 id="Introduce", align='center'>프로젝트 소개</h2>
 
 <p></p>
+
 
 ##  왜 이 앱을 만들게 되었나요 ❓ 
 ✔️ 現 군대에는 장병들을 위한 많은 시설들이 존재합니다. 운동을 할 수 있는 헬스장, 컴퓨터를 할 수 있는 사이버지식정보방, 노래를 부르며 신나게 놀 수 있는 노래방이 있습니다. 현재 장병들은 시설물을 사용하기 위해 일지를 수기로 작성하고 있습니다. 일지 작성을 통해 각 시설마다 사용률을 파악할 수 있으며 장병들이 어떤 시설을 많이 사용하는지 확인이 가능합니다. 하지만 모두가 일지작성을 제대로 하고 있지 않다면 어떨까요? 문제는 여기서 발생하게 됩니다. 저를 비롯한 주위 병사들 대부분은 직접 수기로 작성하는것을 번거롭다는 이유 등으로 제대로 작성하지 않고 있습니다.

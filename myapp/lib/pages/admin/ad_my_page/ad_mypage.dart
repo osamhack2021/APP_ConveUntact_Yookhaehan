@@ -140,7 +140,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                   });
             }),
         ListTile(
-          title: Text("예하부대 목록",
+          title: Text("세부 소속 목록",
               style: TextStyle(
                   color: Colors.indigo.shade200, fontWeight: FontWeight.bold)),
           trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -148,7 +148,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
               onPressed: () {
                 Get.to(() => AddDetail());
               },
-              child: Text('예하부대 관리'),
+              child: Text('세부 소속 관리'),
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all(Colors.indigo.shade200),
@@ -165,7 +165,6 @@ class ADMyInfoList extends State<ADMyPageScreen> {
             textAlign: TextAlign.right,
           ),
         ),
-
         ListTile(
             title: Text("부대 코드번호",
                 style: TextStyle(
@@ -213,7 +212,7 @@ class ADMyInfoList extends State<ADMyPageScreen> {
                     color: Colors.indigo.shade200,
                     fontWeight: FontWeight.bold)),
             subtitle: Text(
-              myInfo[0].email,
+              myInfo[0].ademail,
               textAlign: TextAlign.right,
             ),
             onTap: () {

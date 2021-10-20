@@ -17,7 +17,7 @@
 <img src='https://img.shields.io/badge/Figma-skyblue?style=for-the-badge'>
 </a>
 
-<a href=''>
+<a href='https://conveuntact-yookhaehan.gitbook.io/conveuntact/'>
 <img src='https://img.shields.io/badge/Git_book-gray?style=for-the-badge'>
 </a>
 

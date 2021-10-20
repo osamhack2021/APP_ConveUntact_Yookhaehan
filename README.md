@@ -31,20 +31,22 @@
 
 </div>
 
+<p></p>
+
 
 ## 💼 Repository (Backend)
- * [APP(Android)/lib/binding](APP(Android)/lib/binding)
- * [APP(Android)/lib/controller](APP(Android)/lib/controller)
- * [APP(Android)/lib/domain](APP(Android)/lib/domain)
- * [APP(Android)/lib/service](APP(Android)/lib/service)
+ * [<span style="color:orange"> APP(Android)/lib/binding </span>](APP(Android)/lib/binding)
+ * [<span style="color:orange"> APP(Android)/lib/controller </span>](APP(Android)/lib/controller)
+ * [<span style="color:orange"> APP(Android)/lib/domain </span>](APP(Android)/lib/domain)
+ * [<span style="color:orange"> APP(Android)/lib/service </span>](APP(Android)/lib/service)
  
  <p></p>
 
 
 <details open="open">
   <ol>
-    <li><a href="#Introduce"><span style="color:grey"> 프로젝트 소개 </span></a></li>
-    <li><a href="#Function"><span style="color:grey">기능 설명</a></li>
+    <li><a href="#Introduce"><span style="color:grey"> 프로젝트 소개 (Introduce Project)</span></a></li>
+    <li><a href="#Function"><span style="color:grey">기능 설명 (Detail of fuction)</a></li>
       <!-- <ul>
         <li><a href="#"></a></li>
       </ul> -->
@@ -58,13 +60,15 @@
 </details>
 
 --- 
-<h2 id="Introduce", align='center'>프로젝트 소개</h2>
+<h2 id="Introduce", align='center'>프로젝트 소개 (Introduce Project)</h2>
 
 <p></p>
 
 
 ##  왜 이 앱을 만들게 되었나요 ❓ 
-✔️ 現 군대에는 장병들을 위한 많은 시설들이 존재합니다. 운동을 할 수 있는 헬스장, 컴퓨터를 할 수 있는 사이버지식정보방, 노래를 부르며 신나게 놀 수 있는 노래방이 있습니다. 현재 장병들은 시설물을 사용하기 위해 일지를 수기로 작성하고 있습니다. 일지 작성을 통해 각 시설마다 사용률을 파악할 수 있으며 장병들이 어떤 시설을 많이 사용하는지 확인이 가능합니다. 하지만 모두가 일지작성을 제대로 하고 있지 않다면 어떨까요? 문제는 여기서 발생하게 됩니다. 저를 비롯한 주위 병사들 대부분은 직접 수기로 작성하는것을 번거롭다는 이유 등으로 제대로 작성하지 않고 있습니다.
+##  Why did we make this app ❓ 
+✔️ 現 군대에는 장병들을 위한 많은 시설들이 존재합니다. 운동을 할 수 있는 헬스장, 컴퓨터를 할 수 있는 사이버지식정보방, 노래를 부르며 신나게 놀 수 있는 노래방이 있습니다. 현재 장병들은 시설물을 사용하기 위해 일지를 수기로 작성하고 있습니다. 일지 작성을 통해 각 시설마다 사용률을 파악할 수 있으며 장병들이 어떤 시설을 많이 사용하는지 확인이 가능합니다. 하지만 모두가 일지작성을 제대로 하고 있지 않다면 어떨까요? 문제는 여기서 발생하게 됩니다. 저를 비롯한 주위 병사들 대부분은 직접 수기로 작성하는것을 번거롭다는 이유 등으로 제대로 작성하지 않고 있습니다.          
+- Currently, there are many facilities for soldiers in the military. There is a gym where you can exercise, a cyber knowledge information room where you can play computer, and a karaoke where you can sing and have fun. Currently, soldiers are manually writing use log to use the facility. By writing a use log, you can determine the usage rate of each facility and check which facilities soldiers use a lot. But what if not everyone is writing a use log properly? The problem arises here. Most of the soldiers around me, including myself, are not writing properly because it is cumbersome to handwrite them.
 <table>
     <tr>
         <td width="50%">
@@ -73,14 +77,15 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/workspaces/APP_ConveUntact_Yookhaehan/Images/yesorno.PNG">일지 작성 현황</a>
+            <a href="Images/yesorno.PNG">일지 작성 현황</a>
         </td>
     </tr>
 </table>
 
 ###### 설문조사 대상 (해군직할부대/사이버작전센터/병사13명)
 
-✔️ 위 설문조사 자료에 따르면 일지 작성을 철저히 하고있는 병사는 30.8%이며 나머지 69.2% 병사들은 일지 작성을 철저히 하고 있지 않다는 사실을 확인할 수 있습니다.
+✔️ 위 설문조사 자료에 따르면 일지 작성을 철저히 하고있는 병사는 30.8%이며 나머지 69.2% 병사들은 일지 작성을 철저히 하고 있지 않다는 사실을 확인할 수 있습니다.     
+- According to the above survey data, it can be seen that 30.8% of soldiers are thoroughly writing log , and the remaining 69.2% of soldiers are not thoroughly writing logs.
 
 <table>
     <tr>
@@ -90,14 +95,15 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/workspaces/APP_ConveUntact_Yookhaehan/Images/reason.PNG">일지 미작성 이유</a>
+            <a href="Images/reason.PNG">일지 미작성 이유</a>
         </td>
     </tr>
 </table>
 
 ###### 설문조사 대상 (해군직할부대/사이버작전센터/병사13명)
 
-✔️ 위 설문조사 자료에 따르면 대부분의 병사들은 일지 작성이 번거롭거나 일지 작성의 중요성을 느끼지 못하였기 때문에 작성하고 있지 않았습니다.
+✔️ 위 설문조사 자료에 따르면 대부분의 병사들은 일지 작성이 번거롭거나 일지 작성의 중요성을 느끼지 못하였기 때문에 작성하고 있지 않았습니다.      
+- According to the above survey data, most soldiers were not writing logs because they were cumbersome to write or because they did not feel the importance of writing logs.
 
 <table>
     <tr>
@@ -113,7 +119,8 @@
 </table>
 
 ###### 설문조사 대상 (해군직할부대/사이버작전센터/병사13명)
-✔️ 또한 대부분의 병사들은 1주에 10시간 이상 시설을 사용하고 있었습니다. 이는 현재 부대 시설별 정확한 사용률 파악을 하고 있지 못하다는 의미이며 제대로 된 시설 관리가 힘들 수 있다는 것을 나타냅니다.
+✔️ 또한 대부분의 병사들은 1주에 10시간 이상 시설을 사용하고 있었습니다. 이는 현재 부대 시설별 정확한 사용률 파악을 하고 있지 못하다는 의미이며 제대로 된 시설 관리가 힘들 수 있다는 것을 나타냅니다.        
+- In addition, most soldiers were using the facility for more than 10 hours a week. This means that the exact usage rate of each auxiliary facility is not currently being identified, indicating that proper facility management may be difficult.
 
 <table>
     <tr>
@@ -129,22 +136,28 @@
 </table>
 
 ###### 설문조사 대상 (해군직할부대/사이버작전센터/병사13명)
-✔️ 대부분의 병사들은 시설물을 이용하기 위해 현 방식인 수기로 일지를 작성하는 것 보다 휴대폰을 이용하여 작성하는 것에 대해 긍정적인 반응을 보였습니다. 설문조사는 병사들을 대상으로 밖에 하지 못했지만 관리자 입장 즉 간부님들의 입장에서도 일지 관리가 더욱 편리해질것으로 기대되며, 각 시설물마다 사용률 파악을 통해 시설물 관리에 도움이 될 것입니다.
+✔️ 대부분의 병사들은 시설물을 이용하기 위해 현 방식인 수기로 일지를 작성하는 것 보다 휴대폰을 이용하여 작성하는 것에 대해 긍정적인 반응을 보였습니다. 설문조사는 병사들을 대상으로 밖에 하지 못했지만 관리자 입장 즉 간부님들의 입장에서도 일지 관리가 더욱 편리해질것으로 기대되며, 각 시설물마다 사용률 파악을 통해 시설물 관리에 도움이 될 것입니다.      
+- Most soldiers responded positively to writing a log using their mobile phones rather than writing a handwritten diary in the current way to use the facility. The survey was only conducted on soldiers, but it is expected that log management will be more convenient for managers, that is, executives, and each facility will help manage the facility by identifying the usage rate.
 
 <p></p>
 
-## 이 앱은 무엇인가요❓
-✔️ 現 군에서는 시설예약 및 방문 내역을 수기로 작성하여 관리하고 있습니다.(ex. 종교시설, 헬스장, 노래방, 사이버지식정보방 등) 이는 수기로 작성하고, 수기로 작성한 내용을 컴퓨터로 옮기는 작업같은 불편함이 발생합니다. 해당 프로젝트는 수기 예약 및 관리에 대한 효율성과 편의성을 높이기 위한 비대면 시설 예약 앱입니다.
+## 이 앱은 무엇인가요 ❓
+## What's this app ❓
+✔️ 現 군에서는 시설예약 및 방문 내역을 수기로 작성하여 관리하고 있습니다.(ex. 종교시설, 헬스장, 노래방, 사이버지식정보방 등) 이는 수기로 작성하고, 수기로 작성한 내용을 컴퓨터로 옮기는 작업같은 불편함이 발생합니다. 해당 프로젝트는 수기 예약 및 관리에 대한 효율성과 편의성을 높이기 위한 비대면 시설 예약 앱입니다.       
+- Currently, the county manually fills out and manages facility reservations and visits. (e.g. religious facilities, fitness centers, karaoke rooms, cyber knowledge information rooms, etc.) This causes inconvenience such as handwriting and transferring handwritten information to a computer. The project is a non-face-to-face facility reservation app to increase the efficiency and convenience of handwritten reservations and management.
 
-## 이 앱을 통해 무엇을 얻을 수 있을까요❓
-✔️ 기존 방식의 시설예약 및 일지 작성 문제 등을 해결할 수 있습니다. 해당 앱이 활성화 될 경우 장병들의 시설 이용 현황 파악에 용이하여 부대 시설 운용에도 도움이 될 것으로 기대됩니다. 또한 Covid-19로 인해 비대면 서비스가 활성화되는 가운데 감염에 대한 위험부담도 낮출 수 있으며,  부대 내 병들의 휴대폰 사용이 활성화됨에 따라 시설들을 앱의 예약기능을 이용해 편의성을 높일 수 있습니다.
+## 이 앱을 통해 무엇을 얻을 수 있을까요 ❓
+## What can I get from this app ❓
+✔️ 기존 방식의 시설예약 및 일지 작성 문제 등을 해결할 수 있습니다. 해당 앱이 활성화 될 경우 장병들의 시설 이용 현황 파악에 용이하여 부대 시설 운용에도 도움이 될 것으로 기대됩니다. 또한 Covid-19로 인해 비대면 서비스가 활성화되는 가운데 감염에 대한 위험부담도 낮출 수 있으며,  부대 내 병들의 휴대폰 사용이 활성화됨에 따라 시설들을 앱의 예약기능을 이용해 편의성을 높일 수 있습니다.       
+- You can solve problems such as facility reservations and log writing in the existing way. If the app is activated, it is expected to help soldiers operate auxiliary facilities by facilitating the use of facilities. In addition, while non-face-to-face services are activated due to COVID-19, the risk of infection can be lowered, and facilities can be improved by using the app's reservation function as the use of mobile phones by soldiers in the unit is activated.
 
 ---
 <p></p>
 
 ## 🖌️ UI/UX Design 
 
-✔️ 저희 팀은 앱 UI, UX 디자인을 위해 Figma를 사용했으며 App flow 구상은 app.diagrams을 이용하였습니다.
+✔️ 저희 팀은 앱 UI, UX 디자인을 위해 Figma를 사용했으며 App flow 구상은 app.diagrams을 이용하였습니다.      
+- Our team used Figma for app UI and UX design, and the App flow plan used app.diagrams.
 
 <table>
     <tr>
@@ -157,10 +170,10 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/workspaces/APP_ConveUntact_Yookhaehan/Images/figma11.PNG">UI Prototyping</a>
+            <a href="Images/figma11.PNG">UI Prototyping</a>
         </td>
         <td align="center">
-            <a href="/workspaces/APP_ConveUntact_Yookhaehan/Images/figma22.PNG">UX Prototyping (Add Comment)</a>
+            <a href="Images/figma22.PNG">UX Prototyping (Add Comment)</a>
         </td>
     </tr>
 </table>
@@ -173,19 +186,23 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/workspaces/APP_ConveUntact_Yookhaehan/Images/app_flow.PNG">App flow</a>
+            <a href="Images/app_flow.PNG">App flow</a>
         </td>
     </tr>
 </table>
 
 ---
 
-<h2 id="Function"align='center'>기능 설명</h2>
+<h2 id="Function"align='center'>기능 설명 (Detail of fuction)</h2>
+
+<p></p>
 
 <img src="Images/func1.png">
 <img src="Images/func2.png">
 <img src="Images/func3.png">
 <img src="Images/func4.png">
+<img src="Images/func5.png">
+<img src="Images/func6.png">
 
 --- 
 <!-- <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
@@ -272,6 +289,24 @@ $ flutter run -d web-server --web-hostname=0.0.0.0
 
 <h2 id="Team"align='center'> 팀 정보 (Team Information)</h2>
 
+&nbsp;&nbsp;&nbsp;최지호 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고승현 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최은총 &nbsp;&nbsp;&nbsp;&nbsp;
+:------------ | :-----------: | -----------:
+<td width="150" align="">	
+	<a href="https://github.com/zhoho">
+	<img src="https://img.shields.io/badge/zhoho-655ced?style=social&logo=github"/>
+	</a>
+</td>         | <td width="150" align="">	
+	<a href="https://github.com/chris0825">
+	<img src="https://img.shields.io/badge/chris0825-655ced?style=social&logo=github"/>
+	</a>
+</td>      | <td width="150" align="">	
+	<a href="https://github.com/dmsvk01">
+	<img src="https://img.shields.io/badge/dmsvk01-655ced?style=social&logo=github"/>
+	</a>
+</td>
+
+
+
 <img src="Images/Team.png">
 
 
@@ -290,7 +325,7 @@ $ flutter run -d web-server --web-hostname=0.0.0.0
 <tr>
 <td width="120" align="center"><img src="Images/Yookhaehan_member/SeungHuyn.jpg" width="120" height="100"></td>
 <td width="100" align="center">고승현</td>
-<td width="250">Front Developer<br>Fimga Designer</td>
+<td width="250">Front Developer<br>APP Designer</td>
 <td width="150" align="legt">	
 	<a href="https://github.com/chris0825">
 	<img src="https://img.shields.io/badge/chris0825-655ced?style=social&logo=github"/>
@@ -338,5 +373,6 @@ $ flutter run -d web-server --web-hostname=0.0.0.0
 <h2 id="License"align='center'> 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
  * [Apache License Version 2.0](https://github.com/osamhack2021/APP_ConveUntact_Yookhaehan/blob/087779542519392c87bed3a020da7c4289ca3104/LICENSE)
+
 
 

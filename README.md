@@ -203,7 +203,7 @@
 <img src="Images/func4.png">
 <img src="Images/func5.png">
 <img src="Images/func6.png">
-
+<img src="Images/func7.png">
 --- 
 <!-- <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 

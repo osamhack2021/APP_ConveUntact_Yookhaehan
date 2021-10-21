@@ -35,10 +35,10 @@
 
 
 ## 💼 Repository (Backend)
- * [<span style="color:orange"> APP(Android)/lib/binding </span>](APP(Android)/lib/binding)
- * [<span style="color:orange"> APP(Android)/lib/controller </span>](APP(Android)/lib/controller)
- * [<span style="color:orange"> APP(Android)/lib/domain </span>](APP(Android)/lib/domain)
- * [<span style="color:orange"> APP(Android)/lib/service </span>](APP(Android)/lib/service)
+ * [<span style="color:orange"> APP(Android)/lib/binding </span>](APP_Android/lib/binding)
+ * [<span style="color:orange"> APP(Android)/lib/controller </span>](APP_Android/lib/controller)
+ * [<span style="color:orange"> APP(Android)/lib/domain </span>](APP_Android/lib/domain)
+ * [<span style="color:orange"> APP(Android)/lib/service </span>](APP_Android/lib/service)
  
  <p></p>
 
@@ -204,6 +204,7 @@
 <img src="Images/func5.png">
 <img src="Images/func6.png">
 <img src="Images/func7.png">
+
 --- 
 <!-- <h2 id="Prerequisites">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 
